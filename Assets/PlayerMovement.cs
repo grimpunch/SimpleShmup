@@ -36,31 +36,37 @@ public class PlayerMovement : MonoBehaviour {
         shipLeftSide = ship.transform.position.x - (ship.renderer.bounds.size.x * 0.5F);
         shipRightSide = ship.transform.position.x + (ship.renderer.bounds.size.x * 0.5F);
         screenRightSide = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0.0F, 0.0F)).x;
-        screenLeftSide = 0.0F - screenRightSide;
+        screenLeftSide = Camera.main.ScreenToWorldPoint(new Vector3(0.0F, 0.0F, 0.0F)).x;
         shipTopSide = ship.transform.position.y + (ship.renderer.bounds.size.y * 0.5F);
         shipBottomSide = ship.transform.position.y - (ship.renderer.bounds.size.y * 0.5F);
         screenTopSide =  Camera.main.ScreenToWorldPoint(new Vector3(0.0F, Screen.height, 0.0F)).y;
-        screenBottomSide = 0.0F - screenTopSide;
+        screenBottomSide = Camera.main.ScreenToWorldPoint(new Vector3(0.0F, 0.0F, 0.0F)).y;
+ 
+        Vector3 velocity = new Vector3(xinput * (Time.fixedDeltaTime * movementspeed), yinput * (Time.fixedDeltaTime * movementspeed), 0.0F);
 
-        var velocity = new Vector3((xinput * Time.fixedDeltaTime) * movementspeed, (yinput * Time.fixedDeltaTime) * movementspeed, 0.0F);
-		
-        if ((screenLeftSide < shipLeftSide) && velocity.x < 0.0F) 
-        { /* Move Left */
-            ship.transform.position += velocity;
+        if (shipLeftSide < screenLeftSide) { /* Ship hugging left side */
+            if (velocity.x < 0.0F){
+                velocity = new Vector3(0.0F, velocity.y, 0.0F);
+            }
         }
-        if ((shipRightSide < screenRightSide) && velocity.x > 0.0F) 
-        { /* Move Right */
-            ship.transform.position += velocity;
-		}
-
-        if ((screenTopSide > shipTopSide) && velocity.y > 0.0F) 
-        { /* Move Down */
-            ship.transform.position += velocity;
-        }
-        if ((shipBottomSide > screenBottomSide) && velocity.y < 0.0F) 
-        { /* Move Up */
-            ship.transform.position += velocity;
+        if (shipRightSide > screenRightSide) { /* Ship hugging right side */
+            if (velocity.x > 0.0F) {
+                velocity = new Vector3(0.0F, velocity.y, 0.0F);
+            }
         }
 
+        if (screenTopSide < shipTopSide) { /* Ship hugging top side */
+            if (velocity.y > 0.0F) {
+                velocity = new Vector3(velocity.x, 0.0F, 0.0F);
+            }
+        }
+        if (shipBottomSide < screenBottomSide) { /* Ship hugging bottom side */
+            if (velocity.y < 0.0F) {
+                velocity = new Vector3(velocity.x, 0.0F, 0.0F);
+            }
+        }
+        
+        ship.transform.position += velocity;
+        
 	}
 }
