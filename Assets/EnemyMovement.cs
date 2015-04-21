@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour {
 
     public enum EnemyShipType { 
         A, /* Straight Down */ 
-        B, /*  */
+        B, /* Sine */
         C, /*  */
         D, /*  */
         E  /*  */
@@ -29,6 +29,17 @@ public class EnemyMovement : MonoBehaviour {
         ship = gameObject;
         velocity = new Vector3(0.0F, -1.0F * (Time.fixedDeltaTime * movementspeed), 0.0F);
     }
+    
+    float m_degrees;
+   
+    [SerializeField]
+    float m_speed = 1.0f;
+   
+    [SerializeField]
+    float m_amplitude = 1.0f;
+   
+    [SerializeField]
+    float m_period = 1.0f;
 
 
     // Update is called once per frame
@@ -44,8 +55,17 @@ public class EnemyMovement : MonoBehaviour {
                 yinput = -1.0F;
                 break; 
             }
-            case EnemyShipType.B: {
-            
+            case EnemyShipType.B: { 
+                float deltaTime = Time.deltaTime;
+                
+                // Update degrees
+                float degreesPerSecond = 360.0f / m_period;
+                m_degrees = Mathf.Repeat(m_degrees + (Time.fixedDeltaTime * degreesPerSecond), 360.0f);
+                float radians = m_degrees * Mathf.Deg2Rad;
+
+                // Offset by sin wave
+                xinput = m_amplitude * Mathf.Sin(radians);
+                yinput = -1.0F;
                 break; 
             }
             case EnemyShipType.C: {
