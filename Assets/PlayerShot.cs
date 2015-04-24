@@ -15,8 +15,8 @@ public class PlayerShot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (shot.transform.position.y < 40) { 
-            this.transform.position = new Vector3(0.0f, this.transform.position.y + (shotSpeed * Time.fixedDeltaTime), 0.0f);
+        if (shot.transform.position.y < 40) {
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + (shotSpeed * Time.fixedDeltaTime), 0.0f);
             Debug.Log(this.transform.position.y);
         } else {
             Debug.Log("Destroying PlayerShot as it's offscreen");
