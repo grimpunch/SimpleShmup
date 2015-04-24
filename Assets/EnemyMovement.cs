@@ -79,7 +79,7 @@ public class EnemyMovement : MonoBehaviour {
 
         velocity = new Vector3(xinput * (Time.fixedDeltaTime * movementspeed), yinput * (Time.fixedDeltaTime * movementspeed), 0.0F);
 
-        if (ship.transform.position.y + 5 < screenBounds.ScreenBottom) { /* Ship has gone off bottom of screen */
+        if (ship.transform.position.y < screenBounds.ScreenBottom - 2.0F) { /* Ship has gone off bottom of screen */
             Debug.Log("Removing Enemy as it's offscreen");
             Destroy(gameObject);
         }
