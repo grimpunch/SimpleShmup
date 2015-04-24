@@ -43,14 +43,6 @@ TagManager:
     userID: 0
     uniqueID: 0
     locked: 0
-  - name: Player
-    userID: 1
-    uniqueID: 698047949
-    locked: 0
-  - name: PlayerShot
-    userID: 2
-    uniqueID: 981367581
-    locked: 0
   - name: PowerUp
     userID: 5
     uniqueID: 1112546509
@@ -62,4 +54,12 @@ TagManager:
   - name: EnemyShot
     userID: 4
     uniqueID: 2531057943
+    locked: 0
+  - name: PlayerShot
+    userID: 2
+    uniqueID: 981367581
+    locked: 0
+  - name: Player
+    userID: 1
+    uniqueID: 698047949
     locked: 0
