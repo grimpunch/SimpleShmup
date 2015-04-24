@@ -106,7 +106,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipType: 0
   movementspeed: 5
-  m_speed: 1
   m_amplitude: 1
   m_period: 1
 --- !u!61 &260710864
@@ -542,7 +541,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipType: 1
   movementspeed: 3.5
-  m_speed: 1
   m_amplitude: 1.75
   m_period: 2.5
 --- !u!61 &1781410659

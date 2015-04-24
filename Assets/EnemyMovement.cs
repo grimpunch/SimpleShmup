@@ -31,9 +31,6 @@ public class EnemyMovement : MonoBehaviour {
     float m_degrees;
    
     [SerializeField]
-    float m_speed = 1.0f;
-   
-    [SerializeField]
     float m_amplitude = 1.0f;
    
     [SerializeField]
@@ -45,21 +42,11 @@ public class EnemyMovement : MonoBehaviour {
         
         switch (shipType) {
             case EnemyShipType.A: {
-                xinput = 0.0F;
-                yinput = -1.0F;
+                EnemyShipTypeAMovement();
                 break; 
             }
-            case EnemyShipType.B: { 
-                float deltaTime = Time.deltaTime;
-                
-                // Update degrees
-                float degreesPerSecond = 360.0f / m_period;
-                m_degrees = Mathf.Repeat(m_degrees + (Time.fixedDeltaTime * degreesPerSecond), 360.0f);
-                float radians = m_degrees * Mathf.Deg2Rad;
-
-                // Offset by sin wave
-                xinput = m_amplitude * Mathf.Sin(radians);
-                yinput = -1.0F;
+            case EnemyShipType.B: {
+                EnemyShipTypeBMovement();
                 break; 
             }
             case EnemyShipType.C: {
@@ -86,5 +73,21 @@ public class EnemyMovement : MonoBehaviour {
 
         ship.transform.position += velocity;
 
+    }
+
+    private void EnemyShipTypeAMovement() {
+        xinput = 0.0F;
+        yinput = -1.0F;
+    }
+    
+    private void EnemyShipTypeBMovement() {
+        // Update degrees
+        float degreesPerSecond = 360.0f / m_period;
+        m_degrees = Mathf.Repeat(m_degrees + (Time.fixedDeltaTime * degreesPerSecond), 360.0f);
+        float radians = m_degrees * Mathf.Deg2Rad;
+
+        // Offset by sin wave
+        xinput = m_amplitude * Mathf.Sin(radians);
+        yinput = -1.0F;
     }
 }
