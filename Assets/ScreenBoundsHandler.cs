@@ -6,15 +6,15 @@ public class ScreenBoundsHandler : MonoBehaviour {
     private float screenRightSide;
     private float screenTopSide;
     private float screenBottomSide;
-    
+
     //Public variables
     public bool screenResized = false;
-    
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start() {
         getScreenBounds();
-	}
+    }
 
     private void getScreenBounds() {
         screenRightSide = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0.0F, 0.0F)).x;
@@ -40,10 +40,10 @@ public class ScreenBoundsHandler : MonoBehaviour {
     }
 
     // Update is called once per frame
-	void Update () {
+    void Update() {
         if (screenResized) {
             getScreenBounds();
             screenResized = false;
         }
-	}
+    }
 }

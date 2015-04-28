@@ -40,7 +40,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: .0484429039, g: .052479811, b: .0588235259, a: .0196078438}
+  m_BackGroundColor: {r: .198077664, g: .360784322, b: .201703459, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -51,7 +51,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 2
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2

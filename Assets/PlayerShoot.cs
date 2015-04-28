@@ -11,15 +11,15 @@ public class PlayerShoot : MonoBehaviour {
     public float fireDelay = 0.25f;
     float cooldownTimer = 0;
 
-	
 
-	// Use this for initialization
-	void Start () {
-	    
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Use this for initialization
+    void Start() {
+
+    }
+
+    // Update is called once per frame
+    void Update() {
         cooldownTimer -= Time.deltaTime;
 
         if (Input.GetButton("Fire1") && cooldownTimer <= 0) {
@@ -29,5 +29,5 @@ public class PlayerShoot : MonoBehaviour {
             GameObject shotGO = (GameObject)Instantiate(shotPrefab, transform.position, transform.rotation);
             shotGO.name = "PlayerShotInstance";
         }
-	}
+    }
 }
