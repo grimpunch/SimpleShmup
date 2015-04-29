@@ -27,10 +27,10 @@ public class PlayerMovement : MonoBehaviour {
     void FixedUpdate() {
         xinput = Input.GetAxis("Horizontal");
         yinput = Input.GetAxis("Vertical");
-        shipLeftSide = ship.transform.position.x - (ship.renderer.bounds.size.x * 0.5F);
-        shipRightSide = ship.transform.position.x + (ship.renderer.bounds.size.x * 0.5F);
-        shipTopSide = ship.transform.position.y + (ship.renderer.bounds.size.y * 0.5F);
-        shipBottomSide = ship.transform.position.y - (ship.renderer.bounds.size.y * 0.5F);
+        shipLeftSide = ship.transform.position.x - (ship.GetComponent<Renderer>().bounds.size.x * 0.5F);
+        shipRightSide = ship.transform.position.x + (ship.GetComponent<Renderer>().bounds.size.x * 0.5F);
+        shipTopSide = ship.transform.position.y + (ship.GetComponent<Renderer>().bounds.size.y * 0.5F);
+        shipBottomSide = ship.transform.position.y - (ship.GetComponent<Renderer>().bounds.size.y * 0.5F);
 
         Vector3 velocity = new Vector3(xinput * (Time.fixedDeltaTime * movementspeed), yinput * (Time.fixedDeltaTime * movementspeed), 0.0F);
 

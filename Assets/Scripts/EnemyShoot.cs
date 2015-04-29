@@ -10,9 +10,9 @@ public class EnemyShoot : MonoBehaviour {
     }
 
     void Shoot() {
-        if (audio != null) {
-            if (!audio.isPlaying) {
-                audio.Play();
+        if (GetComponent<AudioSource>() != null) {
+            if (!GetComponent<AudioSource>().isPlaying) {
+                GetComponent<AudioSource>().Play();
             }
         }
         Instantiate(bullet, transform.position, transform.rotation);
