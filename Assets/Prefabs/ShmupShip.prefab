@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21200000}
   - 61: {fileID: 6100000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11492058}
   - 114: {fileID: 11400002}
   - 50: {fileID: 5000000}
   m_Layer: 8
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 19, z: 0}
+  m_LocalPosition: {x: 20, y: 18.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,6 +86,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 100000, guid: 2c4d590676e73214aa1e4c9a9761b568, type: 2}
   fireDelay: .125
+--- !u!114 &11492058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76b9de309edbe854eb66eaf3d54f2e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 72ffa3042d914694983915526abd9b29, type: 3}
+  - {fileID: 21300000, guid: 36d2790f58e384b40b5881958bbfc602, type: 3}
+  - {fileID: 21300000, guid: da0814a543326924097041949f30242b, type: 3}
+  - {fileID: 21300000, guid: fdf44391a3e3a0e4488a4f339da7d599, type: 3}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

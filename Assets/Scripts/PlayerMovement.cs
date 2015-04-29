@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private float xinput;
     private float yinput;
-
+    
     private float shipLeftSide;
     private float shipRightSide;
     private float shipTopSide;
@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour {
         screenBounds = GameObject.Find("ScreenBoundsHandler").GetComponent<ScreenBoundsHandler>();
     }
 
+    public float xAnim{
+        get { return xinput; }
+    }
 
     // Update is called once per frame
     void FixedUpdate() {

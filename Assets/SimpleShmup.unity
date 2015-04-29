@@ -210,10 +210,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2000000, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
-      propertyPath: orthographic size
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
   m_IsPrefabParent: 0
@@ -333,7 +329,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199938269}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &1372728073
+--- !u!1001 &1899659118
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -346,7 +342,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 19
+      value: 18.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
       propertyPath: m_LocalPosition.z
