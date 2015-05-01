@@ -2,12 +2,13 @@
 using System.Collections;
 
 public class EnemyShoot : MonoBehaviour {
-    public GameObject bullet;
+    public GameObject shotPrefab;
     public float shotDelay = 0.2f;
 
     void Start() {
-        Invoke("Shoot", shotDelay);
+        InvokeRepeating("Shoot", shotDelay,shotDelay);
     }
+
 
     void Shoot() {
         if (GetComponent<AudioSource>() != null) {
@@ -15,7 +16,7 @@ public class EnemyShoot : MonoBehaviour {
                 GetComponent<AudioSource>().Play();
             }
         }
-        Instantiate(bullet, transform.position, transform.rotation);
-        Invoke("Shoot", shotDelay);
+        GameObject shotGO = (GameObject)Instantiate(shotPrefab, transform.position, transform.rotation);
+        shotGO.name = gameObject.name+"ShotInstance";
     }
 }

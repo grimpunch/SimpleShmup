@@ -13,9 +13,9 @@ public class MoveDownSine : MonoBehaviour {
 
     private float m_degrees;
 
-    private float m_amplitude = 1.0f;
+    public float m_amplitude = 1.0f;
 
-    private float m_period = 1.0f;
+    public float m_period = 1.0f;
 
 
     // Use this for initialization
