@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 425108}
   - 198: {fileID: 19802312}
   - 199: {fileID: 19939214}
+  - 114: {fileID: 11411120}
   m_Layer: 1
   m_Name: PlayerDeathParticleSystem
   m_TagString: Untagged
@@ -24,11 +25,23 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169284}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: -1.62920685e-07}
-  m_LocalPosition: {x: 0, y: -1, z: -1}
+  m_LocalPosition: {x: .154644787, y: -.425472528, z: -1}
   m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11411120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7249f8800233241bc293a8e83b2f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 5
 --- !u!198 &19802312
 ParticleSystem:
   m_ObjectHideFlags: 1

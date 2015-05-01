@@ -100,7 +100,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 026eb064d1cfd1944bee37996cd7ea03, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.51999998
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 026eb064d1cfd1944bee37996cd7ea03, type: 2}
       propertyPath: m_LocalPosition.z
@@ -126,33 +126,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5000000, guid: 026eb064d1cfd1944bee37996cd7ea03, type: 2}
-      propertyPath: m_Mass
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5000000, guid: 026eb064d1cfd1944bee37996cd7ea03, type: 2}
-      propertyPath: m_AngularDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5000000, guid: 026eb064d1cfd1944bee37996cd7ea03, type: 2}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5000000, guid: 026eb064d1cfd1944bee37996cd7ea03, type: 2}
-      propertyPath: m_FixedAngle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5000000, guid: 026eb064d1cfd1944bee37996cd7ea03, type: 2}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5000000, guid: 026eb064d1cfd1944bee37996cd7ea03, type: 2}
-      propertyPath: m_Interpolate
-      value: 1
+    - target: {fileID: 11436752, guid: 026eb064d1cfd1944bee37996cd7ea03, type: 2}
+      propertyPath: screenBounds
+      value: 
+      objectReference: {fileID: 575114292}
+    - target: {fileID: 6100000, guid: 026eb064d1cfd1944bee37996cd7ea03, type: 2}
+      propertyPath: m_Size.x
+      value: .200000003
       objectReference: {fileID: 0}
     - target: {fileID: 6100000, guid: 026eb064d1cfd1944bee37996cd7ea03, type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
+      propertyPath: m_Size.y
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: 026eb064d1cfd1944bee37996cd7ea03, type: 2}
+      propertyPath: m_Offset.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 026eb064d1cfd1944bee37996cd7ea03, type: 2}
@@ -170,7 +158,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a7c6abb67bbfe3046b4eaea94637ef0d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 24
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a7c6abb67bbfe3046b4eaea94637ef0d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -194,39 +182,21 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a7c6abb67bbfe3046b4eaea94637ef0d, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 5000000, guid: a7c6abb67bbfe3046b4eaea94637ef0d, type: 2}
-      propertyPath: m_Mass
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5000000, guid: a7c6abb67bbfe3046b4eaea94637ef0d, type: 2}
-      propertyPath: m_AngularDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5000000, guid: a7c6abb67bbfe3046b4eaea94637ef0d, type: 2}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5000000, guid: a7c6abb67bbfe3046b4eaea94637ef0d, type: 2}
-      propertyPath: m_FixedAngle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5000000, guid: a7c6abb67bbfe3046b4eaea94637ef0d, type: 2}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5000000, guid: a7c6abb67bbfe3046b4eaea94637ef0d, type: 2}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6100000, guid: a7c6abb67bbfe3046b4eaea94637ef0d, type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 11439774, guid: a7c6abb67bbfe3046b4eaea94637ef0d, type: 2}
+      propertyPath: screenBounds
+      value: 
+      objectReference: {fileID: 575114292}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7c6abb67bbfe3046b4eaea94637ef0d, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &575114292 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11400000, guid: 95e769dbfe86f8844a376bc0bb8c36ac,
+    type: 2}
+  m_PrefabInternal: {fileID: 984055574}
+  m_Script: {fileID: 11500000, guid: c1fee4b8e2c62be498722a66d190fa9e, type: 3}
 --- !u!1001 &940320456
 Prefab:
   m_ObjectHideFlags: 0
@@ -463,6 +433,10 @@ Prefab:
     - target: {fileID: 6100000, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
+      propertyPath: fireDelay
+      value: .0500000007
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
