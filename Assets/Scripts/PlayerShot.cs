@@ -16,7 +16,7 @@ public class PlayerShot : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate() {
         if (shot.transform.position.y < screenBounds.ScreenTop + 2.0F) {
-            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + (shotSpeed * Time.fixedDeltaTime), 0.0f);
+            this.transform.position += transform.up * (shotSpeed * Time.fixedDeltaTime);
         } else {
             Destroy(this.gameObject);
         }
