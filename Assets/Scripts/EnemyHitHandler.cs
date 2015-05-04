@@ -14,7 +14,7 @@ public class EnemyHitHandler : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D col2d) {
         if (col2d.gameObject.layer == PLAYERSHOTLAYER) {
             shipHealth -= 1;
-            Destroy(col2d.gameObject);
+            col2d.gameObject.SendMessage("Gib");
         }
     }
 

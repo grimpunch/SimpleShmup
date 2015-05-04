@@ -8,7 +8,7 @@ public class ScreenBoundsHandler : MonoBehaviour {
     private float screenBottomSide;
 
     //Public variables
-    public bool screenResized = false;
+    public bool screenBoundsUpdated = false;
 
 
     // Use this for initialization
@@ -41,9 +41,6 @@ public class ScreenBoundsHandler : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (screenResized) {
             getScreenBounds();
-            screenResized = false;
-        }
     }
 }

@@ -17,6 +17,8 @@ public class PlayerShot : MonoBehaviour {
     void FixedUpdate() {
         if (shot.transform.position.y < screenBounds.ScreenTop + 2.0F) {
             this.transform.position += transform.up * (shotSpeed * Time.fixedDeltaTime);
+            //this.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + 0.1F, transform.localScale.z);
+            //shotSpeed += 0.1F * Time.fixedDeltaTime;
         } else {
             Destroy(this.gameObject);
         }
