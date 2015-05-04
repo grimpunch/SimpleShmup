@@ -22,9 +22,9 @@ public class MoveDownSine : MonoBehaviour {
     void Start() {
         ship = gameObject;
         screenBounds = GameObject.Find("ScreenBoundsHandler").GetComponent<ScreenBoundsHandler>();
-        velocity = new Vector3(0.0F, -1.0F * (Time.fixedDeltaTime * movementspeed), 0.0F);
         xinput = 0.0F;
         yinput = -1.0F;
+        velocity = new Vector3(xinput, yinput * (Time.fixedDeltaTime * movementspeed), 0.0F);
     }
 
 

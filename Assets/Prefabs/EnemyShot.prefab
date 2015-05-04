@@ -12,6 +12,7 @@ GameObject:
   - 58: {fileID: 5824262}
   - 50: {fileID: 5050574}
   - 114: {fileID: 11480066}
+  - 114: {fileID: 11485788}
   m_Layer: 11
   m_Name: EnemyShot
   m_TagString: Untagged
@@ -70,7 +71,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f869e1a2858a47b4f9ab2867149a467b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotSpeed: -1
+  shotSpeed: -1.5
+--- !u!114 &11485788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29291a02416f1048b5b3ffc9adc39c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: GamePlayArea
+  target: {fileID: 0}
+  delay: 0
+  setLocalPosition: 0
+  localPosition: {x: 0, y: 0, z: 0}
 --- !u!212 &21215870
 SpriteRenderer:
   m_ObjectHideFlags: 1

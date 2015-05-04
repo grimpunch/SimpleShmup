@@ -15,7 +15,7 @@ public class BlueLaserEnemyShot : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
-        if (shot.transform.position.y > screenBounds.ScreenBottom - 2.0F) {
+        if (shot.transform.position.y > screenBounds.ScreenBottom - 0.1F) {
             this.transform.position += transform.up * (shotSpeed * Time.fixedDeltaTime);
         } else {
             Destroy(this.gameObject);

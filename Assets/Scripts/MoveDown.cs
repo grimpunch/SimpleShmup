@@ -12,7 +12,6 @@ public class MoveDown : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        velocity = new Vector3(0.0F, -1.0F * (Time.fixedDeltaTime * movementspeed), 0.0F);
         xinput = 0.0F;
         yinput = -1.0F;
     }
@@ -20,7 +19,6 @@ public class MoveDown : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
-        velocity = new Vector3(xinput * (Time.fixedDeltaTime * movementspeed), yinput * (Time.fixedDeltaTime * movementspeed), 0.0F);
-        transform.position += velocity;
+        this.transform.position += transform.up * (0-movementspeed * Time.fixedDeltaTime);
     }
 }

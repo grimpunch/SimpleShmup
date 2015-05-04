@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour {
 
         Vector3 velocity = new Vector3(xinput * (Time.fixedDeltaTime * movementspeed), yinput * (Time.fixedDeltaTime * movementspeed), 0.0F);
 
+        velocity = Vector3.ClampMagnitude(velocity, movementspeed * Time.fixedDeltaTime);
+
         if (shipLeftSide < screenBounds.ScreenLeft) { /* Ship hugging left side */
             if (velocity.x < 0.0F) {
                 velocity = new Vector3(0.0F, velocity.y, 0.0F);

@@ -17,8 +17,6 @@ public class PlayerShoot : MonoBehaviour {
     public float fireDelay = 0.25f;
     float cooldownTimer = 0;
 
-
-
     // Use this for initialization
     void Start() {
 
