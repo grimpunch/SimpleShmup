@@ -1,20 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &112740
+--- !u!1 &169694
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 424628}
-  - 61: {fileID: 6107156}
-  - 114: {fileID: 11422444}
-  - 114: {fileID: 11440790}
-  - 114: {fileID: 11490830}
-  - 50: {fileID: 5048630}
-  - 95: {fileID: 9537830}
-  - 114: {fileID: 11420386}
+  - 4: {fileID: 487234}
+  - 61: {fileID: 6179860}
+  - 114: {fileID: 11406294}
+  - 114: {fileID: 11423936}
+  - 114: {fileID: 11496088}
+  - 50: {fileID: 5009100}
+  - 95: {fileID: 9590976}
+  - 114: {fileID: 11409954}
   m_Layer: 31
   m_Name: SpawnDownShipWave
   m_TagString: Untagged
@@ -22,24 +22,52 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &424628
+--- !u!1 &193012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 493206}
+  m_Layer: 0
+  m_Name: Wave5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &487234
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112740}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.670000017, y: 2.5, z: 0}
+  m_GameObject: {fileID: 169694}
+  m_LocalRotation: {x: 0, y: 0, z: .0163172428, w: .999866903}
+  m_LocalPosition: {x: -1.48000002, y: 10.7600002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+  m_Father: {fileID: 493206}
+  m_RootOrder: 0
+--- !u!4 &493206
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193012}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 487234}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5048630
+--- !u!50 &5009100
 Rigidbody2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112740}
+  m_GameObject: {fileID: 169694}
   m_Mass: 9.99999975e-05
   m_LinearDrag: 0
   m_AngularDrag: 0
@@ -49,12 +77,12 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!61 &6107156
+--- !u!61 &6179860
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112740}
+  m_GameObject: {fileID: 169694}
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -62,16 +90,16 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: .25, y: .25}
---- !u!95 &9537830
+--- !u!95 &9590976
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112740}
+  m_GameObject: {fileID: 169694}
   m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: baa95913b6bb20c4897459d2f2aefe1b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 02194e8f0472a1045ac9f2f26d5f7039, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -79,12 +107,25 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11420386
+--- !u!114 &11406294
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112740}
+  m_GameObject: {fileID: 169694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ae6ffff2a763e46a7ef1fd28423741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviour: {fileID: 11423936}
+  delay: 0
+--- !u!114 &11409954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169694}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a44a04320478704fba88bfd095cfeaf, type: 3}
@@ -93,39 +134,26 @@ MonoBehaviour:
   name: GamePlayArea
   animator: {fileID: 0}
   delay: 0
---- !u!114 &11422444
+--- !u!114 &11423936
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83ae6ffff2a763e46a7ef1fd28423741, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  behaviour: {fileID: 11440790}
-  delay: 0
---- !u!114 &11440790
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112740}
+  m_GameObject: {fileID: 169694}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 652151231fcfb1042bc64bedfa472259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 186092, guid: f72a97ebe1ccd5a4b894cc0647e161a0, type: 2}
-  spawnCount: 8
-  spawnDelay: .75
---- !u!114 &11490830
+  spawnCount: 30
+  spawnDelay: .25
+--- !u!114 &11496088
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112740}
+  m_GameObject: {fileID: 169694}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c29291a02416f1048b5b3ffc9adc39c4, type: 3}
@@ -145,5 +173,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 112740}
+  m_RootGameObject: {fileID: 193012}
   m_IsPrefabParent: 1
