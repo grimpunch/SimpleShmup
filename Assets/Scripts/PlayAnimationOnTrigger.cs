@@ -21,6 +21,6 @@ public class PlayAnimationOnTrigger : MonoBehaviour {
 
     void AnimateNow() {
         animator.enabled = true;
-        gameObject.GetComponent<ParentOnTrigger>().enabled = false;
+        gameObject.GetComponent<PlayAnimationOnTrigger>().enabled = false;
     }
 }
