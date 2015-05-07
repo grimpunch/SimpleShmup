@@ -4,7 +4,7 @@ timeCreated: 1430950366
 licenseType: Free
 TrueTypeFontImporter:
   serializedVersion: 2
-  fontSize: 16
+  fontSize: 32
   forceTextureCase: -2
   characterSpacing: 1
   characterPadding: 0
@@ -12,7 +12,7 @@ TrueTypeFontImporter:
   use2xBehaviour: 0
   fontNames: []
   customCharacters: 
-  fontRenderingMode: 2
+  fontRenderingMode: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

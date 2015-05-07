@@ -22,6 +22,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &171426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 481684}
+  - 61: {fileID: 6150410}
+  - 114: {fileID: 11412538}
+  - 114: {fileID: 11470906}
+  - 114: {fileID: 11435628}
+  - 50: {fileID: 5016200}
+  m_Layer: 31
+  m_Name: SpawnSineShipWave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &193012
 GameObject:
   m_ObjectHideFlags: 0
@@ -37,14 +57,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &481684
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171426}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.75, y: 15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 493206}
+  m_RootOrder: 1
 --- !u!4 &487234
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169694}
-  m_LocalRotation: {x: 0, y: 0, z: .0163172428, w: .999866903}
-  m_LocalPosition: {x: -1.48000002, y: 10.7600002, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.899999976, y: 13.2200003, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 493206}
@@ -60,6 +92,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 487234}
+  - {fileID: 481684}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!50 &5009100
@@ -77,6 +110,34 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!50 &5016200
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171426}
+  m_Mass: 9.99999975e-05
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+--- !u!61 &6150410
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171426}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: .25, y: .25}
 --- !u!61 &6179860
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -134,6 +195,19 @@ MonoBehaviour:
   name: GamePlayArea
   animator: {fileID: 0}
   delay: 0
+--- !u!114 &11412538
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ae6ffff2a763e46a7ef1fd28423741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviour: {fileID: 11470906}
+  delay: 0
 --- !u!114 &11423936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -147,7 +221,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 186092, guid: f72a97ebe1ccd5a4b894cc0647e161a0, type: 2}
   spawnCount: 30
-  spawnDelay: .25
+  spawnDelay: .75
+  spawnDeviation: .200000003
+--- !u!114 &11435628
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29291a02416f1048b5b3ffc9adc39c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: GamePlayArea
+  target: {fileID: 0}
+  delay: 0
+  setLocalPosition: 0
+  localPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &11470906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171426}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 652151231fcfb1042bc64bedfa472259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPrefab: {fileID: 171596, guid: 87a4a461fd5b48849bf9a856a2255233, type: 2}
+  spawnCount: 4
+  spawnDelay: 2.5
+  spawnDeviation: .100000001
 --- !u!114 &11496088
 MonoBehaviour:
   m_ObjectHideFlags: 1

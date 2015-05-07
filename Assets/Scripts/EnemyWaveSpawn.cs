@@ -8,7 +8,9 @@ public class EnemyWaveSpawn : MonoBehaviour {
     private int spawned = 0;
     public float spawnDelay;
     private float timeToSpawn;
-
+    private bool left;
+    private Vector3 spawnPos;
+    public float spawnDeviation = 0.3f; 
     // Use this for initialization
     void Start() {
         
@@ -24,7 +26,16 @@ public class EnemyWaveSpawn : MonoBehaviour {
     }
 
     void Spawn() {
-        GameObject spawnGO = (GameObject)Instantiate(spawnPrefab, transform.position, transform.rotation);
+        
+        if (left) {
+            spawnPos = new Vector3(transform.position.x - spawnDeviation, transform.position.y, transform.position.z);
+            left = false;
+        }
+        else if (!left) {
+            spawnPos = new Vector3(transform.position.x + spawnDeviation, transform.position.y, transform.position.z);
+            left = true;
+        }
+        GameObject spawnGO = (GameObject)Instantiate(spawnPrefab, spawnPos, transform.rotation);
         spawnGO.name = spawnPrefab.name;
         spawned++;
     }

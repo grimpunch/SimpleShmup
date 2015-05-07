@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipHealth: 300
+  scoreValue: 10000
 --- !u!212 &21267570
 SpriteRenderer:
   m_ObjectHideFlags: 1
