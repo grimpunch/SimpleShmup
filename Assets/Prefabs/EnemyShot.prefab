@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f869e1a2858a47b4f9ab2867149a467b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotSpeed: -1.5
+  shotSpeed: -1.39999998
 --- !u!114 &11485788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: GamePlayArea
-  target: {fileID: 0}
+  target: {fileID: 478664}
   delay: 0
   setLocalPosition: 0
   localPosition: {x: 0, y: 0, z: 0}

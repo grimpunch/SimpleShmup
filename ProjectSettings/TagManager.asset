@@ -21,7 +21,7 @@ TagManager:
   - EnemyShot
   - PowerUp
   - Collidable
-  - 
+  - PlayerLaser
   - 
   - 
   - 
@@ -57,6 +57,9 @@ TagManager:
     locked: 0
   - name: PlayerShot
     uniqueID: 981367581
+    locked: 0
+  - name: PlayerLaser
+    uniqueID: 47748381
     locked: 0
   - name: Player
     uniqueID: 698047949

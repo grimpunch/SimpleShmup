@@ -1,16 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BlueLaserEnemyShot : MonoBehaviour {
+public class EnemyShot : MonoBehaviour {
 
     private GameObject shot;
     private ScreenBoundsHandler screenBounds;
     public float shotSpeed = 0.5F;
+    private const int PLAYERLASERLAYER = 14;
+
 
     // Use this for initialization
     void Start() {
         shot = gameObject;
         screenBounds = GameObject.Find("ScreenBoundsHandler").GetComponent<ScreenBoundsHandler>();
+    }
+
+    void OnTriggerEnter2D(Collider2D col2d) {
+        if (col2d.gameObject.layer == PLAYERLASERLAYER) {
+            Destroy(this.gameObject);
+        }
     }
 
     // Update is called once per frame
