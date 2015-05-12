@@ -18,7 +18,10 @@ public class BackgroundScroll : MonoBehaviour {
         newTextureOffset.y += verticalScrollSpeed * Time.deltaTime; 
         if (player != null) {
             newTextureOffset.x = player.transform.position.x * horizontalScrollMultiplier;
-        } else { player = GameObject.FindGameObjectWithTag("Player");}
+        } else { 
+            player = GameObject.FindGameObjectWithTag("Player");
+            newTextureOffset.x = Mathf.Lerp(newTextureOffset.x , 0.0f, 2.0F * Time.deltaTime);
+        }
 
         GetComponent<Renderer>().material.mainTextureOffset = newTextureOffset;
     }
