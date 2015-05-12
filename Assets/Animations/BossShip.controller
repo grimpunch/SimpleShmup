@@ -27,12 +27,12 @@ AnimatorController:
     m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
-    m_BlendingMode: 0
+    m_BlendingMode: 1
     m_SyncedLayerIndex: -1
     m_DefaultWeight: 0
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_MultiThreadedStateMachine: 1
 --- !u!114 &11416448
 MonoBehaviour:
@@ -209,7 +209,7 @@ AnimatorState:
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
+  m_WriteDefaultValues: 0
   m_Mirror: 0
   m_Motion: {fileID: 7400000, guid: 991f312467f89cc4bb7d5695cb0b2227, type: 2}
   m_Tag: 
@@ -230,7 +230,7 @@ AnimatorState:
   - {fileID: 11416448}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
+  m_WriteDefaultValues: 0
   m_Mirror: 0
   m_Motion: {fileID: 7400000, guid: 078ffecc360082346b5963a9e7d5064b, type: 2}
   m_Tag: 
@@ -249,7 +249,7 @@ AnimatorState:
   - {fileID: 11447218}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
+  m_WriteDefaultValues: 0
   m_Mirror: 1
   m_Motion: {fileID: 7400000, guid: 078ffecc360082346b5963a9e7d5064b, type: 2}
   m_Tag: 
@@ -268,7 +268,7 @@ AnimatorState:
   - {fileID: 11485456}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
+  m_WriteDefaultValues: 0
   m_Mirror: 0
   m_Motion: {fileID: 7400000, guid: 9ef467e253516ee479d472b6fab5d4e0, type: 2}
   m_Tag: 
