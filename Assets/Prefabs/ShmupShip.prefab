@@ -65,13 +65,14 @@ GameObject:
   - 50: {fileID: 5062512}
   - 61: {fileID: 6107590}
   - 120: {fileID: 12077640}
+  - 95: {fileID: 9591910}
   m_Layer: 14
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -149,10 +150,10 @@ Rigidbody2D:
   m_AngularDrag: 0
   m_GravityScale: 0
   m_FixedAngle: 1
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_IsKinematic: 1
+  m_Interpolate: 2
+  m_SleepingMode: 0
+  m_CollisionDetection: 0
 --- !u!61 &6100000
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -179,6 +180,23 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 3}
   serializedVersion: 2
   m_Size: {x: .349999994, y: 6}
+--- !u!95 &9591910
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181490}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a1decd855b993341895bf9b7aac5990, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -219,6 +237,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipHealth: 1
+  invulnerabilityTimeOnSpawn: 2.5
+  playerShipRenderer: {fileID: 0}
+  invulnerableColor: {r: 1, g: 1, b: 1, a: .478431374}
 --- !u!114 &11473926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -231,9 +252,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToFullCharge: 100
-  rateMultiplier: 4
+  rateMultiplier: 8
   Laser: {fileID: 181490}
   playerShoot: {fileID: 11400002}
+  timeToDischarge: 10
 --- !u!114 &11484454
 MonoBehaviour:
   m_ObjectHideFlags: 1
