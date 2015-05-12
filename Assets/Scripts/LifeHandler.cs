@@ -44,6 +44,7 @@ public class LifeHandler : MonoBehaviour {
         alive = true;
         livesleft--;
         SetLifeCounterText(livesleft);
+        spawnInvoked = false;
     }
 
     void GameOver() {
@@ -54,13 +55,13 @@ public class LifeHandler : MonoBehaviour {
     void Update() {
         if (!alive) { 
             // Player has been destroyed
-            if (livesleft > 0) {
+            if (livesleft >= 0) {
                 if (!spawnInvoked){
                     Invoke("Spawn", respawnDelay);
                     spawnInvoked = true;
                 }
                 return;
-            } else { GameOver(); spawnInvoked = false; }
+            } else { GameOver(); }
         }
     }
 }

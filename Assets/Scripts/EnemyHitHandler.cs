@@ -20,13 +20,19 @@ public class EnemyHitHandler : MonoBehaviour {
         if (!screenBounds) { return; }
         //if (transform.position.y > screenBounds.ScreenTop) { return; }
         if (col2d.gameObject.layer == PLAYERSHOTLAYER) {
-            shipHealth -= 1;
+            shipHealth -= 10;
             col2d.gameObject.SendMessage("Gib");
-        } else if (col2d.gameObject.layer == PLAYERLASERLAYER) {
-            shipHealth -= 5;
-            }
+        }
     }
 
+    void OnTriggerStay2D(Collider2D col2d) {
+        if (!screenBounds) { return; }
+        //if (transform.position.y > screenBounds.ScreenTop) { return; }
+        if (col2d.gameObject.layer == PLAYERLASERLAYER) {
+            shipHealth -= 1;
+            gameObject.SendMessage("Burn");
+        }
+    }
 
     // Update is called once per frame
     void Update() {

@@ -19,7 +19,7 @@ public class PlayerShoot : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-
+        
     }
 
     // Update is called once per frame
@@ -31,6 +31,11 @@ public class PlayerShoot : MonoBehaviour {
             cooldownTimer = fireDelay;
             GameObject shotCenter = (GameObject)Instantiate(shotPrefab, transform.position, transform.rotation);
             shotCenter.name = "PlayerShotInstance";
+            if (GetComponent<AudioSource>() != null) {
+                if (!GetComponent<AudioSource>().isPlaying) {
+                    GetComponent<AudioSource>().Play();
+                }
+            }
 
             if (upgradeLevel == 1) {
                 if (fireLeft) {
@@ -57,5 +62,6 @@ public class PlayerShoot : MonoBehaviour {
                     shotRight.name = "PlayerShotInstance";
             }
         }
+        if (!Input.GetButton("Fire1")) { GetComponent<AudioSource>().Stop(); }
     }
 }

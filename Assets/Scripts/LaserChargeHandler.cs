@@ -19,8 +19,6 @@ public class LaserChargeHandler : MonoBehaviour {
         laserChargeSlider = GameObject.Find("LaserChargeSlider").GetComponent<Slider>();
     }
 
-
-
     // Update is called once per frame
     void Update() {
         if (Laser.active) {
