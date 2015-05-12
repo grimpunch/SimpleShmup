@@ -7,6 +7,7 @@ public class LifeHandler : MonoBehaviour {
     public GameObject playerPrefab;
     private bool spawnInvoked = false;
     private bool alive = true;
+    private bool gameStarted;
     public int startLives;
     private int livesleft;
     private float timeToSpawn;
@@ -26,6 +27,7 @@ public class LifeHandler : MonoBehaviour {
         lifeCounterText = GameObject.Find("LifeCounterText").GetComponent<Text>();
         livesleft = startLives;
         SetLifeCounterText(livesleft);
+        gameStarted = true;
     }
 
     void SetLifeCounterText(int lives) {
@@ -55,13 +57,15 @@ public class LifeHandler : MonoBehaviour {
     void Update() {
         if (!alive) { 
             // Player has been destroyed
-            if (livesleft >= 0) {
+            if (livesleft > 0) {
                 if (!spawnInvoked){
                     Invoke("Spawn", respawnDelay);
                     spawnInvoked = true;
                 }
                 return;
-            } else { GameOver(); }
+            } else {
+                if (gameStarted) { GameOver(); gameStarted = false; }
+            }
         }
     }
 }

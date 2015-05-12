@@ -997,7 +997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 100000, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
-  startLives: 5
+  startLives: 1
   respawnDelay: 2
 --- !u!1001 &1375209618
 Prefab:
