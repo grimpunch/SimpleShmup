@@ -61,6 +61,7 @@ public class PlayerShoot : MonoBehaviour {
                     GameObject shotRight = (GameObject)Instantiate(shotPrefab, shotPosition, shotRotation);
                     shotRight.name = "PlayerShotInstance";
             }
+            if (upgradeLevel > 2) { upgradeLevel = 2; }
         }
         if (!Input.GetButton("Fire1")) { GetComponent<AudioSource>().Stop(); }
     }
