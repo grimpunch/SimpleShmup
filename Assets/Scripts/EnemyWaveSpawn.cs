@@ -9,8 +9,11 @@ public class EnemyWaveSpawn : MonoBehaviour {
     public float spawnDelay;
     private float timeToSpawn;
     private bool left;
+    public bool powerupDropped;
+    public int spawnToDropPowerUpOn;
     private Vector3 spawnPos;
-    public float spawnDeviation = 0.3f; 
+    public float spawnDeviation = 0.3f;
+    public GameObject powerUpPrefab;
     // Use this for initialization
     void Start() {
         
@@ -37,6 +40,9 @@ public class EnemyWaveSpawn : MonoBehaviour {
         }
         GameObject spawnGO = (GameObject)Instantiate(spawnPrefab, spawnPos, transform.rotation);
         spawnGO.name = spawnPrefab.name;
+        if (powerupDropped && (spawned == spawnToDropPowerUpOn)) {
+            spawnGO.GetComponent<GibOnMessage>().powerUp = powerUpPrefab;
+        }
         spawned++;
     }
 }

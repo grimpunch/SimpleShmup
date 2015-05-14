@@ -57,8 +57,6 @@ GameObject:
   - 114: {fileID: 11447868}
   - 114: {fileID: 11412726}
   - 50: {fileID: 5016298}
-  - 95: {fileID: 9503666}
-  - 114: {fileID: 11470640}
   m_Layer: 31
   m_Name: SpawnSineShipWave
   m_TagString: Untagged
@@ -126,7 +124,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.670000017, y: 2.5, z: 0}
+  m_LocalPosition: {x: -.600000024, y: 2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 403154}
@@ -138,7 +136,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138034}
   m_LocalRotation: {x: 0, y: 0, z: -.0790767074, w: .996868551}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: .939999998, y: 4.8499999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 403154}
@@ -150,7 +148,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.670000017, y: 7.88999987, z: 0}
+  m_LocalPosition: {x: -.600000024, y: 7.88999987, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 403154}
@@ -162,7 +160,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.5, y: 5.51999998, z: 0}
+  m_LocalPosition: {x: -.800000012, y: 5.51999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 403154}
@@ -279,23 +277,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: .25, y: .25}
---- !u!95 &9503666
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 152950}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c61b4b5568898194eb00eb124e88b6ba, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9504038
 Animator:
   serializedVersion: 3
@@ -376,7 +357,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 186092, guid: f72a97ebe1ccd5a4b894cc0647e161a0, type: 2}
   spawnCount: 10
-  spawnDelay: 1
+  spawnDelay: .5
+  powerupDropped: 0
+  spawnToDropPowerUpOn: 0
+  spawnDeviation: .400000006
+  powerUpPrefab: {fileID: 0}
 --- !u!114 &11417744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -449,7 +434,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 186092, guid: f72a97ebe1ccd5a4b894cc0647e161a0, type: 2}
   spawnCount: 10
-  spawnDelay: 1
+  spawnDelay: .5
+  powerupDropped: 0
+  spawnToDropPowerUpOn: 0
+  spawnDeviation: .400000006
+  powerUpPrefab: {fileID: 0}
 --- !u!114 &11447868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -464,6 +453,10 @@ MonoBehaviour:
   spawnPrefab: {fileID: 171596, guid: 87a4a461fd5b48849bf9a856a2255233, type: 2}
   spawnCount: 20
   spawnDelay: 5
+  powerupDropped: 0
+  spawnToDropPowerUpOn: 0
+  spawnDeviation: .200000003
+  powerUpPrefab: {fileID: 0}
 --- !u!114 &11457088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -477,7 +470,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 186092, guid: f72a97ebe1ccd5a4b894cc0647e161a0, type: 2}
   spawnCount: 10
-  spawnDelay: 1
+  spawnDelay: .5
+  powerupDropped: 1
+  spawnToDropPowerUpOn: 3
+  spawnDeviation: .5
+  powerUpPrefab: {fileID: 0}
 --- !u!114 &11457524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -504,20 +501,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviour: {fileID: 11447868}
-  delay: 0
---- !u!114 &11470640
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 152950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a44a04320478704fba88bfd095cfeaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: GamePlayArea
-  animator: {fileID: 0}
   delay: 0
 --- !u!114 &11479586
 MonoBehaviour:

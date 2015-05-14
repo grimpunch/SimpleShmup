@@ -120,48 +120,6 @@ RectTransform:
   m_AnchoredPosition: {x: 5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: .5, y: .5}
---- !u!1001 &72863830
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 488050, guid: 633f1f81dbd9c364dac2d44e10e777b6, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 488050, guid: 633f1f81dbd9c364dac2d44e10e777b6, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 488050, guid: 633f1f81dbd9c364dac2d44e10e777b6, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 488050, guid: 633f1f81dbd9c364dac2d44e10e777b6, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 488050, guid: 633f1f81dbd9c364dac2d44e10e777b6, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 488050, guid: 633f1f81dbd9c364dac2d44e10e777b6, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 488050, guid: 633f1f81dbd9c364dac2d44e10e777b6, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 488050, guid: 633f1f81dbd9c364dac2d44e10e777b6, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 633f1f81dbd9c364dac2d44e10e777b6, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &414592979
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,45 +512,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 465036, guid: 0720c6adf2f342543b82e50aee46d907, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -.800000012
-      objectReference: {fileID: 0}
-    - target: {fileID: 433164, guid: 0720c6adf2f342543b82e50aee46d907, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -.600000024
-      objectReference: {fileID: 0}
-    - target: {fileID: 450460, guid: 0720c6adf2f342543b82e50aee46d907, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -.600000024
-      objectReference: {fileID: 0}
-    - target: {fileID: 11444900, guid: 0720c6adf2f342543b82e50aee46d907, type: 2}
-      propertyPath: spawnDeviation
-      value: .400000006
-      objectReference: {fileID: 0}
-    - target: {fileID: 11413666, guid: 0720c6adf2f342543b82e50aee46d907, type: 2}
-      propertyPath: spawnDeviation
-      value: .400000006
-      objectReference: {fileID: 0}
     - target: {fileID: 11457088, guid: 0720c6adf2f342543b82e50aee46d907, type: 2}
-      propertyPath: spawnDeviation
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 445630, guid: 0720c6adf2f342543b82e50aee46d907, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: .939999998
-      objectReference: {fileID: 0}
-    - target: {fileID: 445630, guid: 0720c6adf2f342543b82e50aee46d907, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 4.8499999
-      objectReference: {fileID: 0}
-    - target: {fileID: 11447868, guid: 0720c6adf2f342543b82e50aee46d907, type: 2}
-      propertyPath: spawnDeviation
-      value: .200000003
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11470640, guid: 0720c6adf2f342543b82e50aee46d907, type: 2}
-    - {fileID: 9503666, guid: 0720c6adf2f342543b82e50aee46d907, type: 2}
+      propertyPath: powerUpPrefab
+      value: 
+      objectReference: {fileID: 180602, guid: 633f1f81dbd9c364dac2d44e10e777b6, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0720c6adf2f342543b82e50aee46d907, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &837929610
@@ -1475,7 +1399,10 @@ MonoBehaviour:
   spawnPrefab: {fileID: 186092, guid: f72a97ebe1ccd5a4b894cc0647e161a0, type: 2}
   spawnCount: 30
   spawnDelay: 2.5
+  powerupDropped: 0
+  spawnToDropPowerUpOn: 0
   spawnDeviation: .300000012
+  powerUpPrefab: {fileID: 0}
 --- !u!114 &1768826143
 MonoBehaviour:
   m_ObjectHideFlags: 0

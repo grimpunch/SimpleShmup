@@ -13,6 +13,7 @@ GameObject:
   - 50: {fileID: 5003818}
   - 114: {fileID: 11445080}
   - 114: {fileID: 11413984}
+  - 114: {fileID: 11439344}
   m_Layer: 12
   m_Name: PowerUpGunLevel
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 180602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: .300000012, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,6 +77,18 @@ MonoBehaviour:
   delay: 0
   setLocalPosition: 0
   localPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &11439344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0708b131305a7a47ba844cd695c6c3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementspeed: 1
 --- !u!114 &11445080
 MonoBehaviour:
   m_ObjectHideFlags: 1

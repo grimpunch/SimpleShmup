@@ -4,8 +4,8 @@ using System.Collections;
 public class GibOnMessage : MonoBehaviour {
 
     public GameObject particleSystemPrefab;
+    public GameObject powerUp;
 
-    // Use this for initialization
     void Start() {
 
     }
@@ -20,6 +20,7 @@ public class GibOnMessage : MonoBehaviour {
             GameObject particleSystem = (GameObject)Instantiate(particleSystemPrefab, new Vector3(transform.position.x, transform.position.y,-1F), transform.rotation);
             particleSystem.name = gameObject.name + "DeathParticleSystemInstance";
         }
+        if (powerUp) { GameObject GO = (GameObject)Instantiate(powerUp, transform.position, Quaternion.identity); }
         Destroy(gameObject);
     }
 }
