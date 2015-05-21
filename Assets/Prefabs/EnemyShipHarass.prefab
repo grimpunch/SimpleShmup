@@ -76,11 +76,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a4b0ef69724d34ab27fba65038ec11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotPrefab: {fileID: 173432, guid: 92e59a2f2c6ab224faff6bedd1f79479, type: 2}
+  shotPrefab: {fileID: 182370, guid: bf11e274a8950b14aaf0adcc767492d8, type: 2}
   shotDelay: .0799999982
   burstDelay: 6
   burstAmount: 10
-  canShoot: 0
+  canShoot: 1
 --- !u!114 &11410288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0708b131305a7a47ba844cd695c6c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementspeed: .150000006
+  movementspeed: .200000003
 --- !u!114 &11481814
 MonoBehaviour:
   m_ObjectHideFlags: 1
