@@ -23,6 +23,10 @@ public class EnemyShot : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
+        if (shot.transform.position.x > screenBounds.ScreenRight + 0.2F || shot.transform.position.x < screenBounds.ScreenLeft - 0.2F) {
+            Debug.Log("Destroying offscreen left right bullet");
+            Destroy(this.gameObject);
+        }
         if (shot.transform.position.y > screenBounds.ScreenBottom - 0.1F) {
             this.transform.position += transform.up * (shotSpeed * Time.fixedDeltaTime);
         } else {
