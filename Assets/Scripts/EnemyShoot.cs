@@ -16,7 +16,7 @@ public class EnemyShoot : MonoBehaviour {
 
     void FixedUpdate() {
         if (!canShoot) { timeToShot += Time.fixedDeltaTime; return; }
-        if (burstShots > burstAmount) {
+        if (burstShots >= burstAmount) {
             if (waitUntilBurst < burstDelay) {
                 waitUntilBurst += Time.fixedDeltaTime;
             } 
