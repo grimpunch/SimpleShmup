@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
+        if (Utils.Paused) return;
         xinput = Input.GetAxis("Horizontal");
         yinput = Input.GetAxis("Vertical");
         shipLeftSide = ship.transform.position.x - (ship.GetComponent<Renderer>().bounds.size.x * 0.5F);

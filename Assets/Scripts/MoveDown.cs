@@ -19,6 +19,7 @@ public class MoveDown : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
+        if (Utils.Paused) return;
         this.transform.position += transform.up * (0-movementspeed * Time.fixedDeltaTime);
     }
 }

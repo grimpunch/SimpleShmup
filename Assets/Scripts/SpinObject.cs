@@ -12,6 +12,7 @@ public class SpinObject : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (Utils.Paused) return;
         transform.Rotate(Vector3.forward, speed * Time.deltaTime);
     }
 }

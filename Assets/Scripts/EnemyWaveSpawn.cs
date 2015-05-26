@@ -21,6 +21,7 @@ public class EnemyWaveSpawn : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
+        if (Utils.Paused) return;
         if (timeToSpawn < 0) {
             timeToSpawn = spawnDelay;
             Invoke("Spawn", spawnDelay);

@@ -15,6 +15,7 @@ public class RotateTowardsPlayer : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (Utils.Paused) return;
         if (target != null) {
             //TODO , Dot product calc to find vector of 'down' from this transform to player to determine rotation direction
             Vector3 vectorToTarget = target.position - transform.position;

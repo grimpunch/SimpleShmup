@@ -41,6 +41,7 @@ public class ScreenBoundsHandler : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-            getScreenBounds();
+        if (Utils.Paused) return;
+        getScreenBounds();
     }
 }

@@ -15,6 +15,7 @@ public class EnemyShoot : MonoBehaviour {
     }
 
     void FixedUpdate() {
+        if (Utils.Paused) return;
         if (!canShoot) { timeToShot += Time.fixedDeltaTime; return; }
         if (burstShots >= burstAmount) {
             if (waitUntilBurst < burstDelay) {

@@ -24,6 +24,7 @@ public class PlayerShoot : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (Utils.Paused) return;
         cooldownTimer -= Time.deltaTime;
 
         if (Input.GetButton("Fire1") && cooldownTimer <= 0) {

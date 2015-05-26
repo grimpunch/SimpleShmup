@@ -16,6 +16,7 @@ public class BurnOnMessage : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (Utils.Paused) return;
         if (burnTimeRemaining <= 0) {
             StopBurn();
         } else { burnTimeRemaining -= Time.fixedDeltaTime; }

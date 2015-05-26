@@ -10,6 +10,13 @@ public class DestroyOnTimer : MonoBehaviour {
         Invoke("DestroyThis", time);
     }
 
+    void Update() {
+        if (this.IsInvoking() && Utils.Paused) {
+            CancelInvoke("DestroyThis");
+        }
+        if (!Utils.Paused) { Invoke("DestroyThis", time); }
+    }
+
     void DestroyThis() {
         Destroy(gameObject);
     }

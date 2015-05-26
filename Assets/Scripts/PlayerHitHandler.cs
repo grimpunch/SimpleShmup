@@ -35,6 +35,7 @@ public class PlayerHitHandler : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (Utils.Paused) return;
         if (!vulnerable) {
             playerShipRenderer.color = invulnerableColor;
             timeUntilVulnerable += Time.fixedDeltaTime;

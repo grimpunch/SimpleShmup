@@ -55,6 +55,7 @@ public class LifeHandler : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (Utils.Paused) return;
         if (!alive) { 
             // Player has been destroyed
             if (livesleft > 0) {

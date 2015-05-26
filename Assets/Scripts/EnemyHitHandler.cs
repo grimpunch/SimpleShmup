@@ -36,6 +36,7 @@ public class EnemyHitHandler : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (Utils.Paused) return;
         if (shipHealth <= 0) {
             scoreHandler.AddScore(scoreValue);
             gameObject.SendMessage("Gib");

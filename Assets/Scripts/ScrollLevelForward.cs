@@ -12,6 +12,7 @@ public class ScrollLevelForward : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (Utils.Paused) return;
         transform.position += transform.up * (scrollSpeed * Time.fixedDeltaTime);
     }
 }

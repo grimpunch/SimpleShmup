@@ -20,6 +20,7 @@ public class AnimateShip : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (Utils.Paused) return;
         velocity = this.gameObject.GetComponent<PlayerMovement>().xAnim;
         if (velocity == 0) { 
             //Move Forward

@@ -21,6 +21,7 @@ public class LaserChargeHandler : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (Utils.Paused) return;
         if (Laser.active) {
             if (timeEnabled < timeToDischarge) { 
                 timeEnabled += Time.deltaTime;

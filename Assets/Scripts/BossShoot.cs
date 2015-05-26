@@ -11,6 +11,7 @@ public class BossShoot : MonoBehaviour {
     }
 
     void FixedUpdate() {
+        if (Utils.Paused) return;
         canShoot = gameObject.GetComponent<Animator>().GetBool("CanFire");
         if (!canShoot) {
             return;

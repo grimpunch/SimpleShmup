@@ -30,6 +30,7 @@ public class MoveDownSine : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
+        if (Utils.Paused) return;
         // Update degrees
         float degreesPerSecond = 360.0f / m_period;
         m_degrees = Mathf.Repeat(m_degrees + (Time.fixedDeltaTime * degreesPerSecond), 360.0f);

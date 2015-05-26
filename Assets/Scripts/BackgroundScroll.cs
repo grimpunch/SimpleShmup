@@ -14,6 +14,7 @@ public class BackgroundScroll : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (Utils.Paused) return;
         Vector2 newTextureOffset = GetComponent<Renderer>().material.mainTextureOffset;
         newTextureOffset.y += verticalScrollSpeed * Time.deltaTime; 
         if (player != null) {

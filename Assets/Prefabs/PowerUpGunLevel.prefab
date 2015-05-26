@@ -14,6 +14,7 @@ GameObject:
   - 114: {fileID: 11445080}
   - 114: {fileID: 11413984}
   - 114: {fileID: 11439344}
+  - 114: {fileID: 11495996}
   m_Layer: 12
   m_Name: PowerUpGunLevel
   m_TagString: Untagged
@@ -101,6 +102,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipUpgradeLevelIncreaseAmount: 1
+--- !u!114 &11495996
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c84d46166531b244c8985fdad95d69bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenBounds: {fileID: 0}
 --- !u!212 &21217586
 SpriteRenderer:
   m_ObjectHideFlags: 1
