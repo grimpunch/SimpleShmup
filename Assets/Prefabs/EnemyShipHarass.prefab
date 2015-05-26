@@ -18,6 +18,7 @@ GameObject:
   - 114: {fileID: 11409936}
   - 114: {fileID: 11481814}
   - 114: {fileID: 11499784}
+  - 114: {fileID: 11444796}
   m_Layer: 9
   m_Name: EnemyShipHarass
   m_TagString: Enemy
@@ -32,7 +33,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .337864935, y: 1.53794241, z: 0}
+  m_LocalPosition: {x: 0, y: 2.0999999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -106,6 +107,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystemPrefab: {fileID: 169284, guid: 5bebd31ac213b2c44bf626469cec562e, type: 2}
   powerUp: {fileID: 0}
+--- !u!114 &11444796
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b1bd16fd702af4ba178d4a9ccaa863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 5
+  target: {fileID: 0}
 --- !u!114 &11452468
 MonoBehaviour:
   m_ObjectHideFlags: 1

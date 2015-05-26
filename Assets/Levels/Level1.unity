@@ -747,6 +747,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &948266244 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 403154, guid: 0720c6adf2f342543b82e50aee46d907, type: 2}
+  m_PrefabInternal: {fileID: 797138468}
 --- !u!1001 &984055574
 Prefab:
   m_ObjectHideFlags: 0
@@ -1551,6 +1555,52 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: .25, y: .25}
+--- !u!1001 &1916785070
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 948266244}
+    m_Modifications:
+    - target: {fileID: 411344, guid: 8864620b95b632a4998b26df067d7673, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 411344, guid: 8864620b95b632a4998b26df067d7673, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 411344, guid: 8864620b95b632a4998b26df067d7673, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411344, guid: 8864620b95b632a4998b26df067d7673, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411344, guid: 8864620b95b632a4998b26df067d7673, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411344, guid: 8864620b95b632a4998b26df067d7673, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411344, guid: 8864620b95b632a4998b26df067d7673, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411344, guid: 8864620b95b632a4998b26df067d7673, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 196264, guid: 8864620b95b632a4998b26df067d7673, type: 2}
+      propertyPath: m_Name
+      value: SpawnHarassShipWave
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 8864620b95b632a4998b26df067d7673, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &1940032763 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402618, guid: a1d8cdae24d988144a819c7dacbf155c, type: 2}
