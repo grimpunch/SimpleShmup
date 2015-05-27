@@ -24,6 +24,6 @@ public class BossHandler : MonoBehaviour {
     }
 
     void OnDestroy() {
-        levelScroller.stopped = false;
+        if (levelScroller != null) levelScroller.stopped = false;
     }
 }

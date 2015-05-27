@@ -17,8 +17,8 @@ GameObject:
   - 114: {fileID: 11463342}
   - 114: {fileID: 11448426}
   - 114: {fileID: 11410678}
-  - 114: {fileID: 11420438}
   - 114: {fileID: 11492628}
+  - 114: {fileID: 11420438}
   m_Layer: 9
   m_Name: EnemyShipSine
   m_TagString: Enemy
@@ -88,12 +88,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171596}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4edcd74236888f4980dde07b78d8e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystemPrefab: {fileID: 169284, guid: 5bebd31ac213b2c44bf626469cec562e, type: 2}
+  powerUp: {fileID: 0}
 --- !u!114 &11420438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -105,8 +106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ae6ffff2a763e46a7ef1fd28423741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviour: {fileID: 11448426}
-  delay: 2
+  behaviours:
+  - {fileID: 11475596}
+  - {fileID: 11492628}
+  - {fileID: 11448426}
+  - {fileID: 11417892}
+  - {fileID: 11467764}
+  delay: 0
 --- !u!114 &11448426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,13 +128,14 @@ MonoBehaviour:
   shotDelay: .100000001
   burstDelay: 12
   burstAmount: 20
+  canShoot: 1
 --- !u!114 &11463342
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171596}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c84d46166531b244c8985fdad95d69bd, type: 3}
   m_Name: 
@@ -140,7 +147,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171596}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e57482030e965c4196dc9522c605e9e, type: 3}
   m_Name: 
@@ -153,7 +160,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171596}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e76686e43cdc1ec47af0c22e84fdade8, type: 3}
   m_Name: 
@@ -167,12 +174,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171596}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7203c9250cbf55940a75499f4ce76a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystemPrefab: {fileID: 115684, guid: 1585cda92cf7f3b4c96ca1b4e554922d, type: 2}
+  burnTime: 3
 --- !u!212 &21225314
 SpriteRenderer:
   m_ObjectHideFlags: 1
