@@ -408,7 +408,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 426744, guid: 15798d99a89055b4d9e9305c57a58ee6, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11475612, guid: 15798d99a89055b4d9e9305c57a58ee6, type: 2}
       propertyPath: spawnDelay
@@ -577,7 +577,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 403154, guid: 0720c6adf2f342543b82e50aee46d907, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11457088, guid: 0720c6adf2f342543b82e50aee46d907, type: 2}
       propertyPath: powerUpPrefab
@@ -1543,7 +1543,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493206, guid: e92bbca323187f5468d17bab5a4ddc9a, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11470906, guid: e92bbca323187f5468d17bab5a4ddc9a, type: 2}
       propertyPath: powerupDropped

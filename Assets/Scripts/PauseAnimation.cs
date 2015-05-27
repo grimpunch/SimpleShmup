@@ -10,6 +10,6 @@ public class PauseAnimation : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (!Utils.Paused) { gameObject.GetComponent<Animator>().StopPlayback(); } else { gameObject.GetComponent<Animator>().StartPlayback(); }
+        gameObject.GetComponent<Animator>().enabled = !Utils.Paused;
     }
 }
