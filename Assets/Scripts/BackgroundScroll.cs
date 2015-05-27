@@ -4,7 +4,7 @@ using System.Collections;
 public class BackgroundScroll : MonoBehaviour {
     public float verticalScrollSpeed = 1.0f;
     public float horizontalScrollMultiplier = 1.0f;
-
+    public bool stopped = false;
     private GameObject player;
 
     // Use this for initialization
@@ -16,7 +16,7 @@ public class BackgroundScroll : MonoBehaviour {
     void Update() {
         if (Utils.Paused) return;
         Vector2 newTextureOffset = GetComponent<Renderer>().material.mainTextureOffset;
-        newTextureOffset.y += verticalScrollSpeed * Time.deltaTime; 
+        if (!stopped) newTextureOffset.y += verticalScrollSpeed * Time.deltaTime; 
         if (player != null) {
             newTextureOffset.x = player.transform.position.x * horizontalScrollMultiplier;
         } else { 

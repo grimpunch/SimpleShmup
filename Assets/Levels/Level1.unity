@@ -301,7 +301,7 @@ RectTransform:
   - {fileID: 1145872154}
   - {fileID: 825050129}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -934,7 +934,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 845815761}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 30, z: 0}
+  m_LocalPosition: {x: 0, y: 40, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1768826139}
@@ -1275,6 +1275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   verticalScrollSpeed: 1
   horizontalScrollMultiplier: .449999988
+  stopped: 0
 --- !u!33 &1199938273
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1820,6 +1821,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: .25
+  stopped: 0
+  FadeSpeed: 1
+  backgrounds:
+  - {fileID: 1199938272}
+  - {fileID: 2119659830}
 --- !u!1 &1768826138
 GameObject:
   m_ObjectHideFlags: 0
@@ -2105,6 +2111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   verticalScrollSpeed: 1
   horizontalScrollMultiplier: .5
+  stopped: 0
 --- !u!4 &2119659831
 Transform:
   m_ObjectHideFlags: 0
