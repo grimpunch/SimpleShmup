@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerHitHandler : MonoBehaviour {
 
@@ -11,6 +12,9 @@ public class PlayerHitHandler : MonoBehaviour {
     private float timeUntilVulnerable = 0.0f;
     private bool vulnerable;
     public SpriteRenderer playerShipRenderer;
+    public SpriteRenderer turretLRenderer;
+    public SpriteRenderer turretRRenderer;
+    public SpriteRenderer turretCRenderer;
     public Color invulnerableColor;
 
     private LifeHandler lifeHandler;
@@ -38,6 +42,7 @@ public class PlayerHitHandler : MonoBehaviour {
         if (Utils.Paused) return;
         if (!vulnerable) {
             playerShipRenderer.color = invulnerableColor;
+
             timeUntilVulnerable += Time.fixedDeltaTime;
             if (timeUntilVulnerable >= invulnerabilityTimeOnSpawn){
                 vulnerable = true;
