@@ -127,6 +127,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11478600, guid: f9edefbc9d6121844970a9188ceeb328, type: 2}
+      propertyPath: behaviours.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 478770, guid: f9edefbc9d6121844970a9188ceeb328, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -159,6 +163,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5013202, guid: f9edefbc9d6121844970a9188ceeb328, type: 2}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11414540, guid: f9edefbc9d6121844970a9188ceeb328, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478600, guid: f9edefbc9d6121844970a9188ceeb328, type: 2}
+      propertyPath: behaviours.Array.data[5]
+      value: 
+      objectReference: {fileID: 2062195302}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9edefbc9d6121844970a9188ceeb328, type: 2}
   m_IsPrefabParent: 0
@@ -1832,6 +1848,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2052672400}
+--- !u!114 &2062195302 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11414540, guid: f9edefbc9d6121844970a9188ceeb328,
+    type: 2}
+  m_PrefabInternal: {fileID: 75449392}
+  m_Script: {fileID: 11500000, guid: c29291a02416f1048b5b3ffc9adc39c4, type: 3}
 --- !u!1 &2119659827
 GameObject:
   m_ObjectHideFlags: 0

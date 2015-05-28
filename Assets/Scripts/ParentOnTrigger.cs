@@ -11,10 +11,7 @@ public class ParentOnTrigger : MonoBehaviour {
     private Transform newParent;
 
     public void Start() {
-        newParent = GameObject.Find(name).transform;
-        if (target == null) {
-            target = transform;
-        }
+        
     }
 
     
@@ -23,6 +20,10 @@ public class ParentOnTrigger : MonoBehaviour {
     }
 
     void ParentNow() {
+        newParent = GameObject.Find(name).transform;
+        if (target == null) {
+            target = transform;
+        } 
         target.parent = newParent;
 
         if (setLocalPosition) {
