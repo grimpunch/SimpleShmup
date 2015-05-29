@@ -50,8 +50,10 @@ public class PatternBossShoot : MonoBehaviour {
         float currentShotAngle = angleBetweenRadialShots;
         for (int shotsFired = 0; shotsFired < shotsToFire; shotsFired++) {
             Shoot(transform.position, Quaternion.Euler(0f, 0f, currentShotAngle));
-            angleBetweenRadialShots += angleBetweenRadialShots;
+            currentShotAngle += angleBetweenRadialShots;
         }
+        readyForPattern = true;
+        canShoot = false;
     }
 
     void PinwheelPattern() {

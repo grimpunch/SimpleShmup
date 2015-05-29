@@ -653,7 +653,7 @@ MonoBehaviour:
   shotPrefab: {fileID: 173432, guid: bdda8bcd3798fac4a8937e33096c7c2c, type: 2}
   shotDelay: .200000003
   canShoot: 1
-  waitBetweenPatterns: .5
+  waitBetweenPatterns: .25
 --- !u!1 &825050128
 GameObject:
   m_ObjectHideFlags: 0
