@@ -508,6 +508,7 @@ GameObject:
   - 114: {fileID: 794656196}
   - 114: {fileID: 794656195}
   - 114: {fileID: 794656197}
+  - 114: {fileID: 794656198}
   - 114: {fileID: 794656194}
   m_Layer: 9
   m_Name: BossShip
@@ -597,6 +598,7 @@ MonoBehaviour:
   - {fileID: 794656195}
   - {fileID: 794656196}
   - {fileID: 794656197}
+  - {fileID: 794656198}
   delay: 0
 --- !u!114 &794656195
 MonoBehaviour:
@@ -624,6 +626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipHealth: 300
   scoreValue: 10000
+  flashTime: .349999994
 --- !u!114 &794656197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,6 +639,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelScroller: {fileID: 0}
+--- !u!114 &794656198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 794656189}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64bfb8df3e70fff44964fecc51c41b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotPrefab: {fileID: 173432, guid: bdda8bcd3798fac4a8937e33096c7c2c, type: 2}
+  shotDelay: .200000003
+  canShoot: 1
+  waitBetweenPatterns: .5
 --- !u!1 &825050128
 GameObject:
   m_ObjectHideFlags: 0

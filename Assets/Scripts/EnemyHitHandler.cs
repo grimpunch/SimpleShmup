@@ -9,11 +9,18 @@ public class EnemyHitHandler : MonoBehaviour {
     private ScreenBoundsHandler screenBounds;
     private ScoreHandler scoreHandler;
     public int scoreValue = 100;
+    private Color spriteColor;
+    public float flashTime = 0.5f;
+    private float toUnFlash;
+    private bool flashing = false;
+    private SpriteRenderer sprite;
 
     // Use this for initialization
     void Start() {
         screenBounds = GameObject.Find("ScreenBoundsHandler").GetComponent<ScreenBoundsHandler>();
         scoreHandler = GameObject.Find("Score").GetComponent<ScoreHandler>();
+        sprite = gameObject.GetComponent<SpriteRenderer>();
+        spriteColor = sprite.color;
     }
 
     void OnTriggerEnter2D(Collider2D col2d) {
@@ -21,6 +28,7 @@ public class EnemyHitHandler : MonoBehaviour {
         //if (transform.position.y > screenBounds.ScreenTop) { return; }
         if (col2d.gameObject.layer == PLAYERSHOTLAYER) {
             shipHealth -= 10;
+            Flash();
             col2d.gameObject.SendMessage("Gib");
         }
     }
@@ -30,7 +38,15 @@ public class EnemyHitHandler : MonoBehaviour {
         //if (transform.position.y > screenBounds.ScreenTop) { return; }
         if (col2d.gameObject.layer == PLAYERLASERLAYER) {
             shipHealth -= 1;
+            Flash();
             gameObject.SendMessage("Burn");
+        }
+    }
+
+    void Flash() {
+        if (!flashing) {
+            flashing = true;
+            toUnFlash = flashTime;
         }
     }
 
@@ -38,8 +54,19 @@ public class EnemyHitHandler : MonoBehaviour {
     void Update() {
         if (Utils.Paused) return;
         if (shipHealth <= 0) {
+            if (flashing) flashing = false;
             scoreHandler.AddScore(scoreValue);
             gameObject.SendMessage("Gib");
+        }
+        if (flashing) {
+            if (toUnFlash > 0f) {
+                sprite.color = Color.red;
+                toUnFlash -= Time.deltaTime;
+            } else { 
+                toUnFlash = 0f;
+                flashing = false;
+                sprite.color = spriteColor;
+            }
         }
     }
 }

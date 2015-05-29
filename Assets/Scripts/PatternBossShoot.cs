@@ -7,8 +7,19 @@ public class PatternBossShoot : MonoBehaviour {
     public float shotDelay = 0.2f;
     public bool canShoot = false;
     public enum ShotPattern { Radial , Pinwheel, Aimed, Rank};
-    private ShotPattern currentShotPattern = ShotPattern.Rank;
-    
+    private ShotPattern currentShotPattern = ShotPattern.Radial;
+    public float waitBetweenPatterns = 4f;
+    private float timeUntilNextPattern;
+    private bool readyForPattern = true;
+    private float angleBetweenRadialShots = 5f;
+
+
+    static T GetRandomEnum<T>() {
+        System.Array A = System.Enum.GetValues(typeof(T));
+        T V = (T)A.GetValue(UnityEngine.Random.Range(0, A.Length));
+        return V;
+    }
+
     // Going to define the shot patterns used in functions, then invoke them as needed and call 'Shoot' for the specified number of times and in the correct places
     //
     // Pattern Definitions:
@@ -18,37 +29,65 @@ public class PatternBossShoot : MonoBehaviour {
     // Rank - Line of shots perpendicular to the player, expanding outwards slightly at an angle from origin
 
     void Start() {
-
+        timeUntilNextPattern = waitBetweenPatterns;
     }
 
     //TODO: All below.
-    void RadialPattern() { 
-    
+    void AimedPattern() {
+        Debug.Log("Doing Aimed Pattern");
+        readyForPattern = true;
     }
 
-    void PinwheelPattern() { 
-    
+    void RankPattern() {
+        Debug.Log("Doing Rank Pattern");
+        readyForPattern = true;
     }
 
-    void AimedPattern() { 
-    
+    void RadialPattern() {
+        Debug.Log("Doing Radial Pattern");
+        readyForPattern = true;
+        int shotsToFire = Mathf.FloorToInt(360.0f / angleBetweenRadialShots);
+        float currentShotAngle = angleBetweenRadialShots;
+        for (int shotsFired = 0; shotsFired < shotsToFire; shotsFired++) {
+            Shoot(transform.position, Quaternion.Euler(0f, 0f, currentShotAngle));
+            angleBetweenRadialShots += angleBetweenRadialShots;
+        }
     }
 
-    void RankPattern() { 
-    
+    void PinwheelPattern() {
+        Debug.Log("Doing Pinwheel Pattern");
+        readyForPattern = true;
     }
-
 
     void FixedUpdate() {
         //This whole function requires changes for pattern implementation
         //Define switches for handling patterns here. use functions for implementation
         if (Utils.Paused) return;
-        canShoot = gameObject.GetComponent<Animator>().GetBool("CanFire");
+
+        if (readyForPattern && timeUntilNextPattern <= 0) {
+            timeUntilNextPattern = waitBetweenPatterns;
+            currentShotPattern = ShotPattern.Radial; //TODO REMOVE DEBUG  //GetRandomEnum<ShotPattern>();
+            readyForPattern = false;
+            canShoot = true;
+        } else { timeUntilNextPattern -= Time.deltaTime; }
+
         if (!canShoot) {
             return;
         }
-        if (!IsInvoking()) {
-            Invoke("Shoot", shotDelay);
+ 
+        switch (currentShotPattern) {
+            case ShotPattern.Aimed:
+                AimedPattern();
+                break;
+            case ShotPattern.Rank:
+                RankPattern();
+                break;
+            case ShotPattern.Radial:
+                RadialPattern();
+                break;
+            case ShotPattern.Pinwheel:
+                PinwheelPattern();
+                break;
         }
         ///////////////////////////////////
     }
