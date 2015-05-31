@@ -4,15 +4,21 @@ using System.Collections;
 public class PatternBossShoot : MonoBehaviour {
 
     public GameObject shotPrefab;
-    public float shotDelay = 0.2f;
+    public float shotDelay = 2.0f;
+    private float timeUntilNextShot;
     public bool canShoot = false;
     public enum ShotPattern { Radial , Pinwheel, Aimed, Rank};
     private ShotPattern currentShotPattern = ShotPattern.Radial;
     public float waitBetweenPatterns = 4f;
     private float timeUntilNextPattern;
     private bool readyForPattern = true;
-    private float angleBetweenRadialShots = 5f;
-
+    public float angleBetweenRadialShots = 5f;
+    
+    // Settings for Shot Patterns
+    public int radialShotsUntilChange = 10;
+    private int radialShotsLeft;
+    
+    ////////////////////////////
 
     static T GetRandomEnum<T>() {
         System.Array A = System.Enum.GetValues(typeof(T));
@@ -30,34 +36,47 @@ public class PatternBossShoot : MonoBehaviour {
 
     void Start() {
         timeUntilNextPattern = waitBetweenPatterns;
+        timeUntilNextShot = shotDelay;
+        radialShotsLeft = radialShotsUntilChange;
     }
 
     //TODO: All below.
     void AimedPattern() {
-        Debug.Log("Doing Aimed Pattern");
+        Debug.Log("Doing Aimed Pattern -- Not Implemented");
         readyForPattern = true;
     }
 
     void RankPattern() {
-        Debug.Log("Doing Rank Pattern");
+        Debug.Log("Doing Rank Pattern -- Not Implemented");
         readyForPattern = true;
     }
 
     void RadialPattern() {
         Debug.Log("Doing Radial Pattern");
+        if (radialShotsLeft > 0) {
+            if (timeUntilNextShot <= 0) RadialShot();
+            else { timeUntilNextShot -= Time.deltaTime; }
+            return;
+        }
         readyForPattern = true;
+        canShoot = false;
+        radialShotsLeft = radialShotsUntilChange;
+    }
+
+    private void RadialShot() {
         int shotsToFire = Mathf.FloorToInt(360.0f / angleBetweenRadialShots);
         float currentShotAngle = angleBetweenRadialShots;
         for (int shotsFired = 0; shotsFired < shotsToFire; shotsFired++) {
             Shoot(transform.position, Quaternion.Euler(0f, 0f, currentShotAngle));
             currentShotAngle += angleBetweenRadialShots;
         }
-        readyForPattern = true;
-        canShoot = false;
+        PlayShotSound();
+        timeUntilNextShot = shotDelay;
+        radialShotsLeft--;
     }
 
     void PinwheelPattern() {
-        Debug.Log("Doing Pinwheel Pattern");
+        Debug.Log("Doing Pinwheel Pattern -- Not Implemented");
         readyForPattern = true;
     }
 
@@ -66,12 +85,14 @@ public class PatternBossShoot : MonoBehaviour {
         //Define switches for handling patterns here. use functions for implementation
         if (Utils.Paused) return;
 
-        if (readyForPattern && timeUntilNextPattern <= 0) {
-            timeUntilNextPattern = waitBetweenPatterns;
-            currentShotPattern = ShotPattern.Radial; //TODO REMOVE DEBUG  //GetRandomEnum<ShotPattern>();
-            readyForPattern = false;
-            canShoot = true;
-        } else { timeUntilNextPattern -= Time.deltaTime; }
+        if (readyForPattern) {
+            if (timeUntilNextPattern <= 0) {
+                timeUntilNextPattern = waitBetweenPatterns;
+                currentShotPattern = ShotPattern.Radial; //TODO REMOVE DEBUG  //GetRandomEnum<ShotPattern>();
+                readyForPattern = false;
+                canShoot = true;
+            } else { timeUntilNextPattern -= Time.deltaTime; }
+        } 
 
         if (!canShoot) {
             return;
@@ -96,9 +117,8 @@ public class PatternBossShoot : MonoBehaviour {
 
     void PlayShotSound(){
     if (GetComponent<AudioSource>() != null) {
-            if (!GetComponent<AudioSource>().isPlaying) {
                 GetComponent<AudioSource>().Play();
-            }
+            
         }
     }
 

@@ -351,7 +351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &512938884
 AudioSource:
   m_ObjectHideFlags: 0
@@ -508,8 +508,10 @@ GameObject:
   - 114: {fileID: 794656196}
   - 114: {fileID: 794656195}
   - 114: {fileID: 794656197}
+  - 114: {fileID: 794656199}
   - 114: {fileID: 794656198}
   - 114: {fileID: 794656194}
+  - 82: {fileID: 794656200}
   m_Layer: 9
   m_Name: BossShip
   m_TagString: Enemy
@@ -599,6 +601,7 @@ MonoBehaviour:
   - {fileID: 794656196}
   - {fileID: 794656197}
   - {fileID: 794656198}
+  - {fileID: 794656199}
   delay: 0
 --- !u!114 &794656195
 MonoBehaviour:
@@ -624,7 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e57482030e965c4196dc9522c605e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipHealth: 300
+  shipHealth: 3000
   scoreValue: 10000
   flashTime: .349999994
 --- !u!114 &794656197
@@ -650,10 +653,94 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64bfb8df3e70fff44964fecc51c41b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotPrefab: {fileID: 173432, guid: bdda8bcd3798fac4a8937e33096c7c2c, type: 2}
-  shotDelay: .200000003
-  canShoot: 1
-  waitBetweenPatterns: .25
+  shotPrefab: {fileID: 173432, guid: 92e59a2f2c6ab224faff6bedd1f79479, type: 2}
+  shotDelay: .5
+  canShoot: 0
+  waitBetweenPatterns: 8
+  angleBetweenRadialShots: 7.5
+  radialShotsUntilChange: 10
+--- !u!114 &794656199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 794656189}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7203c9250cbf55940a75499f4ce76a95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystemPrefab: {fileID: 0}
+  burnTime: 3
+--- !u!82 &794656200
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 794656189}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 076c710a8e69a3644b9200ac7f6cdef1, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &825050128
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,6 +980,26 @@ Prefab:
     - target: {fileID: 2000000, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
       propertyPath: m_ClearFlags
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471968, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471968, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
+      propertyPath: colorBlending
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471968, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
+      propertyPath: useFixedResolution
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471968, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
+      propertyPath: fixedHeight
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471968, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
+      propertyPath: fixedWidth
+      value: 240
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
