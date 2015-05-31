@@ -12,23 +12,49 @@ public class LaserChargeHandler : MonoBehaviour {
     public GameObject Laser;
     public PlayerShoot playerShoot;
     private float timeEnabled = 0.0F;
-    public float timeToDischarge = 10.0F;  
+    public float timeToDischarge = 10.0F;
+    
+    //Animation of Laser Movement control variables
+    private const float maximumLaserLength = 6f;
+    private float currentLaserLength;
+    private float targetLaserLength;
+    private BoxCollider2D laserBoxCollider2D;
+    private LineRenderer laserLineRenderer;
+
+    //Relationship between laser collider offset and laser line renderer segment 2 length.
+    //
+    // collider offset Y = collider size Y / 2
+    // Line renderer size Y (Element 2) = collider size Y == distance to target
+
 
     // Use this for initialization
     void Start() {
         laserChargeSlider = GameObject.Find("LaserChargeSlider").GetComponent<Slider>();
+        
     }
 
     // Update is called once per frame
     void Update() {
         if (Utils.Paused) return;
         if (Laser.active) {
+            laserLineRenderer = GameObject.Find("Laser").GetComponent<LineRenderer>();
+            laserBoxCollider2D = GameObject.Find("Laser").GetComponent<BoxCollider2D>();
             if (timeEnabled < timeToDischarge) { 
                 timeEnabled += Time.deltaTime;
+                if (currentLaserLength < maximumLaserLength) 
+                {currentLaserLength = Mathf.Lerp(currentLaserLength,maximumLaserLength, Time.deltaTime);} 
+                else { currentLaserLength = maximumLaserLength; }
+                laserBoxCollider2D.offset = new Vector2(0, currentLaserLength/2);
+                laserBoxCollider2D.size = new Vector2(0.35f,currentLaserLength);
+                laserLineRenderer.SetPosition(2, new Vector3(0, currentLaserLength));
                 laserChargeSlider.value = (timeToDischarge * 10)-(timeEnabled*10);
             }
             if (timeEnabled >= timeToDischarge) { 
                 timeEnabled = 0.0F;
+                currentLaserLength = 0f;
+                laserBoxCollider2D.offset = new Vector2(0, 0);
+                laserBoxCollider2D.size = new Vector2(0.35f, 0);
+                laserLineRenderer.SetPosition(2, new Vector3(0, 0));
                 playerShoot.enabled = true;
                 Laser.active = false; 
             }

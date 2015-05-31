@@ -84,7 +84,7 @@ public class PatternBossShoot : MonoBehaviour {
         //This whole function requires changes for pattern implementation
         //Define switches for handling patterns here. use functions for implementation
         if (Utils.Paused) return;
-
+        
         if (readyForPattern) {
             if (timeUntilNextPattern <= 0) {
                 timeUntilNextPattern = waitBetweenPatterns;
