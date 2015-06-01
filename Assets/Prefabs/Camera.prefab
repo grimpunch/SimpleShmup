@@ -13,6 +13,7 @@ GameObject:
   - 92: {fileID: 9200000}
   - 81: {fileID: 8100000}
   - 114: {fileID: 11471968}
+  - 114: {fileID: 11488462}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -41,12 +42,12 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: .198077664, g: .360784322, b: .201703459, a: .0196078438}
+  m_BackGroundColor: {r: .948529422, g: .125540659, b: .125540659, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: .0107287169
     y: 0
-    width: 1
+    width: .978542566
     height: 1
   near clip plane: .300000012
   far clip plane: 1000
@@ -84,7 +85,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5d1df4ba1c262745a6cb895ca4903a1, type: 3}
   m_Name: 
@@ -94,6 +95,17 @@ MonoBehaviour:
   useFixedResolution: 1
   fixedHeight: 320
   fixedWidth: 240
+--- !u!114 &11488462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d0cfb72ebd87944189f282ba1bc4dff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
