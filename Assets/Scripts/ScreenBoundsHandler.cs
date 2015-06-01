@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[ExecuteInEditMode]
 public class ScreenBoundsHandler : MonoBehaviour {
     private float screenLeftSide;
     private float screenRightSide;
@@ -17,10 +18,10 @@ public class ScreenBoundsHandler : MonoBehaviour {
     }
 
     private void getScreenBounds() {
-        screenRightSide = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0.0F, 0.0F)).x;
-        screenLeftSide = Camera.main.ScreenToWorldPoint(new Vector3(0.0F, 0.0F, 0.0F)).x;
-        screenTopSide = Camera.main.ScreenToWorldPoint(new Vector3(0.0F, Screen.height, 0.0F)).y;
-        screenBottomSide = Camera.main.ScreenToWorldPoint(new Vector3(0.0F, 0.0F, 0.0F)).y;
+        screenRightSide = Camera.main.ViewportToWorldPoint(new Vector3(1f, 0f, 0F)).x;
+        screenLeftSide = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, 0F)).x;
+        screenTopSide = Camera.main.ViewportToWorldPoint(new Vector3(0f, 1f, 0f)).y;
+        screenBottomSide = Camera.main.ViewportToWorldPoint(new Vector3(0f,0f,0f)).y;
     }
 
     public float ScreenLeft {
@@ -44,4 +45,14 @@ public class ScreenBoundsHandler : MonoBehaviour {
         if (Utils.Paused) return;
         getScreenBounds();
     }
+
+    void OnDrawGizmos() {
+        Gizmos.color = Color.yellow;
+
+        Gizmos.DrawCube(Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, 0.0F)), Vector3.one);
+        Gizmos.DrawCube(Camera.main.ViewportToWorldPoint(new Vector3(0f, 1f, 0.0F)), Vector3.one);
+        Gizmos.DrawCube(Camera.main.ViewportToWorldPoint(new Vector3(1f, 0f, 0.0F)), Vector3.one);
+        Gizmos.DrawCube(Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, 0.0F)), Vector3.one);
+    }
+
 }
