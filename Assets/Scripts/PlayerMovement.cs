@@ -5,15 +5,18 @@ public class PlayerMovement : MonoBehaviour {
 
     private float xinput;
     private float yinput;
-    
+
     private float shipLeftSide;
     private float shipRightSide;
     private float shipTopSide;
     private float shipBottomSide;
 
+    private bool focusKeyDown;
+
     private ScreenBoundsHandler screenBounds;
 
     public float movementspeed = 1.0F;
+    public float focusmovementspeed = 0.6f;
     private GameObject ship;
 
     // Use this for initialization
@@ -22,7 +25,7 @@ public class PlayerMovement : MonoBehaviour {
         screenBounds = GameObject.Find("ScreenBoundsHandler").GetComponent<ScreenBoundsHandler>();
     }
 
-    public float xAnim{
+    public float xAnim {
         get { return xinput; }
     }
 
@@ -31,14 +34,19 @@ public class PlayerMovement : MonoBehaviour {
         if (Utils.Paused) return;
         xinput = Input.GetAxis("Horizontal");
         yinput = Input.GetAxis("Vertical");
+        focusKeyDown = Input.GetButton("Fire2");
+
         shipLeftSide = ship.transform.position.x - (ship.GetComponent<Renderer>().bounds.size.x * 0.5F);
         shipRightSide = ship.transform.position.x + (ship.GetComponent<Renderer>().bounds.size.x * 0.5F);
         shipTopSide = ship.transform.position.y + (ship.GetComponent<Renderer>().bounds.size.y * 0.5F);
         shipBottomSide = ship.transform.position.y - (ship.GetComponent<Renderer>().bounds.size.y * 0.5F);
 
-        Vector3 velocity = new Vector3(xinput * (Time.fixedDeltaTime * movementspeed), yinput * (Time.fixedDeltaTime * movementspeed), 0.0F);
+        float m_speed = movementspeed;
+        if (focusKeyDown) { m_speed = focusmovementspeed; Debug.Log("Focus held down"); }
 
-        velocity = Vector3.ClampMagnitude(velocity, movementspeed * Time.fixedDeltaTime);
+        Vector3 velocity = new Vector3(xinput * (Time.fixedDeltaTime * m_speed), yinput * (Time.fixedDeltaTime * m_speed), 0.0F);
+
+        velocity = Vector3.ClampMagnitude(velocity, m_speed * Time.fixedDeltaTime);
 
         if (shipLeftSide < screenBounds.ScreenLeft) { /* Ship hugging left side */
             if (velocity.x < 0.0F) {

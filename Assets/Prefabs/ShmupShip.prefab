@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToFullCharge: 100
-  rateMultiplier: 800
+  rateMultiplier: 8
   Laser: {fileID: 181490}
   playerShoot: {fileID: 11427020}
   timeToDischarge: 10
