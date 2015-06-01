@@ -16,8 +16,10 @@ public class LaserChargeHandler : MonoBehaviour {
     
     //Animation of Laser Movement control variables
     private const float maximumLaserLength = 6f;
+    private const float maximumLaserWidth = 0.35f;
     private float currentLaserLength;
     private float targetLaserLength;
+    private float currentLaserWidth;
     private BoxCollider2D laserBoxCollider2D;
     private LineRenderer laserLineRenderer;
 
@@ -44,16 +46,23 @@ public class LaserChargeHandler : MonoBehaviour {
                 if (currentLaserLength < maximumLaserLength) 
                 {currentLaserLength = Mathf.Lerp(currentLaserLength,maximumLaserLength, Time.deltaTime);} 
                 else { currentLaserLength = maximumLaserLength; }
+                if (currentLaserWidth < maximumLaserWidth) 
+                { currentLaserWidth = Mathf.Lerp(currentLaserWidth, maximumLaserWidth, Time.deltaTime); } 
+                else { currentLaserWidth = maximumLaserWidth; }
                 laserBoxCollider2D.offset = new Vector2(0, currentLaserLength/2);
-                laserBoxCollider2D.size = new Vector2(0.35f,currentLaserLength);
+                laserBoxCollider2D.size = new Vector2(currentLaserWidth, currentLaserLength);
                 laserLineRenderer.SetPosition(2, new Vector3(0, currentLaserLength));
+                if (currentLaserWidth >= maximumLaserWidth - 0.5f) {
+                    laserLineRenderer.SetWidth(Random.Range(0.20f, 0.35f), Random.Range(0.30f, 0.35f));
+                } else { laserLineRenderer.SetWidth(currentLaserWidth, currentLaserWidth); }
                 laserChargeSlider.value = (timeToDischarge * 10)-(timeEnabled*10);
             }
             if (timeEnabled >= timeToDischarge) { 
                 timeEnabled = 0.0F;
                 currentLaserLength = 0f;
+                currentLaserWidth = 0f;
                 laserBoxCollider2D.offset = new Vector2(0, 0);
-                laserBoxCollider2D.size = new Vector2(0.35f, 0);
+                laserBoxCollider2D.size = new Vector2(currentLaserWidth, 0);
                 laserLineRenderer.SetPosition(2, new Vector3(0, 0));
                 playerShoot.enabled = true;
                 Laser.active = false; 

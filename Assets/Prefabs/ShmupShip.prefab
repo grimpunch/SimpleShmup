@@ -131,7 +131,6 @@ GameObject:
   - 50: {fileID: 5062512}
   - 61: {fileID: 6107590}
   - 120: {fileID: 12077640}
-  - 95: {fileID: 9591910}
   m_Layer: 14
   m_Name: Laser
   m_TagString: Untagged
@@ -367,23 +366,6 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!95 &9591910
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181490}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7a1decd855b993341895bf9b7aac5990, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -442,7 +424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToFullCharge: 100
-  rateMultiplier: 8
+  rateMultiplier: 800
   Laser: {fileID: 181490}
   playerShoot: {fileID: 11427020}
   timeToDischarge: 10
