@@ -5,7 +5,11 @@ using System.Collections;
 public static class Utils {
     public static bool Paused = false;
 
-    
+    internal static Quaternion RotationToTarget(Transform self, Transform target) {
+        Vector3 vectorToTarget = target.position - self.position;
+        float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg + 90);
+        return Quaternion.AngleAxis(angle, Vector3.forward.normalized);
+    }
 }
 
 

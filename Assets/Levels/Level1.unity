@@ -712,11 +712,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64bfb8df3e70fff44964fecc51c41b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotPrefab: {fileID: 173432, guid: 92e59a2f2c6ab224faff6bedd1f79479, type: 2}
-  shotDelay: .5
-  canShoot: 0
-  waitBetweenPatterns: 8
+  aimedShotPrefab: {fileID: 182370, guid: bf11e274a8950b14aaf0adcc767492d8, type: 2}
+  rankShotPrefab: {fileID: 0}
+  radialShotPrefab: {fileID: 173432, guid: 92e59a2f2c6ab224faff6bedd1f79479, type: 2}
+  pinWheelShotPrefab: {fileID: 0}
+  aimedShotDelay: .100000001
+  rankShotDelay: 2
+  radialShotDelay: 2
+  pinWheelShotDelay: 2
+  canShoot: 1
+  waitBetweenPatterns: 4
   angleBetweenRadialShots: 7.5
+  aimedShotsUntilChange: 6
   radialShotsUntilChange: 10
 --- !u!114 &794656199
 MonoBehaviour:
@@ -1034,15 +1041,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
       propertyPath: m_NormalizedViewPortRect.x
-      value: .0163012743
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
       propertyPath: m_NormalizedViewPortRect.width
-      value: .967397451
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11471968, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: .00198677182
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: .996026456
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
