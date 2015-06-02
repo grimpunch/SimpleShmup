@@ -28,7 +28,7 @@ public class EnemyShot : MonoBehaviour {
             Debug.Log("Destroying offscreen left right bullet");
             Destroy(this.gameObject);
         }
-        if (shot.transform.position.y > screenBounds.ScreenBottom - 0.1F || shot.transform.position.y < screenBounds.ScreenBottom + 0.1F) {
+        if (shot.transform.position.y > screenBounds.ScreenBottom - 0.1F || shot.transform.position.y < screenBounds.ScreenTop + 0.1F) {
             this.transform.position += transform.up * (shotSpeed * Time.fixedDeltaTime);
         } else {
             Destroy(this.gameObject);
