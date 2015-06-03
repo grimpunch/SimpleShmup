@@ -83,11 +83,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29291a02416f1048b5b3ffc9adc39c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: GamePlayArea
+  nameOfObjectToParentTo: EnemyShotObjectPool
   target: {fileID: 478664}
   delay: 0
   setLocalPosition: 0
   localPosition: {x: 0, y: 0, z: 0}
+  newParent: {fileID: 0}
 --- !u!212 &21215870
 SpriteRenderer:
   m_ObjectHideFlags: 1

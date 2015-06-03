@@ -31,7 +31,7 @@ public class PlayerHitHandler : MonoBehaviour {
         if (col2d.gameObject.layer == ENEMYLAYER || col2d.gameObject.layer == ENEMYSHOTLAYER || col2d.gameObject.layer == COLLIDABLELAYER) {
             shipHealth -= 1;
             if (col2d.gameObject.layer == ENEMYSHOTLAYER) {
-                Destroy(col2d.gameObject);
+                col2d.gameObject.SetActive(false);
             }
         }
     }

@@ -17,7 +17,7 @@ public class EnemyShot : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col2d) {
         if (col2d.gameObject.layer == PLAYERLASERLAYER) {
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
     }
 
@@ -27,12 +27,12 @@ public class EnemyShot : MonoBehaviour {
         if (shot.transform.position.x > screenBounds.ScreenRight + 0.2F || shot.transform.position.x < screenBounds.ScreenLeft - 0.2F
             || shot.transform.position.y < screenBounds.ScreenBottom - 0.1F || shot.transform.position.y > screenBounds.ScreenTop + 0.1F) {
             Debug.Log("Destroying offscreen left right bullet");
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
         if (shot.transform.position.y > screenBounds.ScreenBottom - 0.1F || shot.transform.position.y < screenBounds.ScreenTop + 0.1F) {
             this.transform.position += transform.up * (shotSpeed * Time.fixedDeltaTime);
         } else {
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
         
     }

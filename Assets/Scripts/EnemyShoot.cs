@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class EnemyShoot : MonoBehaviour {
-    public GameObject shotPrefab;
+    public string shotPool;
+    private ObjectPoolScript enemyShotObjectPoolScript;
     public float shotDelay = 0.2f;
     private float timeToShot = 0.0f;
     public float burstDelay = 6.0f;
@@ -11,7 +12,7 @@ public class EnemyShoot : MonoBehaviour {
     private int burstShots;
     public bool canShoot = true;
     void Start() {
-
+        enemyShotObjectPoolScript = GameObject.Find(shotPool).GetComponent<ObjectPoolScript>();
     }
 
     void FixedUpdate() {
@@ -43,8 +44,10 @@ public class EnemyShoot : MonoBehaviour {
                 GetComponent<AudioSource>().Play();
             }
         }
-        GameObject shotGO = (GameObject)Instantiate(shotPrefab, transform.position, transform.rotation);
-        shotGO.name = gameObject.name + "ShotInstance";
+        GameObject shotGO = enemyShotObjectPoolScript.GetPooledObject();
+        shotGO.transform.position = transform.position;
+        shotGO.transform.rotation = transform.rotation;
+        shotGO.SetActive(true);
         burstShots++;
     }
 }

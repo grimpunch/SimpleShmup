@@ -77,11 +77,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29291a02416f1048b5b3ffc9adc39c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: GamePlayArea
+  nameOfObjectToParentTo: GamePlayArea
   target: {fileID: 0}
   delay: 0
   setLocalPosition: 0
   localPosition: {x: 0, y: 0, z: 0}
+  newParent: {fileID: 0}
 --- !u!114 &11414730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a4b0ef69724d34ab27fba65038ec11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotPrefab: {fileID: 173432, guid: 92e59a2f2c6ab224faff6bedd1f79479, type: 2}
+  shotPool: EnemyShotObjectPool
   shotDelay: .5
   burstDelay: 6
   burstAmount: 10
@@ -179,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipHealth: 50
   scoreValue: 100
+  flashTime: .5
 --- !u!212 &21262396
 SpriteRenderer:
   m_ObjectHideFlags: 1
