@@ -16,7 +16,7 @@ public class PatternBossShoot : MonoBehaviour {
     private float timeUntilNextShot;
     public bool canShoot = false;
     public enum ShotPattern { Radial , Pinwheel, Aimed, Rank};
-    private ShotPattern currentShotPattern = ShotPattern.Aimed;
+    private ShotPattern currentShotPattern = ShotPattern.Radial;
     public float waitBetweenPatterns = 4f;
     private float timeUntilNextPattern;
     private bool readyForPattern = true;
@@ -121,7 +121,7 @@ public class PatternBossShoot : MonoBehaviour {
         if (readyForPattern) {
             if (timeUntilNextPattern <= 0) {
                 timeUntilNextPattern = waitBetweenPatterns;
-                currentShotPattern = ShotPattern.Aimed; // TODO REMOVE DEBUG GetRandomEnum<ShotPattern>();
+                currentShotPattern = GetRandomEnum<ShotPattern>();
                 readyForPattern = false;
                 canShoot = true;
             } else { timeUntilNextPattern -= Time.deltaTime; }
