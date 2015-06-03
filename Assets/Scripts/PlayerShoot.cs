@@ -3,7 +3,6 @@ using System.Collections;
 
 public class PlayerShoot : MonoBehaviour {
 
-    public GameObject shotPrefab;
     public GameObject turretLeft;
     public GameObject turretRight;
     private bool fireLeft = true;
@@ -11,6 +10,7 @@ public class PlayerShoot : MonoBehaviour {
     private bool readyToFire;
     private Vector3 shotPosition;
     private Quaternion shotRotation;
+    private ObjectPoolScript playerShotObjectPool;
     //public Vector3 shotOffset = new Vector3(0, 0.5f, 0);
     int shotLayer;
 
@@ -19,7 +19,7 @@ public class PlayerShoot : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        
+        playerShotObjectPool = GameObject.Find("PlayerShotObjectPool").GetComponent<ObjectPoolScript>();
     }
 
     // Update is called once per frame
@@ -30,8 +30,11 @@ public class PlayerShoot : MonoBehaviour {
         if (Input.GetButton("Fire1") && cooldownTimer <= 0) {
             // SHOOT!
             cooldownTimer = fireDelay;
-            GameObject shotCenter = (GameObject)Instantiate(shotPrefab, transform.position, transform.rotation);
-            shotCenter.name = "PlayerShotInstance";
+            GameObject shotCenter = playerShotObjectPool.GetPooledObject();
+            if (shotCenter == null) return;
+            shotCenter.SetActive(true);
+            shotCenter.transform.position = transform.position;
+            shotCenter.transform.rotation = transform.rotation;
             if (GetComponent<AudioSource>() != null) {
                 if (!GetComponent<AudioSource>().isPlaying) {
                     GetComponent<AudioSource>().Play();
@@ -49,18 +52,27 @@ public class PlayerShoot : MonoBehaviour {
                     fireLeft = true;
                 }
 
-                GameObject shotSide = (GameObject)Instantiate(shotPrefab, shotPosition, shotRotation);
-                shotSide.name = "PlayerShotInstance";
+                GameObject shotSide = playerShotObjectPool.GetPooledObject();
+                if (shotSide == null) return;
+                shotSide.SetActive(true);
+                shotSide.transform.position = shotPosition;
+                shotSide.transform.rotation = shotRotation;
             }
             if (upgradeLevel == 2) {
                     shotPosition = turretLeft.transform.position;
                     shotRotation = turretLeft.transform.rotation;
-                    GameObject shotLeft = (GameObject)Instantiate(shotPrefab, shotPosition, shotRotation);
-                    shotLeft.name = "PlayerShotInstance";
+                    GameObject shotLeft = playerShotObjectPool.GetPooledObject();
+                    if (shotLeft == null) return;
+                    shotLeft.SetActive(true);
+                    shotLeft.transform.position = shotPosition;
+                    shotLeft.transform.rotation = shotRotation;
                     shotPosition = turretRight.transform.position;
                     shotRotation = turretRight.transform.rotation;
-                    GameObject shotRight = (GameObject)Instantiate(shotPrefab, shotPosition, shotRotation);
-                    shotRight.name = "PlayerShotInstance";
+                    GameObject shotRight = playerShotObjectPool.GetPooledObject();
+                    if (shotRight == null) return;
+                    shotRight.SetActive(true);
+                    shotRight.transform.position = shotPosition;
+                    shotRight.transform.rotation = shotRotation;
             }
             if (upgradeLevel > 2) { upgradeLevel = 2; }
         }

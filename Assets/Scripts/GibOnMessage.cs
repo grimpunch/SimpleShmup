@@ -21,6 +21,6 @@ public class GibOnMessage : MonoBehaviour {
             particleSystem.name = gameObject.name + "DeathParticleSystemInstance";
         }
         if (powerUp) { GameObject GO = (GameObject)Instantiate(powerUp, transform.position, Quaternion.identity); }
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

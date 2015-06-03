@@ -2,13 +2,13 @@
 using System.Collections;
 
 public class ParentOnTrigger : MonoBehaviour {
-    public string name = "GamePlayArea";
+    public string nameOfObjectToParentTo = "GamePlayArea";
     public Transform target;
     public float delay = 0.0f;
     public bool setLocalPosition = false;
     public Vector3 localPosition = Vector3.zero;
 
-    private Transform newParent;
+    public Transform newParent;
 
     public void Start() {
         
@@ -20,7 +20,7 @@ public class ParentOnTrigger : MonoBehaviour {
     }
 
     void ParentNow() {
-        newParent = GameObject.Find(name).transform;
+        if (!newParent) newParent = GameObject.Find(nameOfObjectToParentTo).transform; 
         if (target == null) {
             target = transform;
         } 

@@ -18,10 +18,8 @@ public class PlayerShot : MonoBehaviour {
         if (Utils.Paused) return;
         if (shot.transform.position.y < screenBounds.ScreenTop - 0.1F) {
             this.transform.position += transform.up * (shotSpeed * Time.fixedDeltaTime);
-            //this.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + 0.1F, transform.localScale.z);
-            //shotSpeed += 0.1F * Time.fixedDeltaTime;
         } else {
-            Destroy(this.gameObject);
+            shot.SetActive(false);
         }
     }
 }
