@@ -214,7 +214,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114022}
   m_LocalRotation: {x: 0, y: 0, z: -.0218148902, w: .999762058}
-  m_LocalPosition: {x: .0260000005, y: .0469999984, z: 0}
+  m_LocalPosition: {x: .0260000005, y: -.00240000011, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 433104}
@@ -227,7 +227,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .0759999976, z: 0}
+  m_LocalPosition: {x: 0, y: .0265999995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 480386}
@@ -252,7 +252,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105864}
   m_LocalRotation: {x: 0, y: 0, z: .0218148902, w: .999762058}
-  m_LocalPosition: {x: -.0260000005, y: .0469999984, z: 0}
+  m_LocalPosition: {x: -.0260000005, y: -.00240000011, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 417382}
@@ -453,7 +453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToFullCharge: 100
-  rateMultiplier: 8
+  rateMultiplier: 2
   Laser: {fileID: 181490}
   playerShoot: {fileID: 11427020}
   timeToDischarge: 10

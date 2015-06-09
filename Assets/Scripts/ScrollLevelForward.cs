@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ScrollLevelForward : MonoBehaviour {
 
-    public float scrollSpeed = 2.0F;
+    public float scrollSpeed = 0.25F;
     private float movingSpeed;
     public bool stopped;
     public float FadeSpeed = 1.0f;

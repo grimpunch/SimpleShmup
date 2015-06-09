@@ -12,7 +12,7 @@ public class ScriptedOpening : MonoBehaviour {
     private float timeAlive;
     // Use this for initialization
     void Start() {
-    
+        playerMoveScript.enabled = false;
     }
 
     void Update() {
@@ -21,8 +21,8 @@ public class ScriptedOpening : MonoBehaviour {
         timeAlive += Time.deltaTime;
         if (timeAlive > timeToExplode) EnableExplode();
         if (timeAlive > timeToStartScroll) EnableScroll();
-        if (timeAlive > timeToAllowMove) EnableMove();
-        if (timeAlive > 20f) DestroyThis();
+        if (timeAlive > timeToAllowMove && playerMoveScript != null) EnableMove();
+        if (timeAlive > (timeToAllowMove + timeToStartScroll + timeToExplode+0.1f)) DestroyThis();
     }
     void EnableExplode() { explosion.SetActive(true); }
 
