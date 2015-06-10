@@ -16,17 +16,21 @@ public class PatternBossShoot : MonoBehaviour {
     private float timeUntilNextShot;
     public bool canShoot = false;
     public enum ShotPattern { Radial , Pinwheel, Aimed, Rank};
-    private ShotPattern currentShotPattern = ShotPattern.Radial;
+    private ShotPattern currentShotPattern = ShotPattern.Rank;
     public float waitBetweenPatterns = 4f;
     private float timeUntilNextPattern;
     private bool readyForPattern = true;
     public float angleBetweenRadialShots = 5f;
+    public float angleBetweenRankShots = 3f;
     private Quaternion aimedShotAngle;
+    private Quaternion rankShotAngle;
     // Settings for Shot Patterns
     public int aimedShotsUntilChange = 6;
     private int aimedShotsLeft;
     public int radialShotsUntilChange = 10;
     private int radialShotsLeft;
+    public int rankShotsUntilChange = 4;
+    private int rankShotsLeft;
 
     ////////////////////////////
 
@@ -46,7 +50,9 @@ public class PatternBossShoot : MonoBehaviour {
 
     void Start() {
         timeUntilNextPattern = waitBetweenPatterns;
+        aimedShotsLeft = aimedShotsUntilChange;
         radialShotsLeft = radialShotsUntilChange;
+        rankShotsLeft = rankShotsUntilChange;
     }
 
     //TODO: All below.
@@ -77,9 +83,33 @@ public class PatternBossShoot : MonoBehaviour {
     }
 
     void RankPattern() {
-        Debug.Log("Doing Rank Pattern -- Not Implemented");
+        Debug.Log("Doing Rank Pattern");
         shotPrefab = rankShotPrefab;
+        if (playerTransform == null) {
+            try {
+                playerTransform = GameObject.FindWithTag("Player").transform;
+            } catch { return; }
+        }
+        rankShotAngle = Utils.RotationToTarget(transform, playerTransform);
+        if (rankShotsLeft > 0) {
+            if (timeUntilNextShot <= 0) RankShot();
+            else { timeUntilNextShot -= Time.deltaTime; }
+            return;
+        }
         readyForPattern = true;
+        canShoot = false;
+        rankShotsLeft = rankShotsUntilChange;
+    }
+    
+    void RankShot() {
+        Shoot(transform.position, rankShotAngle);
+        Shoot(transform.position, Quaternion.Euler(new Vector3(rankShotAngle.eulerAngles.x,rankShotAngle.eulerAngles.y,rankShotAngle.eulerAngles.z+angleBetweenRankShots)));
+        Shoot(transform.position, Quaternion.Euler(new Vector3(rankShotAngle.eulerAngles.x, rankShotAngle.eulerAngles.y, rankShotAngle.eulerAngles.z + angleBetweenRankShots*2)));
+        Shoot(transform.position, Quaternion.Euler(new Vector3(rankShotAngle.eulerAngles.x, rankShotAngle.eulerAngles.y, rankShotAngle.eulerAngles.z - angleBetweenRankShots)));
+        Shoot(transform.position, Quaternion.Euler(new Vector3(rankShotAngle.eulerAngles.x, rankShotAngle.eulerAngles.y, rankShotAngle.eulerAngles.z - angleBetweenRankShots * 2)));
+        PlayShotSound();
+        timeUntilNextShot = rankShotDelay;
+        rankShotsLeft--;
     }
 
     void RadialPattern() {

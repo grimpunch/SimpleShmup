@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ScriptedOpening : MonoBehaviour {
 
-    public GameObject explosion;
+    public GameObject[] explosions;
     public PlayerMovement playerMoveScript;
     public ScrollLevelForward scrollScript;
     public float timeToExplode = 3.0f;
@@ -24,7 +24,12 @@ public class ScriptedOpening : MonoBehaviour {
         if (timeAlive > timeToAllowMove && playerMoveScript != null) EnableMove();
         if (timeAlive > (timeToAllowMove + timeToStartScroll + timeToExplode+0.1f)) DestroyThis();
     }
-    void EnableExplode() { explosion.SetActive(true); }
+    void EnableExplode() { 
+        foreach(GameObject explosion in explosions)
+        {
+            explosion.SetActive(true);
+        } 
+    }
 
     void EnableScroll() { scrollScript.stopped = false; }
 
