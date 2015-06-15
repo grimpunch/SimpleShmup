@@ -16,7 +16,7 @@ public class PatternBossShoot : MonoBehaviour {
     private float timeUntilNextShot;
     public bool canShoot = false;
     public enum ShotPattern { Radial , Pinwheel, Aimed, Rank};
-    private ShotPattern currentShotPattern = ShotPattern.Rank;
+    private ShotPattern currentShotPattern = ShotPattern.Radial;
     public float waitBetweenPatterns = 4f;
     private float timeUntilNextPattern;
     private bool readyForPattern = true;
@@ -103,7 +103,7 @@ public class PatternBossShoot : MonoBehaviour {
     
     void RankShot() {
         Shoot(transform.position, rankShotAngle);
-        Shoot(transform.position, Quaternion.Euler(new Vector3(rankShotAngle.eulerAngles.x,rankShotAngle.eulerAngles.y,rankShotAngle.eulerAngles.z+angleBetweenRankShots)));
+        Shoot(transform.position, Quaternion.Euler(new Vector3(rankShotAngle.eulerAngles.x, rankShotAngle.eulerAngles.y, rankShotAngle.eulerAngles.z + angleBetweenRankShots)));
         Shoot(transform.position, Quaternion.Euler(new Vector3(rankShotAngle.eulerAngles.x, rankShotAngle.eulerAngles.y, rankShotAngle.eulerAngles.z + angleBetweenRankShots*2)));
         Shoot(transform.position, Quaternion.Euler(new Vector3(rankShotAngle.eulerAngles.x, rankShotAngle.eulerAngles.y, rankShotAngle.eulerAngles.z - angleBetweenRankShots)));
         Shoot(transform.position, Quaternion.Euler(new Vector3(rankShotAngle.eulerAngles.x, rankShotAngle.eulerAngles.y, rankShotAngle.eulerAngles.z - angleBetweenRankShots * 2)));
@@ -127,7 +127,7 @@ public class PatternBossShoot : MonoBehaviour {
 
     private void RadialShot() {
         int shotsToFire = Mathf.FloorToInt(360.0f / angleBetweenRadialShots);
-        float currentShotAngle = angleBetweenRadialShots;
+        float currentShotAngle = Random.Range(0f,angleBetweenRadialShots);
         for (int shotsFired = 0; shotsFired < shotsToFire; shotsFired++) {
             Shoot(transform.position, Quaternion.Euler(0f, 0f, currentShotAngle));
             currentShotAngle += angleBetweenRadialShots;
