@@ -17,15 +17,16 @@ public class PlayerShotHandler : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         shots = gameObject.GetComponent<ObjectPoolScript>().pooledObjects;
+        if (Utils.Paused) return;
         foreach (GameObject shot in shots){
-        MoveShot(shot);
+        if (shot.active) MoveShot(shot);
         }
     }
 
     void MoveShot(GameObject shot) {
-        if (Utils.Paused) return;
+        
         if (shot.transform.position.y < screenBounds.ScreenTop - 0.1F) {
-            this.transform.position += transform.up * (shotSpeed * Time.fixedDeltaTime);
+            shot.transform.position += shot.transform.up * (shotSpeed * Time.fixedDeltaTime);
         } else {
             shot.SetActive(false);
         }
