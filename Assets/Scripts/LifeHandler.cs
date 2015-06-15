@@ -4,8 +4,7 @@ using System.Collections;
 
 public class LifeHandler : MonoBehaviour {
 
-    public GameObject playerPrefab;
-    private bool spawnInvoked = false;
+    public GameObject playerShip;
     private bool alive = true;
     private bool gameStarted;
     public int startLives;
@@ -40,13 +39,12 @@ public class LifeHandler : MonoBehaviour {
     }
 
     void Spawn() {
-        GameObject spawnGO = (GameObject)Instantiate(playerPrefab, transform.position, transform.rotation);
-        spawnGO.name = playerPrefab.name;
-        spawnGO.transform.parent = transform.parent;
-        alive = true;
+        playerShip.SetActive(true);
+        playerShip.transform.localPosition = new Vector3(0f, -1f, 0f);
+        alive = true;;
         livesleft--;
+        timeToSpawn = 0;
         SetLifeCounterText(livesleft);
-        spawnInvoked = false;
     }
 
     void GameOver() {
@@ -59,9 +57,9 @@ public class LifeHandler : MonoBehaviour {
         if (!alive) { 
             // Player has been destroyed
             if (livesleft > 0) {
-                if (!spawnInvoked){
-                    Invoke("Spawn", respawnDelay);
-                    spawnInvoked = true;
+                timeToSpawn += Time.deltaTime;
+                if (timeToSpawn > respawnDelay){
+                    Spawn();
                 }
                 return;
             } else {

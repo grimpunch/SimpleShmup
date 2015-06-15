@@ -120,6 +120,10 @@ RectTransform:
   m_AnchoredPosition: {x: 5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: .5, y: .5}
+--- !u!1 &45943792 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
+  m_PrefabInternal: {fileID: 345658244}
 --- !u!1001 &75449392
 Prefab:
   m_ObjectHideFlags: 0
@@ -856,12 +860,12 @@ MonoBehaviour:
   rankShotPrefab: {fileID: 173432, guid: 92e59a2f2c6ab224faff6bedd1f79479, type: 2}
   radialShotPrefab: {fileID: 173432, guid: 92e59a2f2c6ab224faff6bedd1f79479, type: 2}
   pinWheelShotPrefab: {fileID: 0}
-  aimedShotDelay: .100000001
+  aimedShotDelay: .150000006
   rankShotDelay: .5
-  radialShotDelay: .25
-  pinWheelShotDelay: 2
+  radialShotDelay: .300000012
+  pinWheelShotDelay: .100000001
   canShoot: 0
-  waitBetweenPatterns: .5
+  waitBetweenPatterns: 1
   angleBetweenRadialShots: 7.5
   angleBetweenRankShots: 3
   aimedShotsUntilChange: 6
@@ -1577,7 +1581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d712261e061128e45b3ffe3dc1c52841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 100000, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
+  playerShip: {fileID: 45943792}
   startLives: 100
   respawnDelay: 2
 --- !u!114 &1219222756

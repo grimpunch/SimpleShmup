@@ -15,7 +15,7 @@ public class PlayerHitHandler : MonoBehaviour {
     public SpriteRenderer turretLRenderer;
     public SpriteRenderer turretRRenderer;
     public SpriteRenderer turretCRenderer;
-    public Color invulnerableColor;
+    public HSLColor invulnerableColor;
 
     private LifeHandler lifeHandler;
 
@@ -23,6 +23,14 @@ public class PlayerHitHandler : MonoBehaviour {
     void Start() {
         lifeHandler = GameObject.Find("GameManager").GetComponent<LifeHandler>();
         playerShipRenderer = gameObject.GetComponent<SpriteRenderer>();
+        vulnerable = true;
+        invulnerableColor = new HSLColor(Color.red);
+    }
+
+    void OnEnable() { 
+        vulnerable = false;
+        shipHealth = 1;
+        timeUntilVulnerable = 0f;
     }
 
     void OnTriggerEnter2D(Collider2D col2d) {
@@ -41,8 +49,9 @@ public class PlayerHitHandler : MonoBehaviour {
     void Update() {
         if (Utils.Paused) return;
         if (!vulnerable) {
+            invulnerableColor.h+=10;
             playerShipRenderer.color = invulnerableColor;
-
+            
             timeUntilVulnerable += Time.fixedDeltaTime;
             if (timeUntilVulnerable >= invulnerabilityTimeOnSpawn){
                 vulnerable = true;

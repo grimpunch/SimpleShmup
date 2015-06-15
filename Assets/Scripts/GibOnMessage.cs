@@ -11,8 +11,6 @@ public class GibOnMessage : MonoBehaviour {
             GameObject particleSystem = (GameObject)Instantiate(particleSystemPrefab, new Vector3(transform.position.x, transform.position.y,-1F), transform.rotation);
         }
         if (powerUp) { GameObject GO = (GameObject)Instantiate(powerUp, transform.position, Quaternion.identity); }
-        if (gameObject.name == "ShmupShip") { Destroy(gameObject); return; }
         gameObject.SetActive(false);
-
     }
 }
