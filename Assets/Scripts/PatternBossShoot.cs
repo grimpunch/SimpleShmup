@@ -8,6 +8,11 @@ public class PatternBossShoot : MonoBehaviour {
     public GameObject radialShotPrefab;
     public GameObject pinWheelShotPrefab;
     private GameObject shotPrefab;
+    public string enemyShotPool;
+    private ObjectPoolScript enemyShotObjectPoolScript;
+    public string harassShotPool;
+    private ObjectPoolScript enemyHarassShotObjectPoolScript;
+    private ObjectPoolScript shotPool;
     private Transform playerTransform;
     public float aimedShotDelay = 2.0f;
     public float rankShotDelay = 2.0f;
@@ -40,7 +45,7 @@ public class PatternBossShoot : MonoBehaviour {
         return V;
     }
 
-    // Going to define the shot patterns used in functions, then invoke them as needed and call 'Shoot' for the specified number of times and in the correct places
+    // Going to define the shot patterns used in functions, then call them as needed and call 'Shoot' for the specified number of times and in the correct places
     //
     // Pattern Definitions:
     // Radial - Shots will be emitted simultaneously in a circle. repeated for a number of shots, dodged by taking cover in gap between angle of fire
@@ -53,12 +58,15 @@ public class PatternBossShoot : MonoBehaviour {
         aimedShotsLeft = aimedShotsUntilChange;
         radialShotsLeft = radialShotsUntilChange;
         rankShotsLeft = rankShotsUntilChange;
+        enemyShotObjectPoolScript = GameObject.Find(enemyShotPool).GetComponent<ObjectPoolScript>();
+        enemyHarassShotObjectPoolScript = GameObject.Find(harassShotPool).GetComponent<ObjectPoolScript>();
     }
 
     //TODO: All below.
     void AimedPattern() {
         Debug.Log("Doing Aimed Pattern");
         shotPrefab = aimedShotPrefab;
+        shotPool = enemyHarassShotObjectPoolScript;
         if (playerTransform == null) {
             try {
                 playerTransform = GameObject.FindWithTag("Player").transform;
@@ -85,6 +93,7 @@ public class PatternBossShoot : MonoBehaviour {
     void RankPattern() {
         Debug.Log("Doing Rank Pattern");
         shotPrefab = rankShotPrefab;
+        shotPool = enemyShotObjectPoolScript;
         if (playerTransform == null) {
             try {
                 playerTransform = GameObject.FindWithTag("Player").transform;
@@ -115,6 +124,7 @@ public class PatternBossShoot : MonoBehaviour {
     void RadialPattern() {
         Debug.Log("Doing Radial Pattern");
         shotPrefab = radialShotPrefab;
+        shotPool = enemyShotObjectPoolScript;
         if (radialShotsLeft > 0) {
             if (timeUntilNextShot <= 0) RadialShot();
             else { timeUntilNextShot -= Time.deltaTime; }
@@ -140,6 +150,7 @@ public class PatternBossShoot : MonoBehaviour {
     void PinwheelPattern() {
         Debug.Log("Doing Pinwheel Pattern -- Not Implemented");
         shotPrefab = pinWheelShotPrefab;
+        shotPool = enemyShotObjectPoolScript;
         readyForPattern = true;
     }
 
@@ -186,7 +197,9 @@ public class PatternBossShoot : MonoBehaviour {
     }
 
     void Shoot(Vector3 shotPos, Quaternion shotRot) {
-        GameObject shotGO = (GameObject)Instantiate(shotPrefab, shotPos, shotRot);
-        shotGO.name = gameObject.name + "ShotInstance";
+        GameObject shotGO = shotPool.GetPooledObject();
+        shotGO.transform.position = shotPos;
+        shotGO.transform.rotation = shotRot;
+        shotGO.SetActive(true);
     }
 }

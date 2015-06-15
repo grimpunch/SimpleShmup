@@ -282,6 +282,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 428608067}
   - 114: {fileID: 428608068}
+  - 114: {fileID: 428608069}
   m_Layer: 0
   m_Name: EnemyShotObjectPool
   m_TagString: Untagged
@@ -316,6 +317,18 @@ MonoBehaviour:
   pooledAmount: 80
   willGrow: 1
   pooledObjects: []
+--- !u!114 &428608069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 428608066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aca5faa081d18409f53de8ee09a088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotSpeed: -1
 --- !u!1 &463223871
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +873,8 @@ MonoBehaviour:
   rankShotPrefab: {fileID: 173432, guid: 92e59a2f2c6ab224faff6bedd1f79479, type: 2}
   radialShotPrefab: {fileID: 173432, guid: 92e59a2f2c6ab224faff6bedd1f79479, type: 2}
   pinWheelShotPrefab: {fileID: 0}
+  enemyShotPool: EnemyShotObjectPool
+  harassShotPool: EnemyHarassShotObjectPool
   aimedShotDelay: .150000006
   rankShotDelay: .5
   radialShotDelay: .300000012
@@ -4276,6 +4291,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2052816343}
   - 114: {fileID: 2052816344}
+  - 114: {fileID: 2052816345}
   m_Layer: 0
   m_Name: EnemyHarassShotObjectPool
   m_TagString: Untagged
@@ -4310,3 +4326,15 @@ MonoBehaviour:
   pooledAmount: 10
   willGrow: 1
   pooledObjects: []
+--- !u!114 &2052816345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2052816342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aca5faa081d18409f53de8ee09a088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotSpeed: -1.5

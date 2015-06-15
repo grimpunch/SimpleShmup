@@ -2,12 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlayerShotHandler : MonoBehaviour {
+public class EnemyShotHandler : MonoBehaviour {
 
     private List<GameObject> shots;
     private ScreenBoundsHandler screenBounds;
-    public float shotSpeed = 1.0F;
-
+    public float shotSpeed = 0.5F;
 
     // Use this for initialization
     void Start() {
@@ -18,14 +17,17 @@ public class PlayerShotHandler : MonoBehaviour {
     void Update() {
         shots = gameObject.GetComponent<ObjectPoolScript>().pooledObjects;
         if (Utils.Paused) return;
-        foreach (GameObject shot in shots){
+        foreach (GameObject shot in shots) {
             if (shot.activeSelf) MoveShot(shot);
         }
     }
 
     void MoveShot(GameObject shot) {
-        
-        if (shot.transform.position.y < screenBounds.ScreenTop - 0.1F) {
+        if (shot.transform.position.x > screenBounds.ScreenRight + 0.2F || shot.transform.position.x < screenBounds.ScreenLeft - 0.2F
+            || shot.transform.position.y < screenBounds.ScreenBottom - 0.1F || shot.transform.position.y > screenBounds.ScreenTop + 0.1F) {
+            shot.SetActive(false);
+        }
+        if (shot.transform.position.y > screenBounds.ScreenBottom - 0.1F || shot.transform.position.y < screenBounds.ScreenTop + 0.1F) {
             shot.transform.position += shot.transform.up * (shotSpeed * Time.fixedDeltaTime);
         } else {
             shot.SetActive(false);
