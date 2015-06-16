@@ -23,7 +23,7 @@ public class BossHandler : MonoBehaviour {
 
     }
 
-    void OnDestroy() {
+    void OnDisable() {
         if (levelScroller != null) levelScroller.stopped = false;
     }
 }

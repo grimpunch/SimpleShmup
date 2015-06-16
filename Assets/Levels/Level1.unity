@@ -209,6 +209,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11432970, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
+      propertyPath: shipHealth
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
   m_IsPrefabParent: 0
@@ -868,10 +876,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64bfb8df3e70fff44964fecc51c41b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aimedShotPrefab: {fileID: 182370, guid: bf11e274a8950b14aaf0adcc767492d8, type: 2}
-  rankShotPrefab: {fileID: 173432, guid: 92e59a2f2c6ab224faff6bedd1f79479, type: 2}
-  radialShotPrefab: {fileID: 173432, guid: 92e59a2f2c6ab224faff6bedd1f79479, type: 2}
-  pinWheelShotPrefab: {fileID: 0}
   enemyShotPool: EnemyShotObjectPool
   harassShotPool: EnemyHarassShotObjectPool
   aimedShotDelay: .150000006
@@ -879,12 +883,15 @@ MonoBehaviour:
   radialShotDelay: .300000012
   pinWheelShotDelay: .100000001
   canShoot: 0
-  waitBetweenPatterns: 1
+  waitBetweenPatterns: 3.5
   angleBetweenRadialShots: 7.5
+  angleBetweenPinwheelShots: 45
   angleBetweenRankShots: 3
   aimedShotsUntilChange: 6
   radialShotsUntilChange: 10
   rankShotsUntilChange: 4
+  pinWheelShotsUntilChange: 200
+  pinWheelSpinSpeed: 5
 --- !u!114 &794656199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4149,7 +4156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: .25
-  stopped: 1
+  stopped: 0
   FadeSpeed: 4
 --- !u!1 &2052672400
 GameObject:

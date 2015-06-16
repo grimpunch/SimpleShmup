@@ -3,11 +3,6 @@ using System.Collections;
 
 public class PatternBossShoot : MonoBehaviour {
 
-    public GameObject aimedShotPrefab;
-    public GameObject rankShotPrefab;
-    public GameObject radialShotPrefab;
-    public GameObject pinWheelShotPrefab;
-    private GameObject shotPrefab;
     public string enemyShotPool;
     private ObjectPoolScript enemyShotObjectPoolScript;
     public string harassShotPool;
@@ -21,11 +16,12 @@ public class PatternBossShoot : MonoBehaviour {
     private float timeUntilNextShot;
     public bool canShoot = false;
     public enum ShotPattern { Radial , Pinwheel, Aimed, Rank};
-    private ShotPattern currentShotPattern = ShotPattern.Radial;
+    private ShotPattern currentShotPattern = ShotPattern.Pinwheel;
     public float waitBetweenPatterns = 4f;
     private float timeUntilNextPattern;
     private bool readyForPattern = true;
     public float angleBetweenRadialShots = 5f;
+    public float angleBetweenPinwheelShots = 90f;
     public float angleBetweenRankShots = 3f;
     private Quaternion aimedShotAngle;
     private Quaternion rankShotAngle;
@@ -36,7 +32,10 @@ public class PatternBossShoot : MonoBehaviour {
     private int radialShotsLeft;
     public int rankShotsUntilChange = 4;
     private int rankShotsLeft;
-
+    public int pinWheelShotsUntilChange = 100;
+    private int pinWheelShotsLeft;
+    public float pinWheelSpinSpeed = 2f;
+    private float pinWheelStartAngle = 0f;
     ////////////////////////////
 
     static T GetRandomEnum<T>() {
@@ -65,7 +64,6 @@ public class PatternBossShoot : MonoBehaviour {
     //TODO: All below.
     void AimedPattern() {
         Debug.Log("Doing Aimed Pattern");
-        shotPrefab = aimedShotPrefab;
         shotPool = enemyHarassShotObjectPoolScript;
         if (playerTransform == null) {
             try {
@@ -92,7 +90,6 @@ public class PatternBossShoot : MonoBehaviour {
 
     void RankPattern() {
         Debug.Log("Doing Rank Pattern");
-        shotPrefab = rankShotPrefab;
         shotPool = enemyShotObjectPoolScript;
         if (playerTransform == null) {
             try {
@@ -123,7 +120,6 @@ public class PatternBossShoot : MonoBehaviour {
 
     void RadialPattern() {
         Debug.Log("Doing Radial Pattern");
-        shotPrefab = radialShotPrefab;
         shotPool = enemyShotObjectPoolScript;
         if (radialShotsLeft > 0) {
             if (timeUntilNextShot <= 0) RadialShot();
@@ -148,10 +144,30 @@ public class PatternBossShoot : MonoBehaviour {
     }
 
     void PinwheelPattern() {
-        Debug.Log("Doing Pinwheel Pattern -- Not Implemented");
-        shotPrefab = pinWheelShotPrefab;
+        Debug.Log("Doing Pinwheel Pattern");
         shotPool = enemyShotObjectPoolScript;
+        if (pinWheelShotsLeft > 0) {
+            if (timeUntilNextShot <= 0) PinwheelShot();
+            else { timeUntilNextShot -= Time.deltaTime; }
+            return;
+        }
+        pinWheelStartAngle = 0f;
         readyForPattern = true;
+        canShoot = false;
+        pinWheelShotsLeft = pinWheelShotsUntilChange;
+    }
+
+    private void PinwheelShot() {
+        int shotsToFire = Mathf.FloorToInt(360.0f / angleBetweenPinwheelShots);
+        float currentShotAngle = pinWheelStartAngle;
+        for (int shotsFired = 0; shotsFired < shotsToFire; shotsFired++) {
+            Shoot(transform.position, Quaternion.Euler(0f, 0f, currentShotAngle));
+            currentShotAngle += angleBetweenPinwheelShots;
+        }
+        pinWheelStartAngle += pinWheelSpinSpeed;
+        PlayShotSound();
+        timeUntilNextShot = pinWheelShotDelay;
+        pinWheelShotsLeft--;
     }
 
     void FixedUpdate() {

@@ -24,7 +24,8 @@ public class PlayerHitHandler : MonoBehaviour {
         lifeHandler = GameObject.Find("GameManager").GetComponent<LifeHandler>();
         playerShipRenderer = gameObject.GetComponent<SpriteRenderer>();
         vulnerable = true;
-        invulnerableColor = new HSLColor(Color.red);
+        invulnerableColor = new HSLColor(new Color(1, 0.75f, 0.75f));
+        
     }
 
     void OnEnable() { 
@@ -49,7 +50,7 @@ public class PlayerHitHandler : MonoBehaviour {
     void Update() {
         if (Utils.Paused) return;
         if (!vulnerable) {
-            invulnerableColor.h+=10;
+            invulnerableColor.h += 1000 * Time.deltaTime;
             playerShipRenderer.color = invulnerableColor;
             
             timeUntilVulnerable += Time.fixedDeltaTime;
