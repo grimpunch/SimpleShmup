@@ -28,7 +28,7 @@ public class EnemyShotHandler : MonoBehaviour {
             shot.SetActive(false);
         }
         if (shot.transform.position.y > screenBounds.ScreenBottom - 0.1F || shot.transform.position.y < screenBounds.ScreenTop + 0.1F) {
-            shot.transform.position += shot.transform.up * (shotSpeed * Time.fixedDeltaTime);
+            shot.transform.position += shot.transform.up * (shotSpeed * Time.deltaTime);
         } else {
             shot.SetActive(false);
         }

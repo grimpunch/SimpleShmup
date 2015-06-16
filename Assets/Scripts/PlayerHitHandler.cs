@@ -53,7 +53,7 @@ public class PlayerHitHandler : MonoBehaviour {
             invulnerableColor.h += 1000 * Time.deltaTime;
             playerShipRenderer.color = invulnerableColor;
             
-            timeUntilVulnerable += Time.fixedDeltaTime;
+            timeUntilVulnerable += Time.deltaTime;
             if (timeUntilVulnerable >= invulnerabilityTimeOnSpawn){
                 vulnerable = true;
                 playerShipRenderer.color = Color.white;

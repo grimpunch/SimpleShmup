@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11457786}
   - 114: {fileID: 11431672}
   - 82: {fileID: 8262534}
+  - 114: {fileID: 11495328}
   m_Layer: 0
   m_Name: PlayerShotImpactParticleCollision
   m_TagString: Untagged
@@ -125,6 +126,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 1.10000002
+--- !u!114 &11495328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed4d006309db994d9a88b0c3b46afa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: .600000024
 --- !u!198 &19875714
 ParticleSystem:
   m_ObjectHideFlags: 1

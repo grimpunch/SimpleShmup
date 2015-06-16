@@ -26,7 +26,7 @@ public class PlayerShotHandler : MonoBehaviour {
     void MoveShot(GameObject shot) {
         
         if (shot.transform.position.y < screenBounds.ScreenTop - 0.1F) {
-            shot.transform.position += shot.transform.up * (shotSpeed * Time.fixedDeltaTime);
+            shot.transform.position += shot.transform.up * (shotSpeed * Time.deltaTime);
         } else {
             shot.SetActive(false);
         }

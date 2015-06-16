@@ -15,12 +15,12 @@ public class EnemyShoot : MonoBehaviour {
         enemyShotObjectPoolScript = GameObject.Find(shotPool).GetComponent<ObjectPoolScript>();
     }
 
-    void FixedUpdate() {
+    void Update() {
         if (Utils.Paused) return;
-        if (!canShoot) { timeToShot += Time.fixedDeltaTime; return; }
+        if (!canShoot) { timeToShot += Time.deltaTime; return; }
         if (burstShots >= burstAmount) {
             if (waitUntilBurst < burstDelay) {
-                waitUntilBurst += Time.fixedDeltaTime;
+                waitUntilBurst += Time.deltaTime;
             } 
             else { 
                 burstShots = 0; 
@@ -32,7 +32,7 @@ public class EnemyShoot : MonoBehaviour {
                     Shoot();
                     timeToShot = 0.0F;
                 }
-                timeToShot += Time.fixedDeltaTime;
+                timeToShot += Time.deltaTime;
             }
         }
     }

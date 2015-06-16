@@ -19,7 +19,7 @@ public class BurnOnMessage : MonoBehaviour {
         if (Utils.Paused) return;
         if (burnTimeRemaining <= 0) {
             StopBurn();
-        } else { burnTimeRemaining -= Time.fixedDeltaTime; }
+        } else { burnTimeRemaining -= Time.deltaTime; }
     }
 
     public void Burn() {

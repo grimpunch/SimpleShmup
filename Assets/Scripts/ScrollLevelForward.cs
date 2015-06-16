@@ -25,6 +25,6 @@ public class ScrollLevelForward : MonoBehaviour {
             scrollSpeed -= Mathf.Lerp(scrollSpeed, 0f, FadeSpeed * Time.deltaTime);
             if (scrollSpeed <= 0.1f) scrollSpeed = 0f;
         }
-        transform.position += transform.up * (scrollSpeed * Time.fixedDeltaTime);
+        transform.position += transform.up * (scrollSpeed * Time.deltaTime);
     }
 }

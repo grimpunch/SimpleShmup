@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void FixedUpdate() {
+    void Update() {
         if (Utils.Paused) return;
         xinput = Input.GetAxis("Horizontal");
         yinput = Input.GetAxis("Vertical");
@@ -44,9 +44,9 @@ public class PlayerMovement : MonoBehaviour {
         float m_speed = movementspeed;
         if (focusKeyDown) { m_speed = focusmovementspeed; Debug.Log("Focus held down"); }
 
-        Vector3 velocity = new Vector3(xinput * (Time.fixedDeltaTime * m_speed), yinput * (Time.fixedDeltaTime * m_speed), 0.0F);
+        Vector3 velocity = new Vector3(xinput * (Time.deltaTime * m_speed), yinput * (Time.deltaTime * m_speed), 0.0F);
 
-        velocity = Vector3.ClampMagnitude(velocity, m_speed * Time.fixedDeltaTime);
+        velocity = Vector3.ClampMagnitude(velocity, m_speed * Time.deltaTime);
 
         if (shipLeftSide < screenBounds.ScreenLeft) { /* Ship hugging left side */
             if (velocity.x < 0.0F) {

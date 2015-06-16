@@ -170,7 +170,7 @@ public class PatternBossShoot : MonoBehaviour {
         pinWheelShotsLeft--;
     }
 
-    void FixedUpdate() {
+    void Update() {
         //This whole function requires changes for pattern implementation
         //Define switches for handling patterns here. use functions for implementation
         if (Utils.Paused) return;

@@ -85,7 +85,7 @@ public class LaserChargeHandler : MonoBehaviour {
 
         if (!shooting) {
             if (timeCharged < timeToFullCharge) {
-                timeCharged += Time.fixedDeltaTime * rateMultiplier;
+                timeCharged += Time.deltaTime * rateMultiplier;
             }
             if (timeCharged >= timeToFullCharge) {
                 timeCharged = timeToFullCharge;

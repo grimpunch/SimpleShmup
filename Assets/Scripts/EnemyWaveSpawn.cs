@@ -20,12 +20,12 @@ public class EnemyWaveSpawn : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void FixedUpdate() {
+    void Update() {
         if (Utils.Paused) return;
         if (timeToSpawn < 0) {
             timeToSpawn = spawnDelay;
             Invoke("Spawn", spawnDelay);
-        } else { timeToSpawn -= Time.fixedDeltaTime; }
+        } else { timeToSpawn -= Time.deltaTime; }
         if (spawned >= spawnCount) { Destroy(gameObject); }
     }
 
