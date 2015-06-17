@@ -209,14 +209,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11432970, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
-      propertyPath: shipHealth
-      value: 1000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
   m_IsPrefabParent: 0
@@ -876,6 +868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64bfb8df3e70fff44964fecc51c41b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shotPatternOrder: 030000000000000002000000000000000100000001000000
   enemyShotPool: EnemyShotObjectPool
   harassShotPool: EnemyHarassShotObjectPool
   aimedShotDelay: .150000006
@@ -4157,7 +4150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollSpeed: .25
   stopped: 0
-  FadeSpeed: 4
+  FadeSpeed: .150000006
 --- !u!1 &2052672400
 GameObject:
   m_ObjectHideFlags: 0

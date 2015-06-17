@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c82c09bf3274849825d22ead1b94d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipHealth: 1
+  shipHealth: 1000
   invulnerabilityTimeOnSpawn: 2.5
   playerShipRenderer: {fileID: 0}
   turretLRenderer: {fileID: 0}

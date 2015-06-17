@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PatternBossShoot : MonoBehaviour {
 
+    public enum ShotPattern { Radial, Pinwheel, Aimed, Rank };
+    private ShotPattern currentShotPattern = ShotPattern.Pinwheel;
+    public List<ShotPattern> shotPatternOrder;
+    private int shotPatternIndex = 0;
     public string enemyShotPool;
     private ObjectPoolScript enemyShotObjectPoolScript;
     public string harassShotPool;
@@ -15,8 +20,6 @@ public class PatternBossShoot : MonoBehaviour {
     public float pinWheelShotDelay = 2.0f;
     private float timeUntilNextShot;
     public bool canShoot = false;
-    public enum ShotPattern { Radial , Pinwheel, Aimed, Rank};
-    private ShotPattern currentShotPattern = ShotPattern.Pinwheel;
     public float waitBetweenPatterns = 4f;
     private float timeUntilNextPattern;
     private bool readyForPattern = true;
@@ -44,6 +47,12 @@ public class PatternBossShoot : MonoBehaviour {
         return V;
     }
 
+    ShotPattern GetNextEnum() {
+        shotPatternIndex++;
+        if (shotPatternIndex > shotPatternOrder.Count - 1) shotPatternIndex = 0;
+        return shotPatternOrder[shotPatternIndex]; 
+    }
+
     // Going to define the shot patterns used in functions, then call them as needed and call 'Shoot' for the specified number of times and in the correct places
     //
     // Pattern Definitions:
@@ -63,7 +72,6 @@ public class PatternBossShoot : MonoBehaviour {
 
     //TODO: All below.
     void AimedPattern() {
-        Debug.Log("Doing Aimed Pattern");
         shotPool = enemyHarassShotObjectPoolScript;
         if (playerTransform == null) {
             try {
@@ -89,7 +97,6 @@ public class PatternBossShoot : MonoBehaviour {
     }
 
     void RankPattern() {
-        Debug.Log("Doing Rank Pattern");
         shotPool = enemyShotObjectPoolScript;
         if (playerTransform == null) {
             try {
@@ -119,7 +126,6 @@ public class PatternBossShoot : MonoBehaviour {
     }
 
     void RadialPattern() {
-        Debug.Log("Doing Radial Pattern");
         shotPool = enemyShotObjectPoolScript;
         if (radialShotsLeft > 0) {
             if (timeUntilNextShot <= 0) RadialShot();
@@ -144,7 +150,6 @@ public class PatternBossShoot : MonoBehaviour {
     }
 
     void PinwheelPattern() {
-        Debug.Log("Doing Pinwheel Pattern");
         shotPool = enemyShotObjectPoolScript;
         if (pinWheelShotsLeft > 0) {
             if (timeUntilNextShot <= 0) PinwheelShot();
@@ -178,7 +183,7 @@ public class PatternBossShoot : MonoBehaviour {
         if (readyForPattern) {
             if (timeUntilNextPattern <= 0) {
                 timeUntilNextPattern = waitBetweenPatterns;
-                currentShotPattern = GetRandomEnum<ShotPattern>();
+                currentShotPattern = GetNextEnum();// GetRandomEnum<ShotPattern>();
                 readyForPattern = false;
                 canShoot = true;
             } else { timeUntilNextPattern -= Time.deltaTime; }
