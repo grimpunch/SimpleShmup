@@ -11,6 +11,11 @@ while following common genre conventions of popular games in the genre such as D
 ### Version
 0.0.5
 
+
+### Screenshot
+![Temporary screenshot of the game](http://blog.christiancod.es/uploads?url=2015-08-06_22_11_53shmuptempscreenshot "Temporary Screenshot")
+
+
 ### Installation
 
 Clone the repo, and open the project in Unity 5.0.1f1.
