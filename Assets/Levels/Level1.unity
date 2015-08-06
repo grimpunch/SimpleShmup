@@ -165,7 +165,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 110084, guid: f9edefbc9d6121844970a9188ceeb328, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9edefbc9d6121844970a9188ceeb328, type: 2}
@@ -723,7 +723,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447896, guid: 2017d068c969a4f4e949f692bd2bc051, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 447896, guid: 2017d068c969a4f4e949f692bd2bc051, type: 2}
       propertyPath: m_LocalPosition.z
@@ -986,11 +986,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
       propertyPath: m_NormalizedViewPortRect.x
-      value: .000482618809
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
       propertyPath: m_NormalizedViewPortRect.width
-      value: .999034762
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11471968, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
       propertyPath: m_Enabled
@@ -998,11 +998,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0
+      value: .000369548798
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: .999260902
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
@@ -1176,7 +1176,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 123624, guid: f215880f7ac9a7c4f9f365b2cb1575de, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f215880f7ac9a7c4f9f365b2cb1575de, type: 2}
@@ -1470,7 +1470,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447896, guid: 2017d068c969a4f4e949f692bd2bc051, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 447896, guid: 2017d068c969a4f4e949f692bd2bc051, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1499,6 +1499,10 @@ Prefab:
     - target: {fileID: 173582, guid: 2017d068c969a4f4e949f692bd2bc051, type: 2}
       propertyPath: m_Name
       value: EnemyTurretContainer 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 148648, guid: 2017d068c969a4f4e949f692bd2bc051, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2017d068c969a4f4e949f692bd2bc051, type: 2}
