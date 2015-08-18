@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour {
         shipBottomSide = ship.transform.position.y - (ship.GetComponent<Renderer>().bounds.size.y * 0.5F);
 
         float m_speed = movementspeed;
-        if (focusKeyDown) { m_speed = focusmovementspeed; Debug.Log("Focus held down"); }
+        if (focusKeyDown) m_speed = focusmovementspeed; 
 
         Vector3 velocity = new Vector3(xinput * (Time.deltaTime * m_speed), yinput * (Time.deltaTime * m_speed), 0.0F);
 

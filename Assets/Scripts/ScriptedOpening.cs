@@ -13,6 +13,7 @@ public class ScriptedOpening : MonoBehaviour {
     // Use this for initialization
     void Start() {
         playerMoveScript.enabled = false;
+        scrollScript.stopped = true;
     }
 
     void Update() {
@@ -22,7 +23,7 @@ public class ScriptedOpening : MonoBehaviour {
         if (timeAlive > timeToExplode) EnableExplode();
         if (timeAlive > timeToStartScroll) EnableScroll();
         if (timeAlive > timeToAllowMove && playerMoveScript != null) EnableMove();
-        if (timeAlive > (timeToAllowMove + timeToStartScroll + timeToExplode+0.1f)) DestroyThis();
+        if (timeAlive > (timeToAllowMove + timeToStartScroll + timeToExplode+2f)) DestroyThis();
     }
     void EnableExplode() { 
         foreach(GameObject explosion in explosions)
