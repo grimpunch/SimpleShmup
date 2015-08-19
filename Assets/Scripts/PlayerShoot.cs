@@ -46,8 +46,6 @@ public class PlayerShoot : MonoBehaviour {
                 if (!GetComponent<AudioSource>().isPlaying) {
                     GetComponent<AudioSource>().Play();
                 }
-                Debug.Log(Utils.Paused);
-                
             }
 
             if (upgradeLevel == 1) {
