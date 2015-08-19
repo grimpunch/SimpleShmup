@@ -30,11 +30,12 @@ public class PlayerShoot : MonoBehaviour {
                 return;
             }
         }
+        if (Utils.Paused) return;
         cooldownTimer -= Time.deltaTime;
         
         if (Application.isPlaying && !Utils.Paused) {
-                            gameObject.GetComponent<AudioSource>().UnPause();
-                        }
+            gameObject.GetComponent<AudioSource>().UnPause();
+        }
 
         if (Input.GetButton("Fire1") && cooldownTimer <= 0) {
             // SHOOT!

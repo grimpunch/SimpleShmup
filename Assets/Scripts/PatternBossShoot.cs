@@ -182,9 +182,9 @@ public class PatternBossShoot : MonoBehaviour {
             if (GetComponent<AudioSource>() != null) {
                 if (Application.isPlaying && Utils.Paused) gameObject.GetComponent<AudioSource>().Pause();
                 if (Application.isPlaying && !Utils.Paused) gameObject.GetComponent<AudioSource>().UnPause();
-                return;
             }
         }
+        if (Utils.Paused) return;
         
         if (readyForPattern) {
             if (timeUntilNextPattern <= 0) {
