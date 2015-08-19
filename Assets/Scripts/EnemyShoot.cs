@@ -16,7 +16,13 @@ public class EnemyShoot : MonoBehaviour {
     }
 
     void Update() {
-        if (Utils.Paused) return;
+        if (Utils.Paused) {
+            if (GetComponent<AudioSource>() != null) {
+                if (Application.isPlaying && Utils.Paused) gameObject.GetComponent<AudioSource>().Pause();
+                if (Application.isPlaying && !Utils.Paused) gameObject.GetComponent<AudioSource>().UnPause();
+                return;
+            }
+        }
         if (!canShoot) { timeToShot += Time.deltaTime; return; }
         if (burstShots >= burstAmount) {
             if (waitUntilBurst < burstDelay) {
@@ -43,8 +49,6 @@ public class EnemyShoot : MonoBehaviour {
             if (!GetComponent<AudioSource>().isPlaying) {
                 GetComponent<AudioSource>().Play();
             }
-            if (Application.isPlaying && Utils.Paused) gameObject.GetComponent<AudioSource>().Pause();
-            if (Application.isPlaying && !Utils.Paused) gameObject.GetComponent<AudioSource>().UnPause();
         }
         GameObject shotGO = enemyShotObjectPoolScript.GetPooledObject();
         shotGO.transform.position = transform.position;

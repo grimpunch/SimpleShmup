@@ -179,9 +179,11 @@ public class PatternBossShoot : MonoBehaviour {
         //This whole function requires changes for pattern implementation
         //Define switches for handling patterns here. use functions for implementation
         if (Utils.Paused) {
-            if (Application.isPlaying && Utils.Paused) gameObject.GetComponent<AudioSource>().Pause();
-            if (Application.isPlaying && !Utils.Paused) gameObject.GetComponent<AudioSource>().UnPause();
-            return;
+            if (GetComponent<AudioSource>() != null) {
+                if (Application.isPlaying && Utils.Paused) gameObject.GetComponent<AudioSource>().Pause();
+                if (Application.isPlaying && !Utils.Paused) gameObject.GetComponent<AudioSource>().UnPause();
+                return;
+            }
         }
         
         if (readyForPattern) {

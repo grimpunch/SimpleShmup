@@ -25,8 +25,10 @@ public class PlayerShoot : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Utils.Paused) {
-            gameObject.GetComponent<AudioSource>().Pause();
-            return; 
+            if (GetComponent<AudioSource>() != null) {
+                gameObject.GetComponent<AudioSource>().Pause();
+                return;
+            }
         }
         cooldownTimer -= Time.deltaTime;
         
