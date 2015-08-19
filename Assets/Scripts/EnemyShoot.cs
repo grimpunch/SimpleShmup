@@ -43,6 +43,8 @@ public class EnemyShoot : MonoBehaviour {
             if (!GetComponent<AudioSource>().isPlaying) {
                 GetComponent<AudioSource>().Play();
             }
+            if (Application.isPlaying && Utils.Paused) gameObject.GetComponent<AudioSource>().Pause();
+            if (Application.isPlaying && !Utils.Paused) gameObject.GetComponent<AudioSource>().UnPause();
         }
         GameObject shotGO = enemyShotObjectPoolScript.GetPooledObject();
         shotGO.transform.position = transform.position;

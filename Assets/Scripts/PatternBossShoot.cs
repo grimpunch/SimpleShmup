@@ -213,8 +213,9 @@ public class PatternBossShoot : MonoBehaviour {
     void PlayShotSound(){
     if (GetComponent<AudioSource>() != null) {
                 GetComponent<AudioSource>().Play();
-            
         }
+    if (Application.isPlaying && Utils.Paused) gameObject.GetComponent<AudioSource>().Pause();
+    if (Application.isPlaying && !Utils.Paused) gameObject.GetComponent<AudioSource>().UnPause();
     }
 
     void Shoot(Vector3 shotPos, Quaternion shotRot) {
