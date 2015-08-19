@@ -23,6 +23,7 @@ public class EnemyShoot : MonoBehaviour {
                 return;
             }
         }
+        if (Utils.Paused) return;
         if (!canShoot) { timeToShot += Time.deltaTime; return; }
         if (burstShots >= burstAmount) {
             if (waitUntilBurst < burstDelay) {
