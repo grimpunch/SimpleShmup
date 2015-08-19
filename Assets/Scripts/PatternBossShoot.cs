@@ -178,7 +178,11 @@ public class PatternBossShoot : MonoBehaviour {
     void Update() {
         //This whole function requires changes for pattern implementation
         //Define switches for handling patterns here. use functions for implementation
-        if (Utils.Paused) return;
+        if (Utils.Paused) {
+            if (Application.isPlaying && Utils.Paused) gameObject.GetComponent<AudioSource>().Pause();
+            if (Application.isPlaying && !Utils.Paused) gameObject.GetComponent<AudioSource>().UnPause();
+            return;
+        }
         
         if (readyForPattern) {
             if (timeUntilNextPattern <= 0) {
@@ -214,8 +218,6 @@ public class PatternBossShoot : MonoBehaviour {
     if (GetComponent<AudioSource>() != null) {
                 GetComponent<AudioSource>().Play();
         }
-    if (Application.isPlaying && Utils.Paused) gameObject.GetComponent<AudioSource>().Pause();
-    if (Application.isPlaying && !Utils.Paused) gameObject.GetComponent<AudioSource>().UnPause();
     }
 
     void Shoot(Vector3 shotPos, Quaternion shotRot) {

@@ -24,8 +24,15 @@ public class PlayerShoot : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Utils.Paused) return;
+        if (Utils.Paused) {
+            gameObject.GetComponent<AudioSource>().Pause();
+            return; 
+        }
         cooldownTimer -= Time.deltaTime;
+        
+        if (Application.isPlaying && !Utils.Paused) {
+                            gameObject.GetComponent<AudioSource>().UnPause();
+                        }
 
         if (Input.GetButton("Fire1") && cooldownTimer <= 0) {
             // SHOOT!
@@ -39,10 +46,8 @@ public class PlayerShoot : MonoBehaviour {
                 if (!GetComponent<AudioSource>().isPlaying) {
                     GetComponent<AudioSource>().Play();
                 }
-                if (Application.isPlaying && Utils.Paused) gameObject.GetComponent<AudioSource>().Pause();
-                if (Application.isPlaying && !Utils.Paused) {
-                    gameObject.GetComponent<AudioSource>().UnPause();
-                }
+                Debug.Log(Utils.Paused);
+                
             }
 
             if (upgradeLevel == 1) {
