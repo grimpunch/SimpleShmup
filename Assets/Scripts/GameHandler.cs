@@ -27,8 +27,14 @@ public class GameHandler : MonoBehaviour {
             Utils.Paused = !Utils.Paused; // Pause or Unpause based on current state.
             //then Update everything else that needs intervention but not the overhead of a monobehavior on every particle system etc.
             ParticleSystemPause(Utils.Paused);
+            PauseScreenEffect(Utils.Paused);
             GameObject.Find("PausedIndicator").GetComponent<Text>().enabled = Utils.Paused;
         }
+    }
+
+    void PauseScreenEffect(bool pauseState) {
+        if (pauseState) Camera.main.GetComponent<Kino.AnalogGlitch>().colorDrift = 0.125f;
+        else Camera.main.GetComponent<Kino.AnalogGlitch>().colorDrift = 0f;
     }
 
     void ParticleSystemPause(bool pauseState) {
