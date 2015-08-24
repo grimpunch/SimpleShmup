@@ -35,6 +35,29 @@ public class LaserChargeHandler : MonoBehaviour {
         
     }
 
+    void ResetLaser() {
+        timeCharged = 0.0F;
+        Laser.SetActive(false);
+        timeEnabled = 0.0F;
+        currentLaserLength = 0f;
+        currentLaserWidth = 0f;
+        if (laserBoxCollider2D) {
+            laserBoxCollider2D.offset = new Vector2(0, 0);
+            laserBoxCollider2D.size = new Vector2(currentLaserWidth, 0);
+        }
+        if (laserLineRenderer) laserLineRenderer.SetPosition(2, new Vector3(0, 0));
+        playerShoot.enabled = true;
+        if (laserChargeSlider) laserChargeSlider.value = 0.0F;
+    }
+
+    void OnEnable() {
+        ResetLaser();
+    }
+
+    void OnDisable() {
+        ResetLaser();
+    }
+
     // Update is called once per frame
     void Update() {
         if (Utils.Paused) return;
@@ -58,14 +81,7 @@ public class LaserChargeHandler : MonoBehaviour {
                 laserChargeSlider.value = (timeToDischarge * 10)-(timeEnabled*10);
             }
             if (timeEnabled >= timeToDischarge) { 
-                timeEnabled = 0.0F;
-                currentLaserLength = 0f;
-                currentLaserWidth = 0f;
-                laserBoxCollider2D.offset = new Vector2(0, 0);
-                laserBoxCollider2D.size = new Vector2(currentLaserWidth, 0);
-                laserLineRenderer.SetPosition(2, new Vector3(0, 0));
-                playerShoot.enabled = true;
-                Laser.active = false; 
+                ResetLaser();
             }
             return;
         }
