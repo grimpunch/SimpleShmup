@@ -1,15 +1,16 @@
 # SimpleShmup 
 (very bad working title)
 
-SimpleShmup is my attempt to get started making a Shmup (Shoot-em-up) style game for PC , using Unity Engine 5,
+SimpleShmup is my attempt to get started making a SHMUP (Shoot-em-up) style game for PC , using Unity Engine 5,
 while following common genre conventions of popular games in the genre such as Dodonpachi or Touhou.
 
   - Vertical Scrolling
   - Simple, clean sprite based art (Not final art)
   - Limited inputs for simplistic design (Directions[WASD/Arrows], Focus[X/Left Shift], and Fire [Z/Left Ctrl])
+  - A pacifism based special weapon where not firing for a short time will charge a screen clearing super laser.
 
 ### Version
-0.0.5
+0.0.7
 
 
 ### Screenshot
