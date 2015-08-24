@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BossHandler : MonoBehaviour {
 
@@ -7,11 +8,14 @@ public class BossHandler : MonoBehaviour {
     private float shipBottomSide;
     private ScreenBoundsHandler screenBounds;
     public float yScrollStopOffset;
-
+    private EnemyShotHandler bulletHandler;
+    private EnemyShotHandler bulletHarassHandler;
     // Use this for initialization
     void Start() {
         GameObject gameplayarea = GameObject.Find("GamePlayArea");
         levelScroller = gameplayarea.GetComponent<ScrollLevelForward>();
+        bulletHandler = GameObject.Find("EnemyShotObjectPool").GetComponent<EnemyShotHandler>();
+        bulletHarassHandler = GameObject.Find("EnemyHarassShotObjectPool").GetComponent<EnemyShotHandler>();
         RemoveSpawners(gameplayarea);
         screenBounds = GameObject.Find("ScreenBoundsHandler").GetComponent<ScreenBoundsHandler>();
     }
@@ -34,7 +38,13 @@ public class BossHandler : MonoBehaviour {
         levelScroller.stopped = true;
     }
 
+    void DestroySpawnedBullets() {
+        bulletHandler.RemoveAllShots();
+        bulletHarassHandler.RemoveAllShots();
+    }
+
     void OnDisable() {
+        DestroySpawnedBullets();
         if (levelScroller != null) levelScroller.stopped = false;
     }
 }

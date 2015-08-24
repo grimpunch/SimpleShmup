@@ -22,6 +22,13 @@ public class EnemyShotHandler : MonoBehaviour {
         }
     }
 
+    internal void RemoveAllShots() {
+        shots = gameObject.GetComponent<ObjectPoolScript>().pooledObjects;
+        foreach (GameObject shot in shots) {
+            if (shot.activeSelf) shot.SetActive(false);
+        }
+    }
+
     void MoveShot(GameObject shot) {
         if (shot.transform.position.x > screenBounds.ScreenRight + 0.2F || shot.transform.position.x < screenBounds.ScreenLeft - 0.2F
             || shot.transform.position.y < screenBounds.ScreenBottom - 0.1F || shot.transform.position.y > screenBounds.ScreenTop + 0.1F) {
