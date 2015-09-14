@@ -4,18 +4,24 @@ using System.Collections;
 
 public class LaserChargeHandler : MonoBehaviour {
 
+    private const int ENEMYLAYER = 9;
+    private const int ENEMYSHOTLAYER = 11;
+    private const int COLLIDABLELAYER = 13;
+
+    public float laserSpeed = 100f;
     public float timeToFullCharge = 100.0F;
     private float timeCharged = 0.0F;
     public float rateMultiplier = 1.0F;
     private bool shooting;
     private Slider laserChargeSlider;
     public GameObject Laser;
+    public GameObject LaserTip;
     public PlayerShoot playerShoot;
     private float timeEnabled = 0.0F;
     public float timeToDischarge = 10.0F;
     
     //Animation of Laser Movement control variables
-    private const float maximumLaserLength = 6f;
+    private const float maximumLaserLength = 4.2f;
     private const float maximumLaserWidth = 0.35f;
     private float currentLaserLength;
     private float targetLaserLength;
@@ -68,19 +74,21 @@ public class LaserChargeHandler : MonoBehaviour {
             laserBoxCollider2D = GameObject.Find("Laser").GetComponent<BoxCollider2D>();
             if (timeEnabled < timeToDischarge) { 
                 timeEnabled += Time.deltaTime;
-                if (currentLaserLength < maximumLaserLength) 
-                {currentLaserLength = Mathf.Lerp(currentLaserLength,maximumLaserLength, Time.deltaTime);} 
-                else { currentLaserLength = maximumLaserLength; }
+                if (currentLaserLength < GetMaxLaserLength()) { 
+                    currentLaserLength = Mathf.Lerp(currentLaserLength, GetMaxLaserLength(), Time.deltaTime * laserSpeed); } 
+                else { currentLaserLength = GetMaxLaserLength(); }
                 if (currentLaserWidth < maximumLaserWidth) 
-                { currentLaserWidth = Mathf.Lerp(currentLaserWidth, maximumLaserWidth, Time.deltaTime); } 
+                { currentLaserWidth = Mathf.Lerp(currentLaserWidth, maximumLaserWidth, Time.deltaTime * laserSpeed); } 
                 else { currentLaserWidth = maximumLaserWidth; }
                 laserBoxCollider2D.offset = new Vector2(0, currentLaserLength/2);
                 laserBoxCollider2D.size = new Vector2(currentLaserWidth, currentLaserLength);
                 laserLineRenderer.SetPosition(2, new Vector3(0, currentLaserLength));
+                
+                LaserTip.transform.position = new Vector3(transform.position.x, transform.position.y + currentLaserLength, -1F);
                 if (currentLaserWidth >= maximumLaserWidth - 0.5f) {
                     laserLineRenderer.SetWidth(Random.Range(0.20f, 0.35f), Random.Range(0.30f, 0.35f));
                 } else { laserLineRenderer.SetWidth(currentLaserWidth, currentLaserWidth); }
-                laserChargeSlider.value = (timeToDischarge * 10)-(timeEnabled*10);
+                laserChargeSlider.value = timeToFullCharge - timeEnabled;
             }
             if (timeEnabled >= timeToDischarge) { 
                 ResetLaser();
@@ -88,7 +96,7 @@ public class LaserChargeHandler : MonoBehaviour {
             return;
         }
 
-        shooting = Input.GetButton("Fire1");
+        shooting = GetFireButtonDown();
         if (shooting && timeCharged < timeToFullCharge) {
             timeCharged = 0.0F;
             laserChargeSlider.value = 0.0F;
@@ -96,7 +104,6 @@ public class LaserChargeHandler : MonoBehaviour {
 
         if (shooting && timeCharged >= timeToFullCharge) {
             timeCharged = 0.0F;
-            Debug.Log("FIRING ZE LASERS!");
             playerShoot.enabled = false;
             Laser.active = true;
         }
@@ -110,7 +117,19 @@ public class LaserChargeHandler : MonoBehaviour {
             }
             laserChargeSlider.value = timeCharged;
             laserChargeSlider.maxValue = timeToFullCharge;
-            Debug.Log(laserChargeSlider.value);
         }
+    }
+
+    private static bool GetFireButtonDown() {
+        return Input.GetButton("Fire1");
+    }
+
+    private float GetMaxLaserLength() {
+        float maximumLaserLength = 4.2f;
+        Vector2 Position2D = new Vector2(transform.position.x, transform.position.y);
+        LayerMask collidableLayers = 1 << ENEMYLAYER | 1 << COLLIDABLELAYER;
+        RaycastHit2D hit = Physics2D.Raycast(Position2D, Vector2.up, 4.2f, collidableLayers);
+        if (hit) { maximumLaserLength = Vector2.Distance(Position2D, hit.point); }
+        return maximumLaserLength;
     }
 }

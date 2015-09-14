@@ -209,13 +209,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11427020, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
-      propertyPath: upgradeLevel
-      value: 1
+    - target: {fileID: 11420490, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
+      propertyPath: speed
+      value: 1000
       objectReference: {fileID: 0}
-    - target: {fileID: 11473926, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
-      propertyPath: timeToFullCharge
-      value: 100
+    - target: {fileID: 462800, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 462800, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 3.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
@@ -448,7 +452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &506292131
 Transform:
   m_ObjectHideFlags: 0
