@@ -32,7 +32,7 @@ public class LaserChargeHandler : MonoBehaviour {
     // Use this for initialization
     void Start() {
         laserChargeSlider = GameObject.Find("LaserChargeSlider").GetComponent<Slider>();
-        
+
     }
 
     void ResetLaser() {
@@ -47,7 +47,9 @@ public class LaserChargeHandler : MonoBehaviour {
         }
         if (laserLineRenderer) laserLineRenderer.SetPosition(2, new Vector3(0, 0));
         playerShoot.enabled = true;
-        if (laserChargeSlider) laserChargeSlider.value = 0.0F;
+        if (laserChargeSlider) {
+            laserChargeSlider.value = 0.0F;
+        }
     }
 
     void OnEnable() {
@@ -106,7 +108,9 @@ public class LaserChargeHandler : MonoBehaviour {
             if (timeCharged >= timeToFullCharge) {
                 timeCharged = timeToFullCharge;
             }
-            laserChargeSlider.value = timeCharged * (timeToFullCharge / 100.0F);
+            laserChargeSlider.value = timeCharged;
+            laserChargeSlider.maxValue = timeToFullCharge;
+            Debug.Log(laserChargeSlider.value);
         }
     }
 }
