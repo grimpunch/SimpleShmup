@@ -37,7 +37,7 @@ public class PlayerShoot : MonoBehaviour {
             gameObject.GetComponent<AudioSource>().UnPause();
         }
 
-        if (Input.GetButton("Fire1") && cooldownTimer <= 0) {
+        if (FireButtonDown() && cooldownTimer <= 0) {
             // SHOOT!
             cooldownTimer = fireDelay;
             GameObject shotCenter = playerShotObjectPool.GetPooledObject();
@@ -66,7 +66,8 @@ public class PlayerShoot : MonoBehaviour {
                 if (shotSide == null) return;
                 shotSide.SetActive(true);
                 shotSide.transform.position = shotPosition;
-                shotSide.transform.rotation = shotRotation;
+                if (FocusFireButtonDown()) shotSide.transform.rotation = Quaternion.identity;
+                else { shotSide.transform.rotation = shotRotation; } 
             }
             if (upgradeLevel == 2) {
                     shotPosition = turretLeft.transform.position;
@@ -75,17 +76,27 @@ public class PlayerShoot : MonoBehaviour {
                     if (shotLeft == null) return;
                     shotLeft.SetActive(true);
                     shotLeft.transform.position = shotPosition;
-                    shotLeft.transform.rotation = shotRotation;
+                    if (FocusFireButtonDown()) shotLeft.transform.rotation = Quaternion.identity;
+                    else { shotLeft.transform.rotation = shotRotation; }
                     shotPosition = turretRight.transform.position;
                     shotRotation = turretRight.transform.rotation;
                     GameObject shotRight = playerShotObjectPool.GetPooledObject();
                     if (shotRight == null) return;
                     shotRight.SetActive(true);
                     shotRight.transform.position = shotPosition;
-                    shotRight.transform.rotation = shotRotation;
+                    if (FocusFireButtonDown()) shotRight.transform.rotation = Quaternion.identity;
+                    else { shotRight.transform.rotation = shotRotation; } 
             }
             if (upgradeLevel > 2) { upgradeLevel = 2; }
         }
-        if (!Input.GetButton("Fire1")) { GetComponent<AudioSource>().Stop(); }
+        if (!FireButtonDown()) { GetComponent<AudioSource>().Stop(); }
+    }
+
+    private static bool FireButtonDown() {
+        return Input.GetButton("Fire1");
+    }
+    
+    private static bool FocusFireButtonDown() {
+        return Input.GetButton("Fire2");
     }
 }
