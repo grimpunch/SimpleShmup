@@ -127,9 +127,15 @@ public class LaserChargeHandler : MonoBehaviour {
     private float GetMaxLaserLength() {
         float maximumLaserLength = 4.2f;
         Vector2 Position2D = new Vector2(transform.position.x, transform.position.y);
+        Vector2 Position2DLeft = new Vector2(transform.position.x + (transform.localScale.x/2f), transform.position.y);
+        Vector2 Position2DRight = new Vector2(transform.position.x - (transform.localScale.x / 2f), transform.position.y);
         LayerMask collidableLayers = 1 << ENEMYLAYER | 1 << COLLIDABLELAYER;
         RaycastHit2D hit = Physics2D.Raycast(Position2D, Vector2.up, 4.2f, collidableLayers);
-        if (hit) { maximumLaserLength = Vector2.Distance(Position2D, hit.point); }
+        if (hit) { maximumLaserLength = Vector2.Distance(Position2D, hit.point); return maximumLaserLength; }
+        RaycastHit2D hitl = Physics2D.Raycast(Position2DLeft, Vector2.up, 4.2f, collidableLayers);
+        if (hitl) { maximumLaserLength = Vector2.Distance(Position2DLeft, hitl.point); return maximumLaserLength; }
+        RaycastHit2D hitr = Physics2D.Raycast(Position2DRight, Vector2.up, 4.2f, collidableLayers);
+        if (hitr) { maximumLaserLength = Vector2.Distance(Position2DRight, hitr.point); return maximumLaserLength; }
         return maximumLaserLength;
     }
 }

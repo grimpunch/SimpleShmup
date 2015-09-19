@@ -49,20 +49,20 @@ TagManager:
   - name: PowerUp
     uniqueID: 1112546509
     locked: 0
+  - name: PlayerShot
+    uniqueID: 981367581
+    locked: 0
+  - name: Player
+    uniqueID: 698047949
+    locked: 0
   - name: Enemy
     uniqueID: 580099279
     locked: 0
   - name: EnemyShot
     uniqueID: 2531057943
     locked: 0
-  - name: PlayerShot
-    uniqueID: 981367581
-    locked: 0
   - name: PlayerLaser
     uniqueID: 47748381
-    locked: 0
-  - name: Player
-    uniqueID: 698047949
     locked: 0
   - name: CanvasUI
     uniqueID: 3518193499

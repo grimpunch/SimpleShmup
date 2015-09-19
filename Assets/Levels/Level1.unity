@@ -221,6 +221,10 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 3.75
       objectReference: {fileID: 0}
+    - target: {fileID: 11473926, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
+      propertyPath: timeToFullCharge
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
   m_IsPrefabParent: 0
