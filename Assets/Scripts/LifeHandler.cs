@@ -12,6 +12,7 @@ public class LifeHandler : MonoBehaviour {
     private float timeToSpawn;
     public float respawnDelay;
     private Text lifeCounterText;
+	private ScoreHandler score;
 
     void Awake() {
         DontDestroyOnLoad(transform.gameObject);
@@ -27,6 +28,7 @@ public class LifeHandler : MonoBehaviour {
         livesleft = startLives;
         SetLifeCounterText(livesleft);
         gameStarted = true;
+		score = GameObject.Find("Score").GetComponent<ScoreHandler>();
     }
 
     void SetLifeCounterText(int lives) {
@@ -36,6 +38,7 @@ public class LifeHandler : MonoBehaviour {
     void Dead() {
         Debug.Log("Player Died, respawning depending on lives left");
         alive = false;
+		score.ResetMultiplier();
     }
 
     void Spawn() {
