@@ -15,6 +15,8 @@ public class ScoreHandler : MonoBehaviour {
 
 	private Text scoreText;
 	private Text multiplierText;
+	private Image multiplierBG;
+	private Image multiplierDial;
 
 
     public void AddScore(int added) {
@@ -41,9 +43,13 @@ public class ScoreHandler : MonoBehaviour {
 	private void UpdateMultiplier() {
 		if (multiplier == 1) {
 			multiplierText.canvasRenderer.SetAlpha(0);
+			multiplierBG.canvasRenderer.SetAlpha(0);
+			multiplierDial.canvasRenderer.SetAlpha(0);
 		}
 		else {
 			multiplierText.canvasRenderer.SetAlpha(1);
+			multiplierBG.canvasRenderer.SetAlpha(1);
+			multiplierDial.canvasRenderer.SetAlpha(1);
 		}
 		multiplierText.text = "X" + multiplier.ToString() + ""; //Empty string is to avoid automatic line ending of new line.
 	}
@@ -52,6 +58,9 @@ public class ScoreHandler : MonoBehaviour {
     void Start() {
         scoreText = GameObject.Find("Score").GetComponent<Text>();
 		multiplierText = GameObject.Find("Multiplier").GetComponent<Text>();
+		multiplierBG = GameObject.Find("MultiplierTimeDialBG").GetComponent<Image>();
+		multiplierDial = GameObject.Find("MultiplierTimeDial").GetComponent<Image>();
+
     }
 
 	void RaiseMultiplier() {
@@ -82,6 +91,8 @@ public class ScoreHandler : MonoBehaviour {
 		if (multiplierTimeLeft > 0){
 			if (multiplier > 1){
 				multiplierTimeLeft -= (Time.deltaTime * multiplierCountDownRate);
+				multiplierDial.fillAmount = (multiplierTimeLeft * (1 / multiplierBaseTimeLeft));
+				Debug.Log((multiplierTimeLeft * (1 / multiplierBaseTimeLeft)));
 			}
 		}
 		else{
