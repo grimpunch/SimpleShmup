@@ -30,9 +30,9 @@ public class ScoreHandler : MonoBehaviour {
 
     public void ResetScore() {
         score = 000000;
-		ResetMultiplierCountdown();
+	ResetMultiplierCountdown();
         UpdateScore();
-		UpdateMultiplier();
+	UpdateMultiplier();
     }
 
 
