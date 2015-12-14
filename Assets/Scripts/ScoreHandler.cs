@@ -20,12 +20,12 @@ public class ScoreHandler : MonoBehaviour {
 
 
     public void AddScore(int added) {
-		int scoreToAdd = (added * multiplier);
-		score += scoreToAdd;
-		RaiseMultiplier();
-		ResetMultiplierCountdown();
+	int scoreToAdd = (added * multiplier);
+	score += scoreToAdd;
+	RaiseMultiplier();
+	ResetMultiplierCountdown();
         UpdateScore();
-		UpdateMultiplier();
+	UpdateMultiplier();
     }
 
     public void ResetScore() {
@@ -57,19 +57,18 @@ public class ScoreHandler : MonoBehaviour {
     // Use this for initialization
     void Start() {
         scoreText = GameObject.Find("Score").GetComponent<Text>();
-		multiplierText = GameObject.Find("Multiplier").GetComponent<Text>();
-		multiplierBG = GameObject.Find("MultiplierTimeDialBG").GetComponent<Image>();
-		multiplierDial = GameObject.Find("MultiplierTimeDial").GetComponent<Image>();
+	multiplierText = GameObject.Find("Multiplier").GetComponent<Text>();
+	multiplierBG = GameObject.Find("MultiplierTimeDialBG").GetComponent<Image>();
+	multiplierDial = GameObject.Find("MultiplierTimeDial").GetComponent<Image>();
 
     }
 
 	void RaiseMultiplier() {
 		switch (multiplier){
-			//Multiplier goes to x2 then adds 2 per step.
+		//Multiplier goes to x2 then adds 2 per step.
 		case 1: multiplier = multiplier * 2; break;
 		default: multiplier = multiplier += 2; break;
 		}
-
 		multiplierCountDownRate += multiplierCountDownRateIncrement;
 	}
 
