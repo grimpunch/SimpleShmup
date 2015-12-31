@@ -24,7 +24,7 @@ public class EnemyShotHandler : MonoBehaviour {
 
     internal void RemoveAllShots() {
         if (shots.Count <= 0) return;
-        shots = gameObject.GetComponent<ObjectPoolScript>().pooledObjects;
+		shots = gameObject.GetComponent<ObjectPoolScript>().pooledObjects;
         foreach (GameObject shot in shots) {
             if (shot.activeSelf) shot.SetActive(false);
         }
