@@ -53,12 +53,31 @@ public class BezierSplineInspector : Editor {
 		}
 	}
 
-	private void OnSceneGUI () {
+	private void OnDrawGizmos() {
+		Gizmos.color = Color.blue;
 		spline = target as BezierSpline;
 		handleTransform = spline.transform;
 		handleRotation = Tools.pivotRotation == PivotRotation.Local ?
 			handleTransform.rotation : Quaternion.identity;
 		
+		Vector3 p0 = ShowPoint(0);
+		for (int i = 1; i < spline.ControlPointCount; i += 3) {
+			Vector3 p1 = ShowPoint(i);
+			Vector3 p2 = ShowPoint(i + 1);
+			Vector3 p3 = ShowPoint(i + 2);
+			
+			Gizmos.color = Color.gray;
+			Gizmos.DrawLine(p0, p1);
+			Gizmos.DrawLine(p2, p3);
+		}
+	}
+
+	private void OnSceneGUI () {
+		spline = target as BezierSpline;
+		handleTransform = spline.transform;
+		handleRotation = Tools.pivotRotation == PivotRotation.Local ?
+			handleTransform.rotation : Quaternion.identity;
+
 		Vector3 p0 = ShowPoint(0);
 		for (int i = 1; i < spline.ControlPointCount; i += 3) {
 			Vector3 p1 = ShowPoint(i);

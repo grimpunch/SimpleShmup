@@ -203,4 +203,14 @@ public class BezierSpline : MonoBehaviour {
 			BezierControlPointMode.Free
 		};
 	}
+
+	private void OnDrawGizmos() {
+		//Draw start and end points of the spline.
+		BezierSpline spline = this;
+		Gizmos.color = Color.green;
+		Gizmos.DrawWireCube(transform.TransformPoint(spline.points[0]),new Vector3(0.02f,0.02f,0.02f));
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireSphere(transform.TransformPoint(spline.points[spline.points.Length-1]),0.02f);
+
+	}
 }

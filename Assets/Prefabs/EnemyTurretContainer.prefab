@@ -110,7 +110,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 5.87699986, z: 0}
+  m_LocalPosition: {x: -1, y: 7.52899981, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 475198}
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPool: EnemyShotObjectPool
-  shotDelay: .075000003
+  shotDelay: .150000006
   burstDelay: 4.5
   burstAmount: 20
   canShoot: 1
@@ -387,7 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPool: EnemyShotObjectPool
-  shotDelay: .075000003
+  shotDelay: .150000006
   burstDelay: 4.5
   burstAmount: 20
   canShoot: 1

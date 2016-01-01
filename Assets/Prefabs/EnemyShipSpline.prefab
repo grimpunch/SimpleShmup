@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21254456}
   - 61: {fileID: 6150002}
   - 114: {fileID: 11478004}
+  - 114: {fileID: 11409996}
   - 114: {fileID: 11427550}
   - 114: {fileID: 11440838}
   - 50: {fileID: 5048968}
@@ -19,6 +20,7 @@ GameObject:
   - 114: {fileID: 11487212}
   - 114: {fileID: 11453168}
   - 114: {fileID: 11411652}
+  - 114: {fileID: 11434526}
   m_Layer: 9
   m_Name: EnemyShipSpline
   m_TagString: Enemy
@@ -66,6 +68,26 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: .200000003, y: .100000001}
+--- !u!114 &11409996
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120156}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb0dbd2afeda3014aae90c81376aa7cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequenceList:
+  - spline: {fileID: 0}
+    duration: 5
+  - spline: {fileID: 0}
+    duration: 5
+  currentSpline: {fileID: 0}
+  currentDuration: 0
+  loopBackTo: 1
+  loop: 0
 --- !u!114 &11411652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -82,7 +104,7 @@ MonoBehaviour:
   - {fileID: 11427550}
   - {fileID: 11440838}
   - {fileID: 11477912}
-  - {fileID: 11469336}
+  - {fileID: 11409996}
   delay: 0
 --- !u!114 &11427550
 MonoBehaviour:
@@ -97,6 +119,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystemPrefab: {fileID: 169284, guid: 5bebd31ac213b2c44bf626469cec562e, type: 2}
   powerUp: {fileID: 0}
+--- !u!114 &11434526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ae6ffff2a763e46a7ef1fd28423741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviours:
+  - {fileID: 11469336}
+  delay: 2
 --- !u!114 &11440838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,9 +172,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPool: EnemyShotObjectPool
-  shotDelay: .5
-  burstDelay: 6
-  burstAmount: 10
+  shotDelay: .200000003
+  burstDelay: 2.5
+  burstAmount: 12
   canShoot: 1
 --- !u!114 &11477912
 MonoBehaviour:
@@ -164,9 +200,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spline: {fileID: 0}
+  formationOffset: {x: 0, y: 0, z: 0}
   lookForward: 0
   duration: 10
-  loop: 1
+  finishedSpline: 0
+  mode: 0
 --- !u!114 &11487212
 MonoBehaviour:
   m_ObjectHideFlags: 1

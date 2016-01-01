@@ -49,10 +49,10 @@ public class ScreenBoundsHandler : MonoBehaviour {
     void OnDrawGizmos() {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawCube(Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, 0.0F)), Vector3.one);
-        Gizmos.DrawCube(Camera.main.ViewportToWorldPoint(new Vector3(0f, 1f, 0.0F)), Vector3.one);
-        Gizmos.DrawCube(Camera.main.ViewportToWorldPoint(new Vector3(1f, 0f, 0.0F)), Vector3.one);
-        Gizmos.DrawCube(Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, 0.0F)), Vector3.one);
+        Gizmos.DrawWireCube(Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, 0.0F)), Vector3.one);
+		Gizmos.DrawWireCube(Camera.main.ViewportToWorldPoint(new Vector3(0f, 1f, 0.0F)), Vector3.one);
+        Gizmos.DrawWireCube(Camera.main.ViewportToWorldPoint(new Vector3(1f, 0f, 0.0F)), Vector3.one);
+        Gizmos.DrawWireCube(Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, 0.0F)), Vector3.one);
     }
 
 }
