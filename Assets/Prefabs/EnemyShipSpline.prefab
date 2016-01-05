@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0799999982, y: 2.27999997, z: 0}
+  m_LocalPosition: {x: .0799999982, y: 2.35700011, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,13 +81,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequenceList:
   - spline: {fileID: 0}
-    duration: 5
+    duration: 8
+    shoot: 1
   - spline: {fileID: 0}
     duration: 5
+    shoot: 1
   currentSpline: {fileID: 0}
   currentDuration: 0
   loopBackTo: 1
-  loop: 0
+  loop: 1
+  canShoot: 0
 --- !u!114 &11411652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4edcd74236888f4980dde07b78d8e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystemPrefab: {fileID: 169284, guid: 5bebd31ac213b2c44bf626469cec562e, type: 2}
+  particleSystemPool: EnemyDeathParticleObjectPool
   powerUp: {fileID: 0}
 --- !u!114 &11434526
 MonoBehaviour:

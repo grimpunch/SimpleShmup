@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4edcd74236888f4980dde07b78d8e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystemPrefab: {fileID: 189338, guid: 9138de28d864f2f419a9a0051fca8f96, type: 2}
+  particleSystemPool: PlayerShotImpactParticleObjectPool
   powerUp: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:

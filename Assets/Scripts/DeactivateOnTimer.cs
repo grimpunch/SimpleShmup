@@ -10,6 +10,13 @@ public class DeactivateOnTimer : MonoBehaviour {
         Invoke("DeactivateThis", time);
     }
 
+	void OnActivate() {
+		if (gameObject.GetComponent<ParticleSystem>()){
+			gameObject.GetComponent<ParticleSystem>().Clear();
+			gameObject.GetComponent<ParticleSystem>().Play();
+		}
+	}
+
     void Update() {
         if (this.IsInvoking() && Utils.Paused) {
             CancelInvoke("DeactivateThis");

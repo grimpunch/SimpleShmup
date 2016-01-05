@@ -17,6 +17,8 @@ GameObject:
   - 114: {fileID: 11404316}
   - 114: {fileID: 11416692}
   - 114: {fileID: 11426452}
+  - 114: {fileID: 11419916}
+  - 114: {fileID: 11465952}
   m_Layer: 9
   m_Name: BossShip
   m_TagString: Enemy
@@ -58,7 +60,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6, z: 0}
+  m_LocalPosition: {x: 0, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 414080}
@@ -133,6 +135,23 @@ MonoBehaviour:
   rankShotsUntilChange: 4
   pinWheelShotsUntilChange: 200
   pinWheelSpinSpeed: 5
+--- !u!114 &11419916
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133014}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a5f50fc056f0c84ba151bb8a4e1d206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spline: {fileID: 0}
+  formationOffset: {x: 0, y: 0, z: 0}
+  lookForward: 0
+  duration: 30
+  finishedSpline: 0
+  mode: 0
 --- !u!114 &11426452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -150,6 +169,8 @@ MonoBehaviour:
   - {fileID: 11442486}
   - {fileID: 11416692}
   - {fileID: 11404316}
+  - {fileID: 11419916}
+  - {fileID: 11465952}
   delay: 0
 --- !u!114 &11428792
 MonoBehaviour:
@@ -162,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4edcd74236888f4980dde07b78d8e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystemPrefab: {fileID: 169284, guid: d5a855a2b2e0664419de5af57015eb05, type: 2}
+  particleSystemPool: EnemyDeathParticleObjectPool
   powerUp: {fileID: 180602, guid: 633f1f81dbd9c364dac2d44e10e777b6, type: 2}
 --- !u!114 &11434238
 MonoBehaviour:
@@ -191,6 +212,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelScroller: {fileID: 0}
   yScrollStopOffset: .200000003
+--- !u!114 &11465952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb0dbd2afeda3014aae90c81376aa7cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequenceList:
+  - spline: {fileID: 0}
+    duration: 8
+    shoot: 0
+  - spline: {fileID: 0}
+    duration: 30
+    shoot: 0
+  currentSpline: {fileID: 0}
+  currentDuration: 0
+  loopBackTo: 1
+  loop: 1
+  canShoot: 0
 --- !u!212 &21210738
 SpriteRenderer:
   m_ObjectHideFlags: 1
