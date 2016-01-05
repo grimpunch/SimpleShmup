@@ -25,7 +25,7 @@ public class LifeHandler : MonoBehaviour {
     // Use this for initialization
     void Start() {
         lifeCounterText = GameObject.Find("LifeCounterText").GetComponent<Text>();
-        livesleft = startLives;
+        livesleft = Utils.livesSetting;
         SetLifeCounterText(livesleft);
         gameStarted = true;
 		score = GameObject.Find("Score").GetComponent<ScoreHandler>();

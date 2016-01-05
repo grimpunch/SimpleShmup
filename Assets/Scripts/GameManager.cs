@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public static class Utils {
     public static bool Paused = false;
+	public static int livesSetting = 3;
 
     internal static Quaternion RotationToTarget(Transform self, Transform target) {
         Vector3 vectorToTarget = target.position - self.position;
@@ -12,6 +16,10 @@ public static class Utils {
     }
 }
 
+[Serializable]
+class SettingsData {
+	public int livesAtStart;
+}
 
 public class GameManager : MonoBehaviour {
 	public static GameManager GameManagerInstance;
@@ -19,6 +27,7 @@ public class GameManager : MonoBehaviour {
 	public FramesPerSecond fpsCount;
     // Use this for initialization
     void Start() {
+		Load();
 		sceneManager = GameObject.Find("SceneManager").GetComponent<SceneManager>();
 
 		if (GameManagerInstance != null)
@@ -36,6 +45,28 @@ public class GameManager : MonoBehaviour {
 		}
         Utils.Paused = false;
     }
+
+	public void Save() {
+		BinaryFormatter bf = new BinaryFormatter();
+		FileStream file = File.Create(Application.persistentDataPath + "/settings.dat");
+
+		SettingsData data = new SettingsData();
+		data.livesAtStart = Utils.livesSetting;
+
+		bf.Serialize(file, data);
+		file.Close();
+	}
+
+	public void Load () {
+		if (File.Exists(Application.persistentDataPath + "/settings.dat"))
+		{
+			BinaryFormatter bf = new BinaryFormatter();
+			FileStream file = File.Open(Application.persistentDataPath + "/settings.dat", FileMode.Open);
+			SettingsData data = (SettingsData)bf.Deserialize(file);
+			file.Close();
+			Utils.livesSetting = data.livesAtStart;
+		}
+	}
 
 	public void NewGame(){
 		sceneManager.StartCoroutine("LoadScene","Level1");
@@ -70,3 +101,4 @@ public class GameManager : MonoBehaviour {
         }
     }
 }
+
