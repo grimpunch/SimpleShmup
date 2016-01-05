@@ -21,6 +21,7 @@ public class MoveSpline : MonoBehaviour {
 	
 	private void Update () {
 		if (Utils.Paused) return;
+		if (!spline) return;
 		if (goingForward) {
 			progress += Time.deltaTime / duration;
 			if (progress > 1f) {

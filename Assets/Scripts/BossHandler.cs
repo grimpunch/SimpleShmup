@@ -44,7 +44,7 @@ public class BossHandler : MonoBehaviour {
     }
 
     void OnDisable() {
-        DestroySpawnedBullets();
+        if (Application.isPlaying) DestroySpawnedBullets();
         if (levelScroller != null) levelScroller.stopped = false;
     }
 }

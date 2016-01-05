@@ -21,7 +21,7 @@ public class PlayerHitHandler : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        lifeHandler = GameObject.Find("GameManager").GetComponent<LifeHandler>();
+        lifeHandler = GameObject.Find("LifeManager").GetComponent<LifeHandler>();
         playerShipRenderer = gameObject.GetComponent<SpriteRenderer>();
         vulnerable = true;
         invulnerableColor = new HSLColor(new Color(1, 0.75f, 0.75f));
