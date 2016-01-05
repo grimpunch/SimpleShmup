@@ -510,7 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4edcd74236888f4980dde07b78d8e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystemPrefab: {fileID: 169284, guid: b325c97f50cb1f141b7f980cb415d25d, type: 2}
+  particleSystemPool: PlayerDeathParticleObjectPool
   powerUp: {fileID: 0}
 --- !u!114 &11492058
 MonoBehaviour:
