@@ -13,16 +13,35 @@ public static class Utils {
 }
 
 
-public class GameHandler : MonoBehaviour {
-
+public class GameManager : MonoBehaviour {
+	public static GameManager GameManagerInstance;
+	public static SceneManager sceneManager;
     
     // Use this for initialization
     void Start() {
+		sceneManager = GameObject.Find("SceneManager").GetComponent<SceneManager>();
+		if (GameManagerInstance != null)
+		{
+			GameObject.Destroy(gameObject);
+		}
+		else
+		{
+			GameObject.DontDestroyOnLoad(gameObject);
+			GameManagerInstance = this;
+		}
         Utils.Paused = false;
     }
 
-    // Update is called once per frame
-    void Update() {
+	public void NewGame(){
+		sceneManager.StartCoroutine("LoadScene","Level1");
+		Debug.Log("New Game Clicked");
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if (!sceneManager){
+			GameObject.Find("SceneManager").GetComponent<SceneManager>();
+		}
         if (Input.GetKeyUp(KeyCode.P)) { 
             Utils.Paused = !Utils.Paused; // Pause or Unpause based on current state.
             //then Update everything else that needs intervention but not the overhead of a monobehavior on every particle system etc.

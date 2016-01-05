@@ -4,7 +4,7 @@ using System.Collections;
 
 public class LifeHandler : MonoBehaviour {
 
-    public GameObject playerShip;
+	public GameObject playerShip;
     private bool alive = true;
     private bool gameStarted;
     public int startLives;

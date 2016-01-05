@@ -42,8 +42,6 @@ public class SceneManager : MonoBehaviour {
 		}
 		if (async != null){
 			timeWaited += Time.deltaTime;
-			Debug.Log(async.progress);
-			Debug.Log(timeWaited);
 			if (async.progress >= 0.9f && timeWaited > timeToWaitAroundLoads){
 				timeWaited = 0f;
 				ActivateScene();
