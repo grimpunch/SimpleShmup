@@ -33,7 +33,7 @@ public class SplinePathSequence : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Utils.Paused) {return;}
-		if (!moveSpline || !enemyShoot) {return;}
+		if (!moveSpline) {return;}
 		if (moveSpline.finishedSpline && moveSpline.mode == MoveSplineMode.Once){
 			moveSpline.finishedSpline = false;
 
@@ -53,9 +53,11 @@ public class SplinePathSequence : MonoBehaviour {
 		}
 		currentSpline = sequenceList[currentSplineIndex].spline;
 		currentDuration = sequenceList[currentSplineIndex].duration;
-		canShoot = sequenceList[currentSplineIndex].shoot;
 		moveSpline.spline = currentSpline;
 		moveSpline.duration = currentDuration;
+		if (enemyShoot){
+		canShoot = sequenceList[currentSplineIndex].shoot;
 		enemyShoot.canShoot = canShoot;
+		}
 	}
 }
