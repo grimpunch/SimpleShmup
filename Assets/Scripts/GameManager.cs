@@ -16,10 +16,11 @@ public static class Utils {
 public class GameManager : MonoBehaviour {
 	public static GameManager GameManagerInstance;
 	public static SceneManager sceneManager;
-    
+	public FramesPerSecond fpsCount;
     // Use this for initialization
     void Start() {
 		sceneManager = GameObject.Find("SceneManager").GetComponent<SceneManager>();
+
 		if (GameManagerInstance != null)
 		{
 			GameObject.Destroy(gameObject);
@@ -28,6 +29,10 @@ public class GameManager : MonoBehaviour {
 		{
 			GameObject.DontDestroyOnLoad(gameObject);
 			GameManagerInstance = this;
+		}
+		if (!fpsCount)
+		{
+		fpsCount = gameObject.AddComponent<FramesPerSecond>();
 		}
         Utils.Paused = false;
     }
