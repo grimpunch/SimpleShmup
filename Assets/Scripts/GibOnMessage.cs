@@ -7,6 +7,7 @@ public class GibOnMessage : MonoBehaviour {
     public GameObject powerUp;
 
     public void Gib() {
+		if (!gameObject) return;
 		if (particleSystemPool.Contains("Pool")) {
 			GameObject particleSystem = GameObject.Find(particleSystemPool).GetComponent<ObjectPoolScript>().GetPooledObject();
 			particleSystem.transform.position = transform.position;
