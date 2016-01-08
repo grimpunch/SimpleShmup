@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlayerShotHandler : MonoBehaviour {
+public class PlayerShotHandler : MonoBehaviour
+{
 
     private List<GameObject> shots;
     private ScreenBoundsHandler screenBounds;
@@ -10,22 +11,27 @@ public class PlayerShotHandler : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         screenBounds = GameObject.Find("ScreenBoundsHandler").GetComponent<ScreenBoundsHandler>();
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         shots = gameObject.GetComponent<ObjectPoolScript>().pooledObjects;
-        if (Utils.Paused) return;
-        foreach (GameObject shot in shots){
-            if (shot.activeSelf) MoveShot(shot);
+        if(Utils.Paused)
+            return;
+        foreach(GameObject shot in shots) {
+            if(shot.activeSelf)
+                MoveShot(shot);
         }
     }
 
-    void MoveShot(GameObject shot) {
+    void MoveShot(GameObject shot)
+    {
         
-        if (shot.transform.position.y < screenBounds.ScreenTop - 0.1F) {
+        if(shot.transform.position.y < screenBounds.ScreenTop - 0.1F) {
             shot.transform.position += shot.transform.up * (shotSpeed * Time.deltaTime);
         } else {
             shot.SetActive(false);

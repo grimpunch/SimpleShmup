@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FramesPerSecond : MonoBehaviour {
+public class FramesPerSecond : MonoBehaviour
+{
     float deltaTime = 0.0f;
 
-    void Update() {
+    void Update()
+    {
         deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
     }
 
-    void OnGUI() {
+    void OnGUI()
+    {
         int w = Screen.width, h = Screen.height;
 
         GUIStyle style = new GUIStyle();

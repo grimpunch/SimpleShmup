@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AnimateShip : MonoBehaviour {
+public class AnimateShip : MonoBehaviour
+{
 
     private SpriteRenderer spriteRenderer;
     private float velocity;
@@ -14,23 +15,26 @@ public class AnimateShip : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
-    void Update() {
-        if (Utils.Paused) return;
+    void Update()
+    {
+        if(Utils.Paused)
+            return;
         velocity = this.gameObject.GetComponent<PlayerMovement>().xAnim;
-        if (velocity == 0) { 
+        if(velocity == 0) { 
             //Move Forward
             spriteRenderer.sprite = sprites[0];
         }
-        if (velocity < 0.0F ){
+        if(velocity < 0.0F) {
             // Move Left
             spriteRenderer.sprite = sprites[1];
         }
-        if (velocity > 0 ){
+        if(velocity > 0) {
             // Move Right
             spriteRenderer.sprite = sprites[2];
         }

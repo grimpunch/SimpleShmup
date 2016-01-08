@@ -2,9 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PatternBossShoot : MonoBehaviour {
+public class PatternBossShoot : MonoBehaviour
+{
 
-    public enum ShotPattern { Radial, Pinwheel, Aimed, Rank };
+    public enum ShotPattern
+    {
+        Radial,
+        Pinwheel,
+        Aimed,
+        Rank}
+
+    ;
+
     private ShotPattern currentShotPattern = ShotPattern.Pinwheel;
     public List<ShotPattern> shotPatternOrder;
     private int shotPatternIndex = 0;
@@ -39,17 +48,21 @@ public class PatternBossShoot : MonoBehaviour {
     private int pinWheelShotsLeft;
     public float pinWheelSpinSpeed = 2f;
     private float pinWheelStartAngle = 0f;
+
     ////////////////////////////
 
-    static T GetRandomEnum<T>() {
+    static T GetRandomEnum<T>()
+    {
         System.Array A = System.Enum.GetValues(typeof(T));
         T V = (T)A.GetValue(UnityEngine.Random.Range(0, A.Length));
         return V;
     }
 
-    ShotPattern GetNextEnum() {
+    ShotPattern GetNextEnum()
+    {
         shotPatternIndex++;
-        if (shotPatternIndex > shotPatternOrder.Count - 1) shotPatternIndex = 0;
+        if(shotPatternIndex > shotPatternOrder.Count - 1)
+            shotPatternIndex = 0;
         return shotPatternOrder[shotPatternIndex]; 
     }
 
@@ -61,7 +74,8 @@ public class PatternBossShoot : MonoBehaviour {
     // Aimed - Shots will be in a line burst, fast, towards player directly.
     // Rank - Line of shots perpendicular to the player, expanding outwards slightly at an angle from origin
 
-    void Start() {
+    void Start()
+    {
         timeUntilNextPattern = waitBetweenPatterns;
         aimedShotsLeft = aimedShotsUntilChange;
         radialShotsLeft = radialShotsUntilChange;
@@ -71,17 +85,24 @@ public class PatternBossShoot : MonoBehaviour {
     }
 
     //TODO: All below.
-    void AimedPattern() {
+    void AimedPattern()
+    {
         shotPool = enemyHarassShotObjectPoolScript;
-        if (playerTransform == null) {
+        if(playerTransform == null) {
             try {
                 playerTransform = GameObject.FindWithTag("Player").transform;
-            } catch { return; }
+            } catch {
+                return;
+            }
         }
-        if (aimedShotsLeft == aimedShotsUntilChange) aimedShotAngle = Utils.RotationToTarget(transform, playerTransform);
-        if (aimedShotsLeft> 0) {
-            if (timeUntilNextShot <= 0) AimedShot();
-            else { timeUntilNextShot -= Time.deltaTime; }
+        if(aimedShotsLeft == aimedShotsUntilChange)
+            aimedShotAngle = Utils.RotationToTarget(transform, playerTransform);
+        if(aimedShotsLeft > 0) {
+            if(timeUntilNextShot <= 0)
+                AimedShot();
+            else {
+                timeUntilNextShot -= Time.deltaTime;
+            }
             return;
         }
         readyForPattern = true;
@@ -89,35 +110,43 @@ public class PatternBossShoot : MonoBehaviour {
         aimedShotsLeft = aimedShotsUntilChange;
     }
 
-    void AimedShot() {
+    void AimedShot()
+    {
         Shoot(transform.position, aimedShotAngle);
         PlayShotSound();
         timeUntilNextShot = aimedShotDelay;
         aimedShotsLeft--;
     }
 
-    void RankPattern() {
+    void RankPattern()
+    {
         shotPool = enemyShotObjectPoolScript;
-        if (playerTransform == null) {
+        if(playerTransform == null) {
             try {
                 playerTransform = GameObject.FindWithTag("Player").transform;
-            } catch { return; }
+            } catch {
+                return;
+            }
         }
         rankShotAngle = Utils.RotationToTarget(transform, playerTransform);
-        if (rankShotsLeft > 0) {
-            if (timeUntilNextShot <= 0) RankShot();
-            else { timeUntilNextShot -= Time.deltaTime; }
+        if(rankShotsLeft > 0) {
+            if(timeUntilNextShot <= 0)
+                RankShot();
+            else {
+                timeUntilNextShot -= Time.deltaTime;
+            }
             return;
         }
         readyForPattern = true;
         canShoot = false;
         rankShotsLeft = rankShotsUntilChange;
     }
-    
-    void RankShot() {
+
+    void RankShot()
+    {
         Shoot(transform.position, rankShotAngle);
         Shoot(transform.position, Quaternion.Euler(new Vector3(rankShotAngle.eulerAngles.x, rankShotAngle.eulerAngles.y, rankShotAngle.eulerAngles.z + angleBetweenRankShots)));
-        Shoot(transform.position, Quaternion.Euler(new Vector3(rankShotAngle.eulerAngles.x, rankShotAngle.eulerAngles.y, rankShotAngle.eulerAngles.z + angleBetweenRankShots*2)));
+        Shoot(transform.position, Quaternion.Euler(new Vector3(rankShotAngle.eulerAngles.x, rankShotAngle.eulerAngles.y, rankShotAngle.eulerAngles.z + angleBetweenRankShots * 2)));
         Shoot(transform.position, Quaternion.Euler(new Vector3(rankShotAngle.eulerAngles.x, rankShotAngle.eulerAngles.y, rankShotAngle.eulerAngles.z - angleBetweenRankShots)));
         Shoot(transform.position, Quaternion.Euler(new Vector3(rankShotAngle.eulerAngles.x, rankShotAngle.eulerAngles.y, rankShotAngle.eulerAngles.z - angleBetweenRankShots * 2)));
         PlayShotSound();
@@ -125,11 +154,15 @@ public class PatternBossShoot : MonoBehaviour {
         rankShotsLeft--;
     }
 
-    void RadialPattern() {
+    void RadialPattern()
+    {
         shotPool = enemyShotObjectPoolScript;
-        if (radialShotsLeft > 0) {
-            if (timeUntilNextShot <= 0) RadialShot();
-            else { timeUntilNextShot -= Time.deltaTime; }
+        if(radialShotsLeft > 0) {
+            if(timeUntilNextShot <= 0)
+                RadialShot();
+            else {
+                timeUntilNextShot -= Time.deltaTime;
+            }
             return;
         }
         readyForPattern = true;
@@ -137,10 +170,11 @@ public class PatternBossShoot : MonoBehaviour {
         radialShotsLeft = radialShotsUntilChange;
     }
 
-    private void RadialShot() {
+    private void RadialShot()
+    {
         int shotsToFire = Mathf.FloorToInt(360.0f / angleBetweenRadialShots);
-        float currentShotAngle = Random.Range(0f,angleBetweenRadialShots);
-        for (int shotsFired = 0; shotsFired < shotsToFire; shotsFired++) {
+        float currentShotAngle = Random.Range(0f, angleBetweenRadialShots);
+        for(int shotsFired = 0; shotsFired < shotsToFire; shotsFired++) {
             Shoot(transform.position, Quaternion.Euler(0f, 0f, currentShotAngle));
             currentShotAngle += angleBetweenRadialShots;
         }
@@ -149,11 +183,15 @@ public class PatternBossShoot : MonoBehaviour {
         radialShotsLeft--;
     }
 
-    void PinwheelPattern() {
+    void PinwheelPattern()
+    {
         shotPool = enemyShotObjectPoolScript;
-        if (pinWheelShotsLeft > 0) {
-            if (timeUntilNextShot <= 0) PinwheelShot();
-            else { timeUntilNextShot -= Time.deltaTime; }
+        if(pinWheelShotsLeft > 0) {
+            if(timeUntilNextShot <= 0)
+                PinwheelShot();
+            else {
+                timeUntilNextShot -= Time.deltaTime;
+            }
             return;
         }
         pinWheelStartAngle = 0f;
@@ -162,10 +200,11 @@ public class PatternBossShoot : MonoBehaviour {
         pinWheelShotsLeft = pinWheelShotsUntilChange;
     }
 
-    private void PinwheelShot() {
+    private void PinwheelShot()
+    {
         int shotsToFire = Mathf.FloorToInt(360.0f / angleBetweenPinwheelShots);
         float currentShotAngle = pinWheelStartAngle;
-        for (int shotsFired = 0; shotsFired < shotsToFire; shotsFired++) {
+        for(int shotsFired = 0; shotsFired < shotsToFire; shotsFired++) {
             Shoot(transform.position, Quaternion.Euler(0f, 0f, currentShotAngle));
             currentShotAngle += angleBetweenPinwheelShots;
         }
@@ -175,31 +214,37 @@ public class PatternBossShoot : MonoBehaviour {
         pinWheelShotsLeft--;
     }
 
-    void Update() {
+    void Update()
+    {
         //This whole function requires changes for pattern implementation
         //Define switches for handling patterns here. use functions for implementation
-        if (Utils.Paused) {
-            if (GetComponent<AudioSource>() != null) {
-                if (Application.isPlaying && Utils.Paused) gameObject.GetComponent<AudioSource>().Pause();
-                if (Application.isPlaying && !Utils.Paused) gameObject.GetComponent<AudioSource>().UnPause();
+        if(Utils.Paused) {
+            if(GetComponent<AudioSource>() != null) {
+                if(Application.isPlaying && Utils.Paused)
+                    gameObject.GetComponent<AudioSource>().Pause();
+                if(Application.isPlaying && !Utils.Paused)
+                    gameObject.GetComponent<AudioSource>().UnPause();
             }
         }
-        if (Utils.Paused) return;
+        if(Utils.Paused)
+            return;
         
-        if (readyForPattern) {
-            if (timeUntilNextPattern <= 0) {
+        if(readyForPattern) {
+            if(timeUntilNextPattern <= 0) {
                 timeUntilNextPattern = waitBetweenPatterns;
                 currentShotPattern = GetNextEnum();// GetRandomEnum<ShotPattern>();
                 readyForPattern = false;
                 canShoot = true;
-            } else { timeUntilNextPattern -= Time.deltaTime; }
+            } else {
+                timeUntilNextPattern -= Time.deltaTime;
+            }
         } 
 
-        if (!canShoot) {
+        if(!canShoot) {
             return;
         }
  
-        switch (currentShotPattern) {
+        switch(currentShotPattern) {
             case ShotPattern.Aimed:
                 AimedPattern();
                 break;
@@ -216,13 +261,15 @@ public class PatternBossShoot : MonoBehaviour {
         ///////////////////////////////////
     }
 
-    void PlayShotSound(){
-    if (GetComponent<AudioSource>() != null) {
-                GetComponent<AudioSource>().Play();
+    void PlayShotSound()
+    {
+        if(GetComponent<AudioSource>() != null) {
+            GetComponent<AudioSource>().Play();
         }
     }
 
-    void Shoot(Vector3 shotPos, Quaternion shotRot) {
+    void Shoot(Vector3 shotPos, Quaternion shotRot)
+    {
         GameObject shotGO = shotPool.GetPooledObject();
         shotGO.transform.position = shotPos;
         shotGO.transform.rotation = shotRot;

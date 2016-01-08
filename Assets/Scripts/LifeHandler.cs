@@ -2,9 +2,10 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class LifeHandler : MonoBehaviour {
+public class LifeHandler : MonoBehaviour
+{
 
-	public GameObject playerShip;
+    public GameObject playerShip;
     private bool alive = true;
     private bool gameStarted;
     public int startLives;
@@ -12,61 +13,74 @@ public class LifeHandler : MonoBehaviour {
     private float timeToSpawn;
     public float respawnDelay;
     private Text lifeCounterText;
-	private ScoreHandler score;
+    private ScoreHandler score;
 
-    void Awake() {
+    void Awake()
+    {
         DontDestroyOnLoad(transform.gameObject);
     }
 
-    void OnLevelWasLoaded(int level) {
+    void OnLevelWasLoaded(int level)
+    {
         lifeCounterText = GameObject.Find("LifeCounterText").GetComponent<Text>();
     }
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         lifeCounterText = GameObject.Find("LifeCounterText").GetComponent<Text>();
         livesleft = Utils.livesSetting;
         SetLifeCounterText(livesleft);
         gameStarted = true;
-		score = GameObject.Find("Score").GetComponent<ScoreHandler>();
+        score = GameObject.Find("Score").GetComponent<ScoreHandler>();
     }
 
-    void SetLifeCounterText(int lives) {
-        lifeCounterText.text = "x " + lives.ToString("D2")+"";
+    void SetLifeCounterText(int lives)
+    {
+        lifeCounterText.text = "x " + lives.ToString("D2") + "";
     }
 
-    void Dead() {
+    void Dead()
+    {
         Debug.Log("Player Died, respawning depending on lives left");
         alive = false;
-		score.ResetMultiplier();
+        score.ResetMultiplier();
     }
 
-    void Spawn() {
+    void Spawn()
+    {
         playerShip.SetActive(true);
         playerShip.transform.localPosition = new Vector3(0f, -1f, 0f);
-        alive = true;;
+        alive = true;
+        ;
         livesleft--;
         timeToSpawn = 0;
         SetLifeCounterText(livesleft);
     }
 
-    void GameOver() {
+    void GameOver()
+    {
         Debug.Log("OH NOES YOU DED.");
     }
 
     // Update is called once per frame
-    void Update() {
-        if (Utils.Paused) return;
-        if (!alive) { 
+    void Update()
+    {
+        if(Utils.Paused)
+            return;
+        if(!alive) { 
             // Player has been destroyed
-            if (livesleft > 0) {
+            if(livesleft > 0) {
                 timeToSpawn += Time.deltaTime;
-                if (timeToSpawn > respawnDelay){
+                if(timeToSpawn > respawnDelay) {
                     Spawn();
                 }
                 return;
             } else {
-                if (gameStarted) { GameOver(); gameStarted = false; }
+                if(gameStarted) {
+                    GameOver();
+                    gameStarted = false;
+                }
             }
         }
     }

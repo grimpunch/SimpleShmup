@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyWaveSpawn : MonoBehaviour {
+public class EnemyWaveSpawn : MonoBehaviour
+{
 
     public GameObject spawnPrefab;
     public int spawnCount;
@@ -15,33 +16,40 @@ public class EnemyWaveSpawn : MonoBehaviour {
     public float spawnDeviation = 0.3f;
     public GameObject powerUpPrefab;
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         
     }
 
     // Update is called once per frame
-    void Update() {
-        if (Utils.Paused) return;
-        if (timeToSpawn < 0) {
+    void Update()
+    {
+        if(Utils.Paused)
+            return;
+        if(timeToSpawn < 0) {
             timeToSpawn = spawnDelay;
             Invoke("Spawn", spawnDelay);
-        } else { timeToSpawn -= Time.deltaTime; }
-        if (spawned >= spawnCount) { Destroy(gameObject); }
+        } else {
+            timeToSpawn -= Time.deltaTime;
+        }
+        if(spawned >= spawnCount) {
+            Destroy(gameObject);
+        }
     }
 
-    void Spawn() {
+    void Spawn()
+    {
         
-        if (left) {
+        if(left) {
             spawnPos = new Vector3(transform.position.x - spawnDeviation, transform.position.y, transform.position.z);
             left = false;
-        }
-        else if (!left) {
+        } else if(!left) {
             spawnPos = new Vector3(transform.position.x + spawnDeviation, transform.position.y, transform.position.z);
             left = true;
         }
         GameObject spawnGO = (GameObject)Instantiate(spawnPrefab, spawnPos, transform.rotation);
         spawnGO.name = spawnPrefab.name;
-        if (powerupDropped && (spawned == spawnToDropPowerUpOn)) {
+        if(powerupDropped && (spawned == spawnToDropPowerUpOn)) {
             spawnGO.GetComponent<GibOnMessage>().powerUp = powerUpPrefab;
         }
         spawned++;

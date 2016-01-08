@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class BossHandler : MonoBehaviour {
+public class BossHandler : MonoBehaviour
+{
 
     public ScrollLevelForward levelScroller;
     private float shipBottomSide;
@@ -11,7 +12,8 @@ public class BossHandler : MonoBehaviour {
     private EnemyShotHandler bulletHandler;
     private EnemyShotHandler bulletHarassHandler;
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         GameObject gameplayarea = GameObject.Find("GamePlayArea");
         levelScroller = gameplayarea.GetComponent<ScrollLevelForward>();
         bulletHandler = GameObject.Find("EnemyShotObjectPool").GetComponent<EnemyShotHandler>();
@@ -20,31 +22,40 @@ public class BossHandler : MonoBehaviour {
         screenBounds = GameObject.Find("ScreenBoundsHandler").GetComponent<ScreenBoundsHandler>();
     }
 
-    void RemoveSpawners(GameObject gameplayarea) { 
+    void RemoveSpawners(GameObject gameplayarea)
+    { 
         EnemyWaveSpawn[] activeSpawners = gameplayarea.GetComponentsInChildren<EnemyWaveSpawn>();
-        foreach (EnemyWaveSpawn AS in activeSpawners) { Destroy(AS.gameObject); }
+        foreach(EnemyWaveSpawn AS in activeSpawners) {
+            Destroy(AS.gameObject);
+        }
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         
         shipBottomSide = gameObject.transform.position.y - (gameObject.GetComponent<Renderer>().bounds.size.y * 0.5F);
-        if (((screenBounds.ScreenTop + screenBounds.ScreenBottom) / 2f) + yScrollStopOffset > shipBottomSide) { /* Ship is in middle of screen, with slight bias above middle */
+        if(((screenBounds.ScreenTop + screenBounds.ScreenBottom) / 2f) + yScrollStopOffset > shipBottomSide) { /* Ship is in middle of screen, with slight bias above middle */
             StopLevelScroll();
         }
     }
 
-    void StopLevelScroll() {
+    void StopLevelScroll()
+    {
         levelScroller.stopped = true;
     }
 
-    void DestroySpawnedBullets() {
+    void DestroySpawnedBullets()
+    {
         bulletHandler.RemoveAllShots();
         bulletHarassHandler.RemoveAllShots();
     }
 
-    void OnDisable() {
-        if (Application.isPlaying) DestroySpawnedBullets();
-        if (levelScroller != null) levelScroller.stopped = false;
+    void OnDisable()
+    {
+        if(Application.isPlaying)
+            DestroySpawnedBullets();
+        if(levelScroller != null)
+            levelScroller.stopped = false;
     }
 }

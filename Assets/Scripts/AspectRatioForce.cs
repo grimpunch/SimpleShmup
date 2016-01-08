@@ -2,17 +2,21 @@
 using System.Collections;
 
 [ExecuteInEditMode]
-public class AspectRatioForce : MonoBehaviour {
+public class AspectRatioForce : MonoBehaviour
+{
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         ScaleScreen();
     }
 
-    void Update() {
+    void Update()
+    {
         ScaleScreen();
     }
 
-    void ScaleScreen() {
+    void ScaleScreen()
+    {
         // set the desired aspect ratio (the values in this example are
         // hard-coded for 16:9, but you could make them into public
         // variables instead so you can set them at design time)
@@ -28,7 +32,7 @@ public class AspectRatioForce : MonoBehaviour {
         Camera camera = GetComponent<Camera>();
 
         // if scaled height is less than current height, add letterbox
-        if (scaleheight < 1.0f) {
+        if(scaleheight < 1.0f) {
             Rect rect = camera.rect;
 
             rect.width = 1.0f;
@@ -37,8 +41,7 @@ public class AspectRatioForce : MonoBehaviour {
             rect.y = (1.0f - scaleheight) / 2.0f;
 
             camera.rect = rect;
-        } else // add pillarbox
-        {
+        } else { // add pillarbox
             float scalewidth = 1.0f / scaleheight;
 
             Rect rect = camera.rect;

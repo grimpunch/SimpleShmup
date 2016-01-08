@@ -1,23 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DestroyOnTimer : MonoBehaviour {
+public class DestroyOnTimer : MonoBehaviour
+{
 
     public float time = 3.0F;
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         Invoke("DestroyThis", time);
     }
 
-    void Update() {
-        if (this.IsInvoking() && Utils.Paused) {
+    void Update()
+    {
+        if(this.IsInvoking() && Utils.Paused) {
             CancelInvoke("DestroyThis");
         }
-        if (!Utils.Paused) { Invoke("DestroyThis", time); }
+        if(!Utils.Paused) {
+            Invoke("DestroyThis", time);
+        }
     }
 
-    void DestroyThis() {
+    void DestroyThis()
+    {
         Destroy(gameObject);
     }
 }

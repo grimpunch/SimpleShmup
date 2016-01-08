@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
 
     private float xinput;
     private float yinput;
@@ -20,7 +21,8 @@ public class PlayerMovement : MonoBehaviour {
     private GameObject ship;
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         ship = GameObject.FindGameObjectWithTag("Player");
         screenBounds = GameObject.Find("ScreenBoundsHandler").GetComponent<ScreenBoundsHandler>();
     }
@@ -30,8 +32,10 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
-        if (Utils.Paused) return;
+    void Update()
+    {
+        if(Utils.Paused)
+            return;
         xinput = Input.GetAxis("Horizontal");
         yinput = Input.GetAxis("Vertical");
         focusKeyDown = Input.GetButton("Fire2");
@@ -42,30 +46,31 @@ public class PlayerMovement : MonoBehaviour {
         shipBottomSide = ship.transform.position.y - (ship.GetComponent<Renderer>().bounds.size.y * 0.5F);
 
         float m_speed = movementspeed;
-        if (focusKeyDown) m_speed = focusmovementspeed; 
+        if(focusKeyDown)
+            m_speed = focusmovementspeed; 
 
         Vector3 velocity = new Vector3(xinput * (Time.deltaTime * m_speed), yinput * (Time.deltaTime * m_speed), 0.0F);
 
         velocity = Vector3.ClampMagnitude(velocity, m_speed * Time.deltaTime);
 
-        if (shipLeftSide < screenBounds.ScreenLeft) { /* Ship hugging left side */
-            if (velocity.x < 0.0F) {
+        if(shipLeftSide < screenBounds.ScreenLeft) { /* Ship hugging left side */
+            if(velocity.x < 0.0F) {
                 velocity = new Vector3(0.0F, velocity.y, 0.0F);
             }
         }
-        if (shipRightSide > screenBounds.ScreenRight) { /* Ship hugging right side */
-            if (velocity.x > 0.0F) {
+        if(shipRightSide > screenBounds.ScreenRight) { /* Ship hugging right side */
+            if(velocity.x > 0.0F) {
                 velocity = new Vector3(0.0F, velocity.y, 0.0F);
             }
         }
 
-        if (screenBounds.ScreenTop < shipTopSide) { /* Ship hugging top side */
-            if (velocity.y > 0.0F) {
+        if(screenBounds.ScreenTop < shipTopSide) { /* Ship hugging top side */
+            if(velocity.y > 0.0F) {
                 velocity = new Vector3(velocity.x, 0.0F, 0.0F);
             }
         }
-        if (shipBottomSide < screenBounds.ScreenBottom) { /* Ship hugging bottom side */
-            if (velocity.y < 0.0F) {
+        if(shipBottomSide < screenBounds.ScreenBottom) { /* Ship hugging bottom side */
+            if(velocity.y < 0.0F) {
                 velocity = new Vector3(velocity.x, 0.0F, 0.0F);
             }
         }

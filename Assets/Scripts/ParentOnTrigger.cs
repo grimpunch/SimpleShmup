@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ParentOnTrigger : MonoBehaviour {
+public class ParentOnTrigger : MonoBehaviour
+{
     public string nameOfObjectToParentTo = "GamePlayArea";
     public Transform target;
     public float delay = 0.0f;
@@ -10,23 +11,27 @@ public class ParentOnTrigger : MonoBehaviour {
 
     public Transform newParent;
 
-    public void Start() {
+    public void Start()
+    {
         
     }
 
     
-    void OnTriggerEnter2D(Collider2D col2D) {
-            Invoke("ParentNow", delay);
+    void OnTriggerEnter2D(Collider2D col2D)
+    {
+        Invoke("ParentNow", delay);
     }
 
-    void ParentNow() {
-        if (!newParent) newParent = GameObject.Find(nameOfObjectToParentTo).transform; 
-        if (target == null) {
+    void ParentNow()
+    {
+        if(!newParent)
+            newParent = GameObject.Find(nameOfObjectToParentTo).transform; 
+        if(target == null) {
             target = transform;
         } 
         target.parent = newParent;
 
-        if (setLocalPosition) {
+        if(setLocalPosition) {
             target.localPosition = localPosition;
         }
         gameObject.GetComponent<ParentOnTrigger>().enabled = false;

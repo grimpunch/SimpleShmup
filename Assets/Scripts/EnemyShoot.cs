@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyShoot : MonoBehaviour {
+public class EnemyShoot : MonoBehaviour
+{
     public string shotPool;
     private ObjectPoolScript enemyShotObjectPoolScript;
     public float shotDelay = 0.2f;
@@ -11,31 +12,39 @@ public class EnemyShoot : MonoBehaviour {
     public int burstAmount = 10;
     private int burstShots;
     public bool canShoot = true;
-    void Start() {
+
+    void Start()
+    {
         enemyShotObjectPoolScript = GameObject.Find(shotPool).GetComponent<ObjectPoolScript>();
     }
 
-    void Update() {
-        if (Utils.Paused) {
-            if (GetComponent<AudioSource>() != null) {
-                if (Application.isPlaying && Utils.Paused) gameObject.GetComponent<AudioSource>().Pause();
-                if (Application.isPlaying && !Utils.Paused) gameObject.GetComponent<AudioSource>().UnPause();
+    void Update()
+    {
+        if(Utils.Paused) {
+            if(GetComponent<AudioSource>() != null) {
+                if(Application.isPlaying && Utils.Paused)
+                    gameObject.GetComponent<AudioSource>().Pause();
+                if(Application.isPlaying && !Utils.Paused)
+                    gameObject.GetComponent<AudioSource>().UnPause();
                 return;
             }
         }
-        if (Utils.Paused) return;
-        if (!canShoot) { timeToShot += Time.deltaTime; return; }
-        if (burstShots >= burstAmount) {
-            if (waitUntilBurst < burstDelay) {
+        if(Utils.Paused)
+            return;
+        if(!canShoot) {
+            timeToShot += Time.deltaTime;
+            return;
+        }
+        if(burstShots >= burstAmount) {
+            if(waitUntilBurst < burstDelay) {
                 waitUntilBurst += Time.deltaTime;
-            } 
-            else { 
+            } else { 
                 burstShots = 0; 
                 waitUntilBurst = 0.0F; 
             }
         } else {
-            if (burstShots < burstAmount) {
-                if (timeToShot > shotDelay) {
+            if(burstShots < burstAmount) {
+                if(timeToShot > shotDelay) {
                     Shoot();
                     timeToShot = 0.0F;
                 }
@@ -45,9 +54,10 @@ public class EnemyShoot : MonoBehaviour {
     }
 
 
-    void Shoot() {
-        if (GetComponent<AudioSource>() != null) {
-            if (!GetComponent<AudioSource>().isPlaying) {
+    void Shoot()
+    {
+        if(GetComponent<AudioSource>() != null) {
+            if(!GetComponent<AudioSource>().isPlaying) {
                 GetComponent<AudioSource>().Play();
             }
         }

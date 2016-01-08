@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerShoot : MonoBehaviour {
+public class PlayerShoot : MonoBehaviour
+{
 
     public GameObject turretLeft;
     public GameObject turretRight;
@@ -18,41 +19,45 @@ public class PlayerShoot : MonoBehaviour {
     float cooldownTimer = 0;
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         playerShotObjectPool = GameObject.Find("PlayerShotObjectPool").GetComponent<ObjectPoolScript>();
     }
 
     // Update is called once per frame
-    void Update() {
-        if (Utils.Paused) {
-            if (GetComponent<AudioSource>() != null) {
+    void Update()
+    {
+        if(Utils.Paused) {
+            if(GetComponent<AudioSource>() != null) {
                 gameObject.GetComponent<AudioSource>().Pause();
                 return;
             }
         }
-        if (Utils.Paused) return;
+        if(Utils.Paused)
+            return;
         cooldownTimer -= Time.deltaTime;
         
-        if (Application.isPlaying && !Utils.Paused) {
+        if(Application.isPlaying && !Utils.Paused) {
             gameObject.GetComponent<AudioSource>().UnPause();
         }
 
-        if (FireButtonDown() && cooldownTimer <= 0) {
+        if(FireButtonDown() && cooldownTimer <= 0) {
             // SHOOT!
             cooldownTimer = fireDelay;
             GameObject shotCenter = playerShotObjectPool.GetPooledObject();
-            if (shotCenter == null) return;
+            if(shotCenter == null)
+                return;
             shotCenter.SetActive(true);
             shotCenter.transform.position = transform.position;
             shotCenter.transform.rotation = transform.rotation;
-            if (GetComponent<AudioSource>() != null) {
-                if (!GetComponent<AudioSource>().isPlaying) {
+            if(GetComponent<AudioSource>() != null) {
+                if(!GetComponent<AudioSource>().isPlaying) {
                     GetComponent<AudioSource>().Play();
                 }
             }
 
-            if (upgradeLevel == 1) {
-                if (fireLeft) {
+            if(upgradeLevel == 1) {
+                if(fireLeft) {
                     shotPosition = turretLeft.transform.position;
                     shotRotation = turretLeft.transform.rotation;
                     fireLeft = false;
@@ -63,40 +68,58 @@ public class PlayerShoot : MonoBehaviour {
                 }
 
                 GameObject shotSide = playerShotObjectPool.GetPooledObject();
-                if (shotSide == null) return;
+                if(shotSide == null)
+                    return;
                 shotSide.SetActive(true);
                 shotSide.transform.position = shotPosition;
-                if (FocusFireButtonDown()) shotSide.transform.rotation = Quaternion.identity;
-                else { shotSide.transform.rotation = shotRotation; } 
+                if(FocusFireButtonDown())
+                    shotSide.transform.rotation = Quaternion.identity;
+                else {
+                    shotSide.transform.rotation = shotRotation;
+                } 
             }
-            if (upgradeLevel == 2) {
-                    shotPosition = turretLeft.transform.position;
-                    shotRotation = turretLeft.transform.rotation;
-                    GameObject shotLeft = playerShotObjectPool.GetPooledObject();
-                    if (shotLeft == null) return;
-                    shotLeft.SetActive(true);
-                    shotLeft.transform.position = shotPosition;
-                    if (FocusFireButtonDown()) shotLeft.transform.rotation = Quaternion.identity;
-                    else { shotLeft.transform.rotation = shotRotation; }
-                    shotPosition = turretRight.transform.position;
-                    shotRotation = turretRight.transform.rotation;
-                    GameObject shotRight = playerShotObjectPool.GetPooledObject();
-                    if (shotRight == null) return;
-                    shotRight.SetActive(true);
-                    shotRight.transform.position = shotPosition;
-                    if (FocusFireButtonDown()) shotRight.transform.rotation = Quaternion.identity;
-                    else { shotRight.transform.rotation = shotRotation; } 
+            if(upgradeLevel == 2) {
+                shotPosition = turretLeft.transform.position;
+                shotRotation = turretLeft.transform.rotation;
+                GameObject shotLeft = playerShotObjectPool.GetPooledObject();
+                if(shotLeft == null)
+                    return;
+                shotLeft.SetActive(true);
+                shotLeft.transform.position = shotPosition;
+                if(FocusFireButtonDown())
+                    shotLeft.transform.rotation = Quaternion.identity;
+                else {
+                    shotLeft.transform.rotation = shotRotation;
+                }
+                shotPosition = turretRight.transform.position;
+                shotRotation = turretRight.transform.rotation;
+                GameObject shotRight = playerShotObjectPool.GetPooledObject();
+                if(shotRight == null)
+                    return;
+                shotRight.SetActive(true);
+                shotRight.transform.position = shotPosition;
+                if(FocusFireButtonDown())
+                    shotRight.transform.rotation = Quaternion.identity;
+                else {
+                    shotRight.transform.rotation = shotRotation;
+                } 
             }
-            if (upgradeLevel > 2) { upgradeLevel = 2; }
+            if(upgradeLevel > 2) {
+                upgradeLevel = 2;
+            }
         }
-        if (!FireButtonDown()) { GetComponent<AudioSource>().Stop(); }
+        if(!FireButtonDown()) {
+            GetComponent<AudioSource>().Stop();
+        }
     }
 
-    private static bool FireButtonDown() {
+    private static bool FireButtonDown()
+    {
         return Input.GetButton("Fire1");
     }
-    
-    private static bool FocusFireButtonDown() {
+
+    private static bool FocusFireButtonDown()
+    {
         return Input.GetButton("Fire2");
     }
 }

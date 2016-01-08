@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MoveDownSine : MonoBehaviour {
+public class MoveDownSine : MonoBehaviour
+{
 
     private Vector3 velocity;
     private float xinput;
@@ -19,7 +20,8 @@ public class MoveDownSine : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         ship = gameObject;
         screenBounds = GameObject.Find("ScreenBoundsHandler").GetComponent<ScreenBoundsHandler>();
         xinput = 0.0F;
@@ -29,8 +31,10 @@ public class MoveDownSine : MonoBehaviour {
 
 
     // Update is called once per frame
-    void Update() {
-        if (Utils.Paused) return;
+    void Update()
+    {
+        if(Utils.Paused)
+            return;
         // Update degrees
         float degreesPerSecond = 360.0f / m_period;
         m_degrees = Mathf.Repeat(m_degrees + (Time.deltaTime * degreesPerSecond), 360.0f);

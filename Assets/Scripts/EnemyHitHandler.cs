@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyHitHandler : MonoBehaviour {
+public class EnemyHitHandler : MonoBehaviour
+{
 
     public int shipHealth = 5;
     private const int PLAYERSHOTLAYER = 10;
@@ -16,50 +17,61 @@ public class EnemyHitHandler : MonoBehaviour {
     private SpriteRenderer sprite;
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         screenBounds = GameObject.Find("ScreenBoundsHandler").GetComponent<ScreenBoundsHandler>();
         scoreHandler = GameObject.Find("Score").GetComponent<ScoreHandler>();
         sprite = gameObject.GetComponent<SpriteRenderer>();
         spriteColor = sprite.color;
     }
 
-    void OnTriggerEnter2D(Collider2D col2d) {
-        if (!screenBounds) { return; }
+    void OnTriggerEnter2D(Collider2D col2d)
+    {
+        if(!screenBounds) {
+            return;
+        }
         //if (transform.position.y > screenBounds.ScreenTop) { return; }
-        if (col2d.gameObject.layer == PLAYERSHOTLAYER) {
+        if(col2d.gameObject.layer == PLAYERSHOTLAYER) {
             shipHealth -= 10;
             Flash();
             col2d.gameObject.SendMessage("Gib");
         }
     }
 
-    void OnTriggerStay2D(Collider2D col2d) {
-        if (!screenBounds) { return; }
+    void OnTriggerStay2D(Collider2D col2d)
+    {
+        if(!screenBounds) {
+            return;
+        }
         //if (transform.position.y > screenBounds.ScreenTop) { return; }
-        if (col2d.gameObject.layer == PLAYERLASERLAYER) {
+        if(col2d.gameObject.layer == PLAYERLASERLAYER) {
             shipHealth -= 1;
             Flash();
             gameObject.SendMessage("Burn");
         }
     }
 
-    void Flash() {
-        if (!flashing) {
+    void Flash()
+    {
+        if(!flashing) {
             flashing = true;
             toUnFlash = flashTime;
         }
     }
 
     // Update is called once per frame
-    void Update() {
-        if (Utils.Paused) return;
-        if (shipHealth <= 0) {
-            if (flashing) flashing = false;
+    void Update()
+    {
+        if(Utils.Paused)
+            return;
+        if(shipHealth <= 0) {
+            if(flashing)
+                flashing = false;
             scoreHandler.AddScore(scoreValue);
             gameObject.SendMessage("Gib");
         }
-        if (flashing) {
-            if (toUnFlash > 0f) {
+        if(flashing) {
+            if(toUnFlash > 0f) {
                 sprite.color = Color.red;
                 toUnFlash -= Time.deltaTime;
             } else { 

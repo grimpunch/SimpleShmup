@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PolicySet name="myfuckingpolicies">
+  <TextStylePolicy inheritsSet="VisualStudio" inheritsScope="text/plain" scope="text/x-csharp">
+    <FileWidth>120</FileWidth>
+    <TabWidth>2</TabWidth>
+    <EolMarker>Unix</EolMarker>
+  </TextStylePolicy>
+  <CSharpFormattingPolicy inheritsSet="Mono" inheritsScope="text/x-csharp" scope="text/x-csharp">
+    <IndentSwitchBody>True</IndentSwitchBody>
+    <BeforeMethodDeclarationParentheses>False</BeforeMethodDeclarationParentheses>
+    <BeforeMethodCallParentheses>False</BeforeMethodCallParentheses>
+    <BeforeConstructorDeclarationParentheses>False</BeforeConstructorDeclarationParentheses>
+    <BeforeDelegateDeclarationParentheses>False</BeforeDelegateDeclarationParentheses>
+    <NewParentheses>False</NewParentheses>
+    <IfParentheses>False</IfParentheses>
+    <WhileParentheses>False</WhileParentheses>
+    <ForParentheses>False</ForParentheses>
+    <ForeachParentheses>False</ForeachParentheses>
+    <CatchParentheses>False</CatchParentheses>
+    <SwitchParentheses>False</SwitchParentheses>
+    <LockParentheses>False</LockParentheses>
+    <UsingParentheses>False</UsingParentheses>
+    <SpacesBeforeBrackets>False</SpacesBeforeBrackets>
+  </CSharpFormattingPolicy>
+  <TextStylePolicy inheritsSet="VisualStudio" inheritsScope="text/plain" scope="text/plain">
+    <TabWidth>2</TabWidth>
+  </TextStylePolicy>
+  <DotNetNamingPolicy>
+    <DirectoryNamespaceAssociation>None</DirectoryNamespaceAssociation>
+    <ResourceNamePolicy>FileFormatDefault</ResourceNamePolicy>
+  </DotNetNamingPolicy>
+</PolicySet>
