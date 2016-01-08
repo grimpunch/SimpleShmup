@@ -19,7 +19,7 @@ while following common genre conventions of popular games in the genre such as D
 
 ### Installation
 
-Clone the repo, and open the project in Unity 5.0.1f1.
+Clone the repo, and open the project in Unity 5.3.
 Main scene for development so far is "Level1.unity"
 Enable and disable components and prefabs in the scene for testing , currently everything isn't placed in the scene, just the latest entity being tweaked, design will start in the level when all types are finalised for Level1 at least.
 
