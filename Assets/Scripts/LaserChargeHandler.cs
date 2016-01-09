@@ -23,7 +23,7 @@ public class LaserChargeHandler : MonoBehaviour
     
     //Animation of Laser Movement control variables
     private const float maximumLaserLength = 4.2f;
-    private const float maximumLaserWidth = 0.35f;
+    private const float maximumLaserWidth = 0.02f;
     private float currentLaserLength;
     private float targetLaserLength;
     private float currentLaserWidth;
@@ -56,7 +56,6 @@ public class LaserChargeHandler : MonoBehaviour
         }
         if(laserLineRenderer)
             laserLineRenderer.SetPosition(2, new Vector3(0, 0));
-        playerShoot.enabled = true;
         if(laserChargeSlider) {
             laserChargeSlider.value = 0.0F;
         }
@@ -77,16 +76,12 @@ public class LaserChargeHandler : MonoBehaviour
     {
         if(Utils.Paused)
             return;
-        if(Laser.active) {
+        if(Laser.activeInHierarchy) {
             laserLineRenderer = GameObject.Find("Laser").GetComponent<LineRenderer>();
             laserBoxCollider2D = GameObject.Find("Laser").GetComponent<BoxCollider2D>();
             if(timeEnabled < timeToDischarge) { 
                 timeEnabled += Time.deltaTime;
-                if(currentLaserLength < GetMaxLaserLength()) { 
-                    currentLaserLength = Mathf.Lerp(currentLaserLength, GetMaxLaserLength(), Time.deltaTime * laserSpeed);
-                } else {
-                    currentLaserLength = GetMaxLaserLength();
-                }
+                currentLaserLength = GetMaxLaserLength();
                 if(currentLaserWidth < maximumLaserWidth) {
                     currentLaserWidth = Mathf.Lerp(currentLaserWidth, maximumLaserWidth, Time.deltaTime * laserSpeed);
                 } else {
@@ -97,32 +92,20 @@ public class LaserChargeHandler : MonoBehaviour
                 laserLineRenderer.SetPosition(2, new Vector3(0, currentLaserLength));
                 
                 LaserTip.transform.position = new Vector3(transform.position.x, transform.position.y + currentLaserLength, -1F);
-                if(currentLaserWidth >= maximumLaserWidth - 0.5f) {
-                    laserLineRenderer.SetWidth(Random.Range(0.20f, 0.35f), Random.Range(0.30f, 0.35f));
-                } else {
-                    laserLineRenderer.SetWidth(currentLaserWidth, currentLaserWidth);
-                }
-                laserChargeSlider.value = timeToFullCharge - timeEnabled;
+                laserLineRenderer.SetWidth(currentLaserWidth, currentLaserWidth);
             }
-            if(timeEnabled >= timeToDischarge) { 
-                ResetLaser();
-            }
+            if (timeEnabled > timeToDischarge){Discharge();}
             return;
         }
 
         shooting = GetFireButtonDown();
-        if(shooting && timeCharged < timeToFullCharge) {
-            timeCharged = 0.0F;
-            laserChargeSlider.value = 0.0F;
-        }
 
         if(shooting && timeCharged >= timeToFullCharge) {
             timeCharged = 0.0F;
-            playerShoot.enabled = false;
-            Laser.active = true;
+            Laser.SetActive(true);
         }
 
-        if(!shooting) {
+        if(!shooting && timeCharged < timeToFullCharge) {
             if(timeCharged < timeToFullCharge) {
                 timeCharged += Time.deltaTime * rateMultiplier;
             }
@@ -134,9 +117,19 @@ public class LaserChargeHandler : MonoBehaviour
         }
     }
 
+    public void Discharge() {
+        timeEnabled = timeToDischarge;
+        ResetLaser();
+    }
+
     private static bool GetFireButtonDown()
     {
-        return Input.GetButton("Fire1");
+        return Input.GetButtonDown("Fire3");
+    }
+
+    public bool GetFireButtonUp()
+    {
+        return !Input.GetButtonDown("Fire3");
     }
 
     private float GetMaxLaserLength()

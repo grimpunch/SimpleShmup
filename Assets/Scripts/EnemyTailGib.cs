@@ -12,7 +12,7 @@ public class EnemyTailGib : MonoBehaviour
 
     void Update()
     {
-        if(!tail.active) {
+        if(!tail.activeInHierarchy) {
             GibAllParts();
         }
     }

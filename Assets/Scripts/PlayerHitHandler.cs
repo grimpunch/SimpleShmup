@@ -13,9 +13,7 @@ public class PlayerHitHandler : MonoBehaviour
     private float timeUntilVulnerable = 0.0f;
     private bool vulnerable;
     public SpriteRenderer playerShipRenderer;
-    public SpriteRenderer turretLRenderer;
-    public SpriteRenderer turretRRenderer;
-    public SpriteRenderer turretCRenderer;
+
     public HSLColor invulnerableColor;
 
     private LifeHandler lifeHandler;

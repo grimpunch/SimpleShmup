@@ -33,6 +33,11 @@ public class BezierSpline : MonoBehaviour
     [SerializeField]
     private Vector3[] points;
 
+    public void SetPoint(int pointBeingSet, Vector3 position) {
+        Vector3 point = points[pointBeingSet];
+        point.Set(position.x,position.y,position.z);
+    }
+
     public int ControlPointCount {
         get {
             return points.Length;

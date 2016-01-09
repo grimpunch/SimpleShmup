@@ -7,6 +7,7 @@ public class EnemyHitHandler : MonoBehaviour
     public int shipHealth = 5;
     private const int PLAYERSHOTLAYER = 10;
     private const int PLAYERLASERLAYER = 14;
+    private const int CAPTURESHOTLAYER = 15;
     private ScreenBoundsHandler screenBounds;
     private ScoreHandler scoreHandler;
     public int scoreValue = 100;
@@ -15,6 +16,7 @@ public class EnemyHitHandler : MonoBehaviour
     private float toUnFlash;
     private bool flashing = false;
     private SpriteRenderer sprite;
+    public bool captureable = false;
 
     // Use this for initialization
     void Start()
@@ -36,6 +38,10 @@ public class EnemyHitHandler : MonoBehaviour
             Flash();
             col2d.gameObject.SendMessage("Gib");
         }
+        //if (transform.position.y > screenBounds.ScreenTop) { return; }
+        if(col2d.gameObject.layer == PLAYERLASERLAYER) {
+            Flash();
+        }
     }
 
     void OnTriggerStay2D(Collider2D col2d)
@@ -43,11 +49,12 @@ public class EnemyHitHandler : MonoBehaviour
         if(!screenBounds) {
             return;
         }
-        //if (transform.position.y > screenBounds.ScreenTop) { return; }
-        if(col2d.gameObject.layer == PLAYERLASERLAYER) {
-            shipHealth -= 1;
+        if(col2d.gameObject.layer == PLAYERLASERLAYER && captureable && GameObject.Find("ShmupShip").GetComponentInChildren<LaserChargeHandler>().GetFireButtonUp()) {
             Flash();
-            gameObject.SendMessage("Burn");
+            GameObject.Find("ShmupShip").GetComponentInChildren<CaptureShipHandler>().Capture(gameObject.transform.position, gameObject.name);
+            GameObject.Find("ShmupShip").GetComponentInChildren<LaserChargeHandler>().Discharge(); 
+            Destroy(gameObject);
+            return;
         }
     }
 

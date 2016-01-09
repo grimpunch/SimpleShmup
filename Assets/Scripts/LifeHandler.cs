@@ -55,6 +55,7 @@ public class LifeHandler : MonoBehaviour
         ;
         livesleft--;
         timeToSpawn = 0;
+        playerShip.BroadcastMessage("ResetFormation");
         SetLifeCounterText(livesleft);
     }
 
