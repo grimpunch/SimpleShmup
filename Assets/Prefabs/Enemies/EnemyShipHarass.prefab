@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 428800}
   - 212: {fileID: 21218952}
-  - 61: {fileID: 6113776}
   - 114: {fileID: 11440214}
   - 114: {fileID: 11459940}
   - 114: {fileID: 11443652}
@@ -20,7 +19,7 @@ GameObject:
   - 114: {fileID: 11478722}
   - 114: {fileID: 11421324}
   - 114: {fileID: 11429770}
-  - 61: {fileID: 6174684}
+  - 68: {fileID: 6832406}
   m_Layer: 9
   m_Name: EnemyShipHarass
   m_TagString: Enemy
@@ -35,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102042}
   m_LocalRotation: {x: 0, y: 0, z: -0.08715575, w: 0.9961947}
-  m_LocalPosition: {x: 0.5261789, y: -0.597539, z: 0}
+  m_LocalPosition: {x: 0.854, y: -0.655, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,8 +56,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &6113776
-BoxCollider2D:
+--- !u!68 &6832406
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -66,25 +65,42 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.0000014426187, y: 0.06707259}
-  serializedVersion: 2
-  m_Size: {x: 0.20000094, y: 0.06568619}
---- !u!61 &6174684
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 102042}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0.00073842704, y: 0.051507413}
-  serializedVersion: 2
-  m_Size: {x: 0.09478231, y: 0.26420644}
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: 0.10360424, y: 0.10657525}
+  - {x: 0.11930286, y: 0.08239206}
+  - {x: 0.06850129, y: 0.021554288}
+  - {x: 0.050089233, y: 0.005909737}
+  - {x: 0.07705219, y: -0.008096877}
+  - {x: 0.038971085, y: -0.065488994}
+  - {x: 0.01644564, y: -0.078358814}
+  - {x: 0.012036378, y: -0.13698852}
+  - {x: 0.012005444, y: -0.14896129}
+  - {x: 0.0015118495, y: -0.17874688}
+  - {x: -0.0010498017, y: -0.17814128}
+  - {x: -0.011984695, y: -0.14943807}
+  - {x: -0.014165688, y: -0.07695405}
+  - {x: -0.034560204, y: -0.07063152}
+  - {x: -0.078314684, y: -0.014574261}
+  - {x: -0.047927145, y: 0.00290808}
+  - {x: -0.056179512, y: 0.011173989}
+  - {x: -0.1218233, y: 0.0827606}
+  - {x: -0.106503405, y: 0.1097954}
+  - {x: -0.036763575, y: 0.10142402}
+  - {x: -0.03953474, y: 0.12480382}
+  - {x: -0.080453105, y: 0.1665223}
+  - {x: -0.06743857, y: 0.18433265}
+  - {x: -0.028477734, y: 0.16287309}
+  - {x: -0.0017918069, y: 0.14845875}
+  - {x: 0.026985595, y: 0.15730503}
+  - {x: 0.05021067, y: 0.18302886}
+  - {x: 0.07072107, y: 0.1830247}
+  - {x: 0.078720115, y: 0.16408905}
+  - {x: 0.038542736, y: 0.1223729}
+  - {x: 0.039530225, y: 0.104399465}
+  - {x: 0.10409509, y: 0.107681565}
 --- !u!114 &11421324
 MonoBehaviour:
   m_ObjectHideFlags: 1

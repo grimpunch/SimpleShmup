@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 470014}
   - 212: {fileID: 21259628}
-  - 61: {fileID: 6120234}
   - 114: {fileID: 11489250}
   - 114: {fileID: 11409272}
   - 50: {fileID: 5001858}
@@ -20,6 +19,7 @@ GameObject:
   - 114: {fileID: 11422268}
   - 114: {fileID: 11497954}
   - 95: {fileID: 9566906}
+  - 68: {fileID: 6852936}
   m_Layer: 9
   m_Name: EnemyShipSine
   m_TagString: Enemy
@@ -56,8 +56,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &6120234
-BoxCollider2D:
+--- !u!68 &6852936
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -65,11 +65,24 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.0008018776, y: -0.02403814}
-  serializedVersion: 2
-  m_Size: {x: 0.11826859, y: 0.17051345}
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -0.0000783382, y: 0.07130263}
+  - {x: 0.0577148, y: 0.006296354}
+  - {x: 0.05808296, y: -0.052977808}
+  - {x: 0.050510086, y: -0.067213714}
+  - {x: 0.03221785, y: -0.061339196}
+  - {x: 0.0116449995, y: -0.109612264}
+  - {x: -0.013074489, y: -0.109216444}
+  - {x: -0.031205097, y: -0.06016613}
+  - {x: -0.04437478, y: -0.062802665}
+  - {x: -0.05721767, y: -0.06489738}
+  - {x: -0.058583643, y: 0.0073630232}
+  - {x: -0.037598986, y: 0.017941633}
+  - {x: -0.029852174, y: 0.042379647}
+  - {x: -0.00087945536, y: 0.071935356}
 --- !u!95 &9566906
 Animator:
   serializedVersion: 3
