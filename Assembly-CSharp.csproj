@@ -3,9 +3,8 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.20506</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
     <ProjectGuid>{FFF0AFB5-BBCC-42AC-521C-F7B9AE24A15B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -34,95 +33,99 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.XML" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>C:\Program Files %28x86%29\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>C:\Program Files %28x86%29\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="XInputDotNetPure">
+      <HintPath>XInputDotNetPure.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Kino\Glitch\AnalogGlitch.cs" />
-     <Compile Include="Assets\Kino\Glitch\DigitalGlitch.cs" />
-     <Compile Include="Assets\Scripts\ActivateMonoBehaviourOnTrigger.cs" />
-     <Compile Include="Assets\Scripts\AnimateShip.cs" />
-     <Compile Include="Assets\Scripts\AspectRatioForce.cs" />
-     <Compile Include="Assets\Scripts\BackgroundScroll.cs" />
-     <Compile Include="Assets\Scripts\Bezier.cs" />
-     <Compile Include="Assets\Scripts\BezierCurve.cs" />
-     <Compile Include="Assets\Scripts\BezierSpline.cs" />
-     <Compile Include="Assets\Scripts\BossHandler.cs" />
-     <Compile Include="Assets\Scripts\BossMovementRandomiser.cs" />
-     <Compile Include="Assets\Scripts\BossSpawn.cs" />
-     <Compile Include="Assets\Scripts\BurnOnMessage.cs" />
-     <Compile Include="Assets\Scripts\CaptureShipHandler.cs" />
-     <Compile Include="Assets\Scripts\DeactivateOnTimer.cs" />
-     <Compile Include="Assets\Scripts\DeactivateWhenOffScreen.cs" />
-     <Compile Include="Assets\Scripts\DelayColliderActivation.cs" />
-     <Compile Include="Assets\Scripts\DestroyOnTimer.cs" />
-     <Compile Include="Assets\Scripts\DestroyWhenOffScreen.cs" />
-     <Compile Include="Assets\Scripts\EnemyHitHandler.cs" />
-     <Compile Include="Assets\Scripts\EnemyShoot.cs" />
-     <Compile Include="Assets\Scripts\EnemyShotHandler.cs" />
-     <Compile Include="Assets\Scripts\EnemyTailGib.cs" />
-     <Compile Include="Assets\Scripts\EnemyWaveHandler.cs" />
-     <Compile Include="Assets\Scripts\EnemyWaveSpawn.cs" />
-     <Compile Include="Assets\Scripts\FramesPerSecond.cs" />
-     <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\GibOnMessage.cs" />
-     <Compile Include="Assets\Scripts\HSLColor.cs" />
-     <Compile Include="Assets\Scripts\LaserChargeHandler.cs" />
-     <Compile Include="Assets\Scripts\LifeHandler.cs" />
-     <Compile Include="Assets\Scripts\Line.cs" />
-     <Compile Include="Assets\Scripts\MoveDown.cs" />
-     <Compile Include="Assets\Scripts\MoveDownSine.cs" />
-     <Compile Include="Assets\Scripts\MoveSine.cs" />
-     <Compile Include="Assets\Scripts\MoveSpline.cs" />
-     <Compile Include="Assets\Scripts\ObjectPoolScript.cs" />
-     <Compile Include="Assets\Scripts\OptionsGUIManager.cs" />
-     <Compile Include="Assets\Scripts\ParentOnTrigger.cs" />
-     <Compile Include="Assets\Scripts\PatternBossShoot.cs" />
-     <Compile Include="Assets\Scripts\PauseAnimation.cs" />
-     <Compile Include="Assets\Scripts\PixelPerfectScale.cs" />
-     <Compile Include="Assets\Scripts\PlayAnimationOnTrigger.cs" />
-     <Compile Include="Assets\Scripts\PlayMusicOnLevelLoaded.cs" />
-     <Compile Include="Assets\Scripts\PlayerFormationShoot.cs" />
-     <Compile Include="Assets\Scripts\PlayerHitHandler.cs" />
-     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\PlayerShoot.cs" />
-     <Compile Include="Assets\Scripts\PlayerShotHandler.cs" />
-     <Compile Include="Assets\Scripts\PowerUp.cs" />
-     <Compile Include="Assets\Scripts\RotateTowardsPlayer.cs" />
-     <Compile Include="Assets\Scripts\SceneManager.cs" />
-     <Compile Include="Assets\Scripts\ScoreHandler.cs" />
-     <Compile Include="Assets\Scripts\ScreenBoundsHandler.cs" />
-     <Compile Include="Assets\Scripts\ScriptedOpening.cs" />
-     <Compile Include="Assets\Scripts\ScrollLevelForward.cs" />
-     <Compile Include="Assets\Scripts\SetCanFire.cs" />
-     <Compile Include="Assets\Scripts\SpinObject.cs" />
-     <Compile Include="Assets\Scripts\SplinePathSequence.cs" />
-     <Compile Include="Assets\SimplePixelizer\SimplePixelizer.cs" />
-     <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
-     <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
-     <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
-     <None Include="Assets\Kino\Glitch\Shader\AnalogGlitch.shader" />
-     <None Include="Assets\Kino\Glitch\Shader\DigitalGlitch.shader" />
-     <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Detail.shader" />
-     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />
-     <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Particles Additive Culled.shader" />
-     <None Include="Assets\SimplePixelizer\ReadMe.txt" />
-     <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
-     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
-     <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
- <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
+    <Compile Include="Assets\Kino\Glitch\AnalogGlitch.cs" />
+    <Compile Include="Assets\Kino\Glitch\DigitalGlitch.cs" />
+    <Compile Include="Assets\Scripts\ActivateMonoBehaviourOnTrigger.cs" />
+    <Compile Include="Assets\Scripts\AnimateShip.cs" />
+    <Compile Include="Assets\Scripts\AspectRatioForce.cs" />
+    <Compile Include="Assets\Scripts\BackgroundScroll.cs" />
+    <Compile Include="Assets\Scripts\Bezier.cs" />
+    <Compile Include="Assets\Scripts\BezierCurve.cs" />
+    <Compile Include="Assets\Scripts\BezierSpline.cs" />
+    <Compile Include="Assets\Scripts\BossHandler.cs" />
+    <Compile Include="Assets\Scripts\BossMovementRandomiser.cs" />
+    <Compile Include="Assets\Scripts\BossSpawn.cs" />
+    <Compile Include="Assets\Scripts\BurnOnMessage.cs" />
+    <Compile Include="Assets\Scripts\CaptureShipHandler.cs" />
+    <Compile Include="Assets\Scripts\DeactivateOnTimer.cs" />
+    <Compile Include="Assets\Scripts\DeactivateWhenOffScreen.cs" />
+    <Compile Include="Assets\Scripts\DelayColliderActivation.cs" />
+    <Compile Include="Assets\Scripts\DestroyOnTimer.cs" />
+    <Compile Include="Assets\Scripts\DestroyWhenOffScreen.cs" />
+    <Compile Include="Assets\Scripts\EnemyHitHandler.cs" />
+    <Compile Include="Assets\Scripts\EnemyShoot.cs" />
+    <Compile Include="Assets\Scripts\EnemyShotHandler.cs" />
+    <Compile Include="Assets\Scripts\EnemyTailGib.cs" />
+    <Compile Include="Assets\Scripts\EnemyWaveHandler.cs" />
+    <Compile Include="Assets\Scripts\EnemyWaveSpawn.cs" />
+    <Compile Include="Assets\Scripts\FramesPerSecond.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GibOnMessage.cs" />
+    <Compile Include="Assets\Scripts\HSLColor.cs" />
+    <Compile Include="Assets\Scripts\InputManager.cs" />
+    <Compile Include="Assets\Scripts\LaserChargeHandler.cs" />
+    <Compile Include="Assets\Scripts\LifeHandler.cs" />
+    <Compile Include="Assets\Scripts\Line.cs" />
+    <Compile Include="Assets\Scripts\MoveDown.cs" />
+    <Compile Include="Assets\Scripts\MoveDownSine.cs" />
+    <Compile Include="Assets\Scripts\MoveSine.cs" />
+    <Compile Include="Assets\Scripts\MoveSpline.cs" />
+    <Compile Include="Assets\Scripts\ObjectPoolScript.cs" />
+    <Compile Include="Assets\Scripts\OptionsGUIManager.cs" />
+    <Compile Include="Assets\Scripts\ParentOnTrigger.cs" />
+    <Compile Include="Assets\Scripts\PatternBossShoot.cs" />
+    <Compile Include="Assets\Scripts\PauseAnimation.cs" />
+    <Compile Include="Assets\Scripts\PixelPerfectScale.cs" />
+    <Compile Include="Assets\Scripts\PlayAnimationOnTrigger.cs" />
+    <Compile Include="Assets\Scripts\PlayMusicOnLevelLoaded.cs" />
+    <Compile Include="Assets\Scripts\PlayerFormationShoot.cs" />
+    <Compile Include="Assets\Scripts\PlayerHitHandler.cs" />
+    <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\PlayerShoot.cs" />
+    <Compile Include="Assets\Scripts\PlayerShotHandler.cs" />
+    <Compile Include="Assets\Scripts\PowerUp.cs" />
+    <Compile Include="Assets\Scripts\RotateTowardsPlayer.cs" />
+    <Compile Include="Assets\Scripts\SceneManager.cs" />
+    <Compile Include="Assets\Scripts\ScoreHandler.cs" />
+    <Compile Include="Assets\Scripts\ScreenBoundsHandler.cs" />
+    <Compile Include="Assets\Scripts\ScriptedOpening.cs" />
+    <Compile Include="Assets\Scripts\ScrollLevelForward.cs" />
+    <Compile Include="Assets\Scripts\SetCanFire.cs" />
+    <Compile Include="Assets\Scripts\SpinObject.cs" />
+    <Compile Include="Assets\Scripts\SplinePathSequence.cs" />
+    <Compile Include="Assets\SimplePixelizer\SimplePixelizer.cs" />
+    <None Include="Assets\Kino\Glitch\Shader\AnalogGlitch.shader" />
+    <None Include="Assets\Kino\Glitch\Shader\DigitalGlitch.shader" />
+    <None Include="Assets\SimplePixelizer\ReadMe.txt" />
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:\Program Files %28x86%29\Unity\Editor\Data\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>C:\Program Files %28x86%29\Unity\Editor\Data\UnityExtensions\Unity\Networking\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <None Include="Assets\Standard Assets %28Mobile%29\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
+    <None Include="Assets\Standard Assets %28Mobile%29\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
+    <None Include="Assets\Standard Assets %28Mobile%29\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
+    <None Include="Assets\Standard Assets %28Mobile%29\Shaders\Miscellaneous Shaders\Mobile Detail.shader" />
+    <None Include="Assets\Standard Assets %28Mobile%29\Shaders\Lightmap Shaders %28Legacy%29\Mobile Lightmap Reflective.shader" />
+    <None Include="Assets\Standard Assets %28Mobile%29\Shaders\Particle Shaders\Mobile Particles Additive Culled.shader" />
+    <None Include="Assets\Standard Assets %28Mobile%29\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
+    <None Include="Assets\Standard Assets %28Mobile%29\Shaders\Lightmap Shaders %28Legacy%29\Mobile Lightmap Only.shader" />
+    <None Include="Assets\Standard Assets %28Mobile%29\Shaders\Lightmap Shaders %28Legacy%29\Mobile Lightmap AlphaTest.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -132,5 +135,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  
 </Project>
