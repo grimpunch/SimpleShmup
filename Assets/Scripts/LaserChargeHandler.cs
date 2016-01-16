@@ -8,7 +8,7 @@ public class LaserChargeHandler : MonoBehaviour
 	private const int ENEMYLAYER = 9;
 	private const int ENEMYSHOTLAYER = 11;
 	private const int COLLIDABLELAYER = 13;
-
+	public int player = 1;
 	public float laserSpeed = 100f;
 	public float timeToFullCharge = 100.0F;
 	private float timeCharged = 0.0F;
@@ -125,14 +125,18 @@ public class LaserChargeHandler : MonoBehaviour
 		ResetLaser();
 	}
 
-	private static bool GetFireButtonDown()
+	public bool GetFireButtonDown()
 	{
-		return Input.GetButtonDown("Fire3");
+		if (player == 1) {
+			return InputManager.Fire3_P1;	
+		} else {
+			return InputManager.Fire3_P2;
+		} 
 	}
 
 	public bool GetFireButtonUp()
 	{
-		return !Input.GetButton("Fire3");
+		return !GetFireButtonDown();
 	}
 
 	private float GetMaxLaserLength()

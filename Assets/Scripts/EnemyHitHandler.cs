@@ -49,7 +49,8 @@ public class EnemyHitHandler : MonoBehaviour
 		if (!screenBounds) {
 			return;
 		}
-		if (col2d.gameObject.layer == PLAYERLASERLAYER && captureable && GameObject.Find("ShmupShip").GetComponentInChildren<LaserChargeHandler>().GetFireButtonUp()) {
+		if (col2d.gameObject.layer == PLAYERLASERLAYER && captureable &&
+		    col2d.transform.parent.GetComponentInChildren<LaserChargeHandler>().GetFireButtonUp()) {
 			captureable = false;
 			gameObject.GetComponent<Collider2D>().enabled = false;
 			Flash();

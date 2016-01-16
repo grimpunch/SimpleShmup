@@ -571,6 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320c26c092ef4094dad29f34ac0b2537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: 1
   movementspeed: 1.3
   focusmovementspeed: 0.6
 --- !u!114 &11407726
@@ -622,6 +623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af0155c705b58164e93478eecc140fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: 1
   turretLeft: {fileID: 105864}
   turretRight: {fileID: 114022}
   upgradeLevel: 0
@@ -699,6 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5434dfccfbe38a40a4d2ee99f5a1f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: 1
   laserSpeed: 10
   timeToFullCharge: 2
   rateMultiplier: 1
