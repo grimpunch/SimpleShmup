@@ -53,6 +53,7 @@ public class CaptureShipHandler : MonoBehaviour
 				Destroy(formation.transform.GetChild(0).gameObject);
 			}
 		}
+
 		if (capturedShipDummy != null) {
 			Destroy(capturedShipDummy);
 		}
@@ -60,6 +61,7 @@ public class CaptureShipHandler : MonoBehaviour
 		formationToSendCapturedEnemyTo = null;
 		capturedEnemies = 0;
 		capturing = false;
+		tractorBeam.enabled = false;
 	}
 
 	// Update is called once per frame
