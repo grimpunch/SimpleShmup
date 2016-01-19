@@ -54,8 +54,8 @@ public class EnemyHitHandler : MonoBehaviour
 			captureable = false;
 			gameObject.GetComponent<Collider2D>().enabled = false;
 			Flash();
-			GameObject.Find("ShmupShip").GetComponentInChildren<CaptureShipHandler>().Capture(gameObject.transform.position, gameObject.name);
-			GameObject.Find("ShmupShip").GetComponentInChildren<LaserChargeHandler>().Discharge(); 
+			col2d.transform.parent.GetComponentInChildren<CaptureShipHandler>().Capture(gameObject.transform.position, gameObject.name);
+			col2d.transform.parent.GetComponentInChildren<LaserChargeHandler>().Discharge(); 
 			Destroy(gameObject);
 			return;
 		}
