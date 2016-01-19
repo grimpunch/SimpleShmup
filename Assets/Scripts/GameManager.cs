@@ -104,7 +104,6 @@ public class GameManager : MonoBehaviour
 		if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name != "mainmenu") {
 			if (!lifeManager) {
 				lifeManager = gameObject.AddComponent<LifeHandler>();
-				lifeManager.playerShip = GameObject.Find("ShmupShip");
 				lifeManager.startLives = Utils.livesSetting;
 				lifeManager.respawnDelay = 2;
 			}
