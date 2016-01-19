@@ -6,6 +6,7 @@ public class PlayerHitHandler : MonoBehaviour
 {
 
 	public int shipHealth = 1;
+	public int player = 1;
 	private const int ENEMYLAYER = 9;
 	private const int ENEMYSHOTLAYER = 11;
 	private const int COLLIDABLELAYER = 13;
@@ -69,7 +70,7 @@ public class PlayerHitHandler : MonoBehaviour
 			}
 		}
 		if (shipHealth <= 0) {
-			lifeHandler.SendMessage("Dead");
+			lifeHandler.SendMessage("Dead", player);
 			gameObject.SendMessage("Gib");
 		}
 	}

@@ -11,6 +11,7 @@ public static class Utils
 {
 	public static bool Paused = false;
 	public static int livesSetting = 3;
+	public static bool Multiplayer = false;
 
 	internal static Quaternion RotationToTarget(Transform self, Transform target)
 	{
@@ -46,6 +47,12 @@ public class GameManager : MonoBehaviour
 			GameObject.DontDestroyOnLoad(gameObject);
 			GameManagerInstance = this;
 		}
+		if (lifeManager != null) {
+			GameObject.Destroy(lifeManager);
+		} else {
+			GameObject.DontDestroyOnLoad(lifeManager);
+			lifeManager = gameObject.GetComponent<LifeHandler>();
+		}
 		if (!fpsCount) {
 			fpsCount = gameObject.AddComponent<FramesPerSecond>();
 		}
@@ -78,6 +85,13 @@ public class GameManager : MonoBehaviour
 	{
 		sceneManager.StartCoroutine("LoadScene", "Level1");
 		Debug.Log("New Game Clicked");
+	}
+
+	public void New2PlayerGame()
+	{
+		Utils.Multiplayer = true;
+		// TODO more code for setup of controls for multiplayer.
+		NewGame();
 	}
 	
 	// Update is called once per frame

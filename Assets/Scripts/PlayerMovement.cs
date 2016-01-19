@@ -48,7 +48,6 @@ public class PlayerMovement : MonoBehaviour
 		} else {
 			return InputManager.Vertical_P2; 
 		}
-		return 0f;
 	}
 
 	private static bool focusDown(int player)
