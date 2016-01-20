@@ -19,7 +19,30 @@ public static class Utils
 		float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg + 90);
 		return Quaternion.AngleAxis(angle, Vector3.forward.normalized);
 	}
-		
+
+	public static Transform AcquireTargetPlayer()
+	{
+		Transform target;
+		if (!Utils.Multiplayer) {
+			if (GameObject.FindWithTag("Player")) {
+				GameObject prospectiveTarget = GameObject.Find("ShmupShip_P1");
+				if (prospectiveTarget.activeSelf) {
+					target = prospectiveTarget.gameObject.transform;
+					return target;
+				}
+			}
+		} else {
+			GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+			if (players == null)
+				return null;
+			GameObject prospectiveTarget = players [UnityEngine.Random.Range(0, players.Length - 1)].gameObject;
+			if (prospectiveTarget.activeSelf) {
+				target = prospectiveTarget.gameObject.transform;
+				return target;
+			}
+		}
+		return null;
+	}
 }
 
 [Serializable]

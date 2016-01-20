@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scripts\HSLColor.cs" />
      <Compile Include="Assets\Scripts\InputManager.cs" />
      <Compile Include="Assets\Scripts\LaserChargeHandler.cs" />
+     <Compile Include="Assets\Scripts\LaserChargePowerUp.cs" />
      <Compile Include="Assets\Scripts\LifeHandler.cs" />
      <Compile Include="Assets\Scripts\Line.cs" />
      <Compile Include="Assets\Scripts\MoveDown.cs" />

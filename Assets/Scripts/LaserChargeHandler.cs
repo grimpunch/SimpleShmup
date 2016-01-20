@@ -10,8 +10,8 @@ public class LaserChargeHandler : MonoBehaviour
 	private const int COLLIDABLELAYER = 13;
 	public int player = 1;
 	public float laserSpeed = 100f;
-	public float timeToFullCharge = 100.0F;
-	private float timeCharged = 0.0F;
+	public float amountToFullCharge = 100.0F;
+	private float amountCharged = 0.0F;
 	public float rateMultiplier = 1.0F;
 	private bool shooting;
 	private Slider laserChargeSlider;
@@ -39,13 +39,21 @@ public class LaserChargeHandler : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		laserChargeSlider = GameObject.Find("LaserChargeSlider").GetComponent<Slider>();
+		if (!Utils.Multiplayer) {
+			laserChargeSlider = GameObject.Find("LaserChargeSlider_P1").GetComponent<Slider>();
+		} else {
+			if (gameObject.name.EndsWith("_P1")) {
+				laserChargeSlider = GameObject.Find("LaserChargeSlider_P1").GetComponent<Slider>();
+			} else {
+				laserChargeSlider = GameObject.Find("LaserChargeSlider_P2").GetComponent<Slider>();
+			}
+		}
 
 	}
 
 	void ResetLaser()
 	{
-		timeCharged = 0.0F;
+		amountCharged = 0.0F;
 		Laser.SetActive(false);
 		timeEnabled = 0.0F;
 		currentLaserLength = 0f;
@@ -76,6 +84,11 @@ public class LaserChargeHandler : MonoBehaviour
 	{
 		if (Utils.Paused)
 			return;
+		if (!Utils.Multiplayer) {
+			if (GameObject.Find("LaserChargeSlider_P2")) {
+				GameObject.Find("LaserChargeSlider_P2").SetActive(false);
+			}
+		}
 		if (Laser.activeInHierarchy) {
 			laserLineRenderer = GameObject.Find("Laser").GetComponent<LineRenderer>();
 			laserBoxCollider2D = GameObject.Find("Laser").GetComponent<BoxCollider2D>();
@@ -102,21 +115,23 @@ public class LaserChargeHandler : MonoBehaviour
 
 		shooting = GetFireButtonDown();
 
-		if (shooting && timeCharged >= timeToFullCharge) {
-			timeCharged = 0.0F;
+		if (shooting && amountCharged >= amountToFullCharge) {
+			amountCharged = 0.0F;
 			Laser.SetActive(true);
 		}
 
-		if (!shooting && timeCharged < timeToFullCharge) {
-			if (timeCharged < timeToFullCharge) {
-				timeCharged += Time.deltaTime * rateMultiplier;
+		if (!shooting && amountCharged < amountToFullCharge) {
+			if (amountCharged >= amountToFullCharge) {
+				amountCharged = amountToFullCharge;
 			}
-			if (timeCharged >= timeToFullCharge) {
-				timeCharged = timeToFullCharge;
-			}
-			laserChargeSlider.value = timeCharged;
-			laserChargeSlider.maxValue = timeToFullCharge;
 		}
+		laserChargeSlider.value = amountCharged;
+		laserChargeSlider.maxValue = amountToFullCharge;
+	}
+
+	public void AddCharge(int amount)
+	{
+		amountCharged += amount * rateMultiplier;
 	}
 
 	public void Discharge()
