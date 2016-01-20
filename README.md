@@ -1,5 +1,5 @@
-### Goodbye Earthlings!
-# formally known as SimpleShmup 
+# Goodbye Earthlings!
+### formally known as SimpleShmup 
 
 Goodbye Earthlings! is my attempt at making a SHMUP (Shoot-em-up) style game for PC , using Unity Engine 5,
 while following common genre conventions of popular games in the genre such as Dodonpachi or Touhou.
