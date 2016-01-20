@@ -1,20 +1,25 @@
-# SimpleShmup 
-(very bad working title)
+### Goodbye Earthlings!
+# formally known as SimpleShmup 
 
-SimpleShmup is my attempt to get started making a SHMUP (Shoot-em-up) style game for PC , using Unity Engine 5,
+Goodbye Earthlings! is my attempt at making a SHMUP (Shoot-em-up) style game for PC , using Unity Engine 5,
 while following common genre conventions of popular games in the genre such as Dodonpachi or Touhou.
 
   - Vertical Scrolling
   - Simple, clean sprite based art (Not final art)
-  - Limited inputs for simplistic design (Directions[WASD/Arrows], Focus[X/Left Shift], and Fire [Z/Left Ctrl])
-  - A pacifism based special weapon where not firing for a short time will charge a screen clearing super laser.
+  - Limited inputs for simplistic design (Directions, Focus, Fire, and Capture laser.
+  - A collectible based special weapon where you charge a enemy capturing tractor beam aimed by laser.
 
 ### Version
-0.0.7
+0.0.8
 
+### Changelog:
+  - Multiplayer stubs put in. works with multikeyboard or whatever you can map in the unity launcher, or multiple xbox game pads.
+  - Controls for gamepads in single player too, where you can use the stick or the dpad , and A,B,X to shoot, capture and focus.
+  - Laser Charge based on collectibles now. working on making them generate on kill and head to the players based on distance and move towards the players.
+  - Main Menu implemented and basic setting menu.
 
 ### Screenshot
-![Temporary screenshot of the game](http://blog.christiancod.es/uploads?url=2015-08-06_22_11_53shmuptempscreenshot "Temporary Screenshot")
+![Temporary screenshot of the game](http://i.imgur.com/qSPcKxC.gif "Temporary Screenshot")
 
 
 ### Installation
@@ -30,6 +35,5 @@ I'm developing this on my own, but if you understand my setup and feel like cont
 ### Todos
 
  - Design more bullet types and create pools for them.
- - Add more code comments.
  - Specify Level walkthroughs and finalise design to lock in spec.
- - Create more issues to illustrate the project direction for readers.
+ - Complete Level  1 for alpha version milestone
