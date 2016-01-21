@@ -68,6 +68,14 @@ public class CaptureShipHandler : MonoBehaviour
 	void Update()
 	{
 		if (Utils.Paused || !capturing || capturedShipDummy == null) {
+			foreach (GameObject formation in formationPoints) {
+				if (!formation.GetComponent<PlayerFormationShoot>().hasCapturedEnemy) {
+					formation.GetComponent<ParticleSystem>().Stop();
+				}
+				if (formation.GetComponent<PlayerFormationShoot>().hasCapturedEnemy) {
+					formation.GetComponent<ParticleSystem>().Pause();
+				}
+			}
 			return;
 		}
 
@@ -85,7 +93,7 @@ public class CaptureShipHandler : MonoBehaviour
 			tractorBeam.enabled = true;
 			tractorBeam.SetPosition(0, formationToSendCapturedEnemyTo.transform.position);
 			tractorBeam.SetPosition(1, capturedShipDummy.transform.position);
-
+			formationToSendCapturedEnemyTo.GetComponent<ParticleSystem>().Play();
 			capturedShipDummy.transform.position = Vector3.MoveTowards(
 				capturedShipDummy.transform.position, 
 				formationToSendCapturedEnemyTo.transform.position,
