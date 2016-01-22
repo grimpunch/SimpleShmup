@@ -393,7 +393,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 399098066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: 0}
+  m_LocalPosition: {x: 0, y: 11.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1649605963}
@@ -759,6 +759,22 @@ Prefab:
     - target: {fileID: 11427550, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: powerUpPool
       value: PowerUpChargeObjectPool
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shotPool
+      value: EnemyShotObjectPool
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shotDelay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: burstDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: burstAmount
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
@@ -1268,6 +1284,7 @@ Transform:
   m_Children:
   - {fileID: 1184413152}
   - {fileID: 428608067}
+  - {fileID: 1899566605}
   - {fileID: 2052816343}
   - {fileID: 872326880}
   - {fileID: 1997172830}
@@ -1891,7 +1908,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 781174924}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!114 &872326881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2526,7 +2543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pooledObject: {fileID: 100000, guid: 2c4d590676e73214aa1e4c9a9761b568, type: 2}
-  pooledAmount: 10
+  pooledAmount: 16
   willGrow: 1
   pooledObjects: []
 --- !u!4 &1184413152
@@ -2580,7 +2597,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 781174924}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!114 &1196297125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6305,7 +6322,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 781174924}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!114 &1627073111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6507,6 +6524,22 @@ Prefab:
       propertyPath: powerUpPool
       value: PowerUpChargeObjectPool
       objectReference: {fileID: 0}
+    - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: burstAmount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: burstDelay
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shotPool
+      value: EnemySineShotObjectPool
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shotDelay
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
   m_IsPrefabParent: 0
@@ -6528,7 +6561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1666378028
 Transform:
   m_ObjectHideFlags: 0
@@ -6789,7 +6822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1845842791
 Transform:
   m_ObjectHideFlags: 0
@@ -6894,6 +6927,64 @@ CanvasRenderer:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: a6712d5b38c87fa4881afaa5aa67f945, type: 2}
   m_PrefabInternal: {fileID: 1142691803}
+--- !u!1 &1899566604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1899566605}
+  - 114: {fileID: 1899566607}
+  - 114: {fileID: 1899566606}
+  m_Layer: 0
+  m_Name: EnemySineShotObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1899566605
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1899566604}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 781174924}
+  m_RootOrder: 2
+--- !u!114 &1899566606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1899566604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8a8b0d67801d94a9ea20a1d1366849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotSpeed: -0.8
+  frequency: 6
+  magnitude: 1
+--- !u!114 &1899566607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1899566604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453a426aefe95b04b8c464324c9b93f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject: {fileID: 173432, guid: 92e59a2f2c6ab224faff6bedd1f79479, type: 2}
+  pooledAmount: 80
+  willGrow: 1
+  pooledObjects: []
 --- !u!1 &1966220555
 GameObject:
   m_ObjectHideFlags: 0
@@ -7055,7 +7146,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 781174924}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!114 &1997172831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7208,7 +7299,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 781174924}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &2052816344
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -68,6 +68,7 @@
      <Compile Include="Assets\Scripts\EnemyHitHandler.cs" />
      <Compile Include="Assets\Scripts\EnemyShoot.cs" />
      <Compile Include="Assets\Scripts\EnemyShotHandler.cs" />
+     <Compile Include="Assets\Scripts\EnemySineShotHandler.cs" />
      <Compile Include="Assets\Scripts\EnemyTailGib.cs" />
      <Compile Include="Assets\Scripts\EnemyWaveHandler.cs" />
      <Compile Include="Assets\Scripts\EnemyWaveSpawn.cs" />
