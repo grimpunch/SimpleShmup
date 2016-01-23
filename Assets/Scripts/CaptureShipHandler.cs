@@ -69,12 +69,7 @@ public class CaptureShipHandler : MonoBehaviour
 	{
 		if (Utils.Paused || !capturing || capturedShipDummy == null) {
 			foreach (GameObject formation in formationPoints) {
-				if (!formation.GetComponent<PlayerFormationShoot>().hasCapturedEnemy) {
-					formation.GetComponent<ParticleSystem>().Stop();
-				}
-				if (formation.GetComponent<PlayerFormationShoot>().hasCapturedEnemy) {
-					formation.GetComponent<ParticleSystem>().Pause();
-				}
+				formation.GetComponent<ParticleSystem>().Stop();
 			}
 			return;
 		}
