@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -11,6 +11,7 @@ Material:
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 0
   m_CustomRenderQueue: -1
+  stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -19,7 +20,7 @@ Material:
           name: _MainTex
         second:
           m_Texture: {fileID: 2800000, guid: a1c740d456a21384386a586399dfcb73, type: 3}
-          m_Scale: {x: 10, y: 800}
+          m_Scale: {x: 8, y: 160}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -54,7 +55,7 @@ Material:
           name: _EmissionMap
         second:
           m_Texture: {fileID: 2800000, guid: a1c740d456a21384386a586399dfcb73, type: 3}
-          m_Scale: {x: 10, y: 800}
+          m_Scale: {x: 8, y: 160}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -80,14 +81,6 @@ Material:
     m_Floats:
       data:
         first:
-          name: _Cutoff
-        second: .5
-      data:
-        first:
-          name: _Parallax
-        second: .0199999996
-      data:
-        first:
           name: _SrcBlend
         second: 1
       data:
@@ -96,12 +89,20 @@ Material:
         second: 0
       data:
         first:
+          name: _Cutoff
+        second: 0.5
+      data:
+        first:
+          name: _Parallax
+        second: 0.02
+      data:
+        first:
           name: _ZWrite
         second: 1
       data:
         first:
           name: _Glossiness
-        second: .5
+        second: 0.5
       data:
         first:
           name: _BumpScale
@@ -120,21 +121,21 @@ Material:
         second: 0
       data:
         first:
-          name: _EmissionScaleUI
-        second: 1
-      data:
-        first:
           name: _Mode
         second: 0
       data:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _EmissionScaleUI
+        second: 1
     m_Colors:
       data:
         first:
           name: _EmissionColor
-        second: {r: .485299885, g: .492436469, b: .492436469, a: 1}
+        second: {r: 0.4852999, g: 0.49243647, b: 0.49243647, a: 1}
       data:
         first:
           name: _Color
@@ -142,4 +143,4 @@ Material:
       data:
         first:
           name: _EmissionColorUI
-        second: {r: .485294104, g: .492430776, b: .492430776, a: 1}
+        second: {r: 0.4852941, g: 0.49243078, b: 0.49243078, a: 1}

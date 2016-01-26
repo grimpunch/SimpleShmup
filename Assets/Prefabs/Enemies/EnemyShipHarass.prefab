@@ -20,6 +20,7 @@ GameObject:
   - 114: {fileID: 11421324}
   - 114: {fileID: 11429770}
   - 68: {fileID: 6832406}
+  - 114: {fileID: 11495626}
   m_Layer: 9
   m_Name: EnemyShipHarass
   m_TagString: Enemy
@@ -185,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystemPool: EnemyDeathParticleObjectPool
+  powerUpPool: 
   powerUp: {fileID: 0}
 --- !u!114 &11469344
 MonoBehaviour:
@@ -232,6 +234,18 @@ MonoBehaviour:
   burstDelay: 6
   burstAmount: 10
   canShoot: 1
+--- !u!114 &11495626
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e774df367da923748a141fd674ebdc17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  naming: EnemyShipHarass
 --- !u!212 &21218952
 SpriteRenderer:
   m_ObjectHideFlags: 1

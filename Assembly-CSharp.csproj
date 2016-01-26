@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\DelayColliderActivation.cs" />
      <Compile Include="Assets\Scripts\DestroyOnTimer.cs" />
      <Compile Include="Assets\Scripts\DestroyWhenOffScreen.cs" />
+     <Compile Include="Assets\Scripts\EndLevelHandler.cs" />
      <Compile Include="Assets\Scripts\EnemyHitHandler.cs" />
      <Compile Include="Assets\Scripts\EnemyShoot.cs" />
      <Compile Include="Assets\Scripts\EnemyShotHandler.cs" />
@@ -85,6 +86,8 @@
      <Compile Include="Assets\Scripts\MoveDownSine.cs" />
      <Compile Include="Assets\Scripts\MoveSine.cs" />
      <Compile Include="Assets\Scripts\MoveSpline.cs" />
+     <Compile Include="Assets\Scripts\MusicManager.cs" />
+     <Compile Include="Assets\Scripts\NamingProcess.cs" />
      <Compile Include="Assets\Scripts\ObjectPoolScript.cs" />
      <Compile Include="Assets\Scripts\OptionsGUIManager.cs" />
      <Compile Include="Assets\Scripts\ParentOnTrigger.cs" />

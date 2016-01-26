@@ -22,6 +22,7 @@ GameObject:
   - 114: {fileID: 11453168}
   - 114: {fileID: 11411652}
   - 114: {fileID: 11434526}
+  - 114: {fileID: 11462716}
   m_Layer: 9
   m_Name: EnemyShipSpline
   m_TagString: Enemy
@@ -36,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: 2.357, z: 0}
+  m_LocalPosition: {x: 0.082, y: 2.547, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -139,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystemPool: EnemyDeathParticleObjectPool
+  powerUpPool: PowerUpChargeObjectPool
   powerUp: {fileID: 0}
 --- !u!114 &11434526
 MonoBehaviour:
@@ -182,6 +184,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystemPrefab: {fileID: 115684, guid: 1585cda92cf7f3b4c96ca1b4e554922d, type: 2}
   burnTime: 3
+--- !u!114 &11462716
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e774df367da923748a141fd674ebdc17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  naming: EnemyShipSpline
 --- !u!114 &11469336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -194,9 +208,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPool: EnemyShotObjectPool
-  shotDelay: 0.2
-  burstDelay: 2.5
-  burstAmount: 12
+  shotDelay: 0.1
+  burstDelay: 3
+  burstAmount: 20
   canShoot: 1
 --- !u!114 &11477912
 MonoBehaviour:

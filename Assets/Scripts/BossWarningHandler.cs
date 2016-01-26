@@ -6,6 +6,7 @@ public class BossWarningHandler : MonoBehaviour
 
 	public GameObject bossWarn1;
 	public GameObject bossWarn2;
+	public string bossMusicTrackName;
 
 	// Use this for initialization
 	void Start()
@@ -15,6 +16,7 @@ public class BossWarningHandler : MonoBehaviour
 		bossWarn1.GetComponent<Animator>().enabled = false;
 		bossWarn2.GetComponent<Animator>().enabled = false;
 		this.enabled = false;
+		GameObject.Find("MusicManager").GetComponent<MusicManager>().QueueTrack(bossMusicTrackName);
 	}
 
 	// Update is called once per frame
