@@ -136,5 +136,14 @@ public static class InputManager
 
 	#endregion
 
+	public static bool vibration = true;
+
+	public static void vibratePadForPlayer(int player)
+	{
+		if (XboxCtrlrInput.XCI.IsPluggedIn(player) && player == 1)
+			XInputDotNetPure.GamePad.SetVibration(XInputDotNetPure.PlayerIndex.One, 50f, 50f);
+		if (XboxCtrlrInput.XCI.IsPluggedIn(player) && player == 2)
+			XInputDotNetPure.GamePad.SetVibration(XInputDotNetPure.PlayerIndex.Two, 50f, 50f);
+	}
 
 }

@@ -11,6 +11,7 @@ public class CaptureShipHandler : MonoBehaviour
 	public LineRenderer tractorBeam;
 	public GameObject formationToSendCapturedEnemyTo;
 	public GameObject capturedShipDummy;
+	private VibrationHandler vibrationHandler;
 	public bool capturing = false;
 	public int capturedEnemies = 0;
 
@@ -19,6 +20,12 @@ public class CaptureShipHandler : MonoBehaviour
 		foreach (GameObject go in Resources.LoadAll("CapturableEnemyDummies", typeof(GameObject))) {
 			dummyPrefabs.Add(go);
 		}
+
+	}
+
+	void Start()
+	{
+		vibrationHandler = GameObject.Find("VibrationManager").GetComponent<VibrationHandler>();
 	}
 
 	public void Capture(Vector3 capturedGOPos, string capturedGoName)
@@ -44,18 +51,24 @@ public class CaptureShipHandler : MonoBehaviour
 
 	}
 
-	void ResetFormation()
+	public void ResetFormation()
 	{
 		foreach (GameObject formation in formationPoints) {
 			if (formation.GetComponent<PlayerFormationShoot>().hasCapturedEnemy) {
 				formation.GetComponent<ParticleSystem>().Stop();
 				formation.GetComponent<PlayerFormationShoot>().hasCapturedEnemy = false;
 				Destroy(formation.transform.GetChild(0).gameObject);
+				GameObject explosion = GameObject.Find("EnemyDeathParticleObjectPool").GetComponent<ObjectPoolScript>().GetPooledObject();
+				explosion.transform.position = capturedShipDummy.transform.position;
+				explosion.SetActive(true);
 			}
 		}
 
 		if (capturedShipDummy != null) {
 			Destroy(capturedShipDummy);
+			GameObject explosion = GameObject.Find("EnemyDeathParticleObjectPool").GetComponent<ObjectPoolScript>().GetPooledObject();
+			explosion.transform.position = capturedShipDummy.transform.position;
+			explosion.SetActive(true);
 		}
 		capturedShipDummy = null;
 		formationToSendCapturedEnemyTo = null;
@@ -68,6 +81,7 @@ public class CaptureShipHandler : MonoBehaviour
 	void Update()
 	{
 		if (Utils.Paused || !capturing || capturedShipDummy == null) {
+			vibrationHandler.StopAllCoroutines();
 			foreach (GameObject formation in formationPoints) {
 				formation.GetComponent<ParticleSystem>().Stop();
 			}
@@ -84,8 +98,10 @@ public class CaptureShipHandler : MonoBehaviour
 			capturing = false;
 			capturedEnemies += 1;
 			tractorBeam.enabled = false;
+			vibrationHandler.StopAllCoroutines();
 		} else {
 			tractorBeam.enabled = true;
+			vibrationHandler.increaseVariablePower(gameObject.transform.parent.GetComponent<PlayerHitHandler>().player);
 			tractorBeam.SetPosition(0, formationToSendCapturedEnemyTo.transform.position);
 			tractorBeam.SetPosition(1, capturedShipDummy.transform.position);
 			formationToSendCapturedEnemyTo.GetComponent<ParticleSystem>().Play();

@@ -111,6 +111,7 @@
      <Compile Include="Assets\Scripts\SetCanFire.cs" />
      <Compile Include="Assets\Scripts\SpinObject.cs" />
      <Compile Include="Assets\Scripts\SplinePathSequence.cs" />
+     <Compile Include="Assets\Scripts\VibrationHandler.cs" />
      <Compile Include="Assets\SimplePixelizer\SimplePixelizer.cs" />
      <Compile Include="Assets\XboxCtrlrInput\XboxCtrlrInput.cs" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />

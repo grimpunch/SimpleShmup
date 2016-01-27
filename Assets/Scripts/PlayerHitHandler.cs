@@ -47,6 +47,7 @@ public class PlayerHitHandler : MonoBehaviour
 			if (col2d.gameObject.layer == ENEMYSHOTLAYER) {
 				col2d.gameObject.SetActive(false);
 			}
+			GameObject.Find("VibrationManager").GetComponent<VibrationHandler>().VibrateOnceForPlayer(player);
 		}
 	}
 
@@ -72,6 +73,7 @@ public class PlayerHitHandler : MonoBehaviour
 		if (shipHealth <= 0) {
 			lifeHandler.SendMessage("Dead", player);
 			gameObject.SendMessage("Gib");
+			gameObject.GetComponentInChildren<CaptureShipHandler>().ResetFormation();
 		}
 	}
 }

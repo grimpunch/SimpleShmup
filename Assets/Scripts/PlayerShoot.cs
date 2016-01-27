@@ -12,6 +12,7 @@ public class PlayerShoot : MonoBehaviour
 	private Vector3 shotPosition;
 	private Quaternion shotRotation;
 	private ObjectPoolScript playerShotObjectPool;
+
 	//public Vector3 shotOffset = new Vector3(0, 0.5f, 0);
 	int shotLayer;
 
@@ -22,6 +23,7 @@ public class PlayerShoot : MonoBehaviour
 	void Start()
 	{
 		playerShotObjectPool = GameObject.Find("PlayerShotObjectPool").GetComponent<ObjectPoolScript>();
+
 	}
 
 	// Update is called once per frame
