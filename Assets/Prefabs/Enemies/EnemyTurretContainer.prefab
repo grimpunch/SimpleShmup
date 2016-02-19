@@ -35,6 +35,7 @@ GameObject:
   - 114: {fileID: 11421850}
   - 114: {fileID: 11476078}
   - 114: {fileID: 11499154}
+  - 114: {fileID: 11468012}
   m_Layer: 9
   m_Name: EnemyTurret
   m_TagString: Enemy
@@ -110,7 +111,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 7.529, z: 0}
+  m_LocalPosition: {x: 1, y: 5.877, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 475198}
@@ -371,6 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystemPool: EnemyDeathParticleObjectPool
+  powerUpPool: PowerUpChargeObjectPool
   powerUp: {fileID: 0}
 --- !u!114 &11440814
 MonoBehaviour:
@@ -419,6 +421,18 @@ MonoBehaviour:
   scoreValue: 100
   flashTime: 0.5
   captureable: 0
+--- !u!114 &11468012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e774df367da923748a141fd674ebdc17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  naming: 
 --- !u!114 &11476078
 MonoBehaviour:
   m_ObjectHideFlags: 1
