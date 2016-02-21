@@ -282,7 +282,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.465, z: 0}
+  m_LocalPosition: {x: 0.003, y: -1.721, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 481524}
@@ -777,7 +777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320c26c092ef4094dad29f34ac0b2537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 1
+  player: 2
   movementspeed: 1.45
   focusmovementspeed: 0.6
 --- !u!114 &11407726
@@ -829,7 +829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af0155c705b58164e93478eecc140fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 1
+  player: 2
   turretLeft: {fileID: 105864}
   turretRight: {fileID: 114022}
   upgradeLevel: 0
@@ -846,7 +846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipHealth: 1000
-  player: 2
+  player: 1
   invulnerabilityTimeOnSpawn: 2.5
   playerShipRenderer: {fileID: 21200000}
 --- !u!114 &11434754
@@ -908,7 +908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5434dfccfbe38a40a4d2ee99f5a1f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 2
+  player: 1
   laserSpeed: 10
   amountToFullCharge: 100
   rateMultiplier: 1

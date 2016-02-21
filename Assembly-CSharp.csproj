@@ -75,6 +75,7 @@
      <Compile Include="Assets\Scripts\EnemyWaveSpawn.cs" />
      <Compile Include="Assets\Scripts\FramesPerSecond.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GibInPlaceOnMessage.cs" />
      <Compile Include="Assets\Scripts\GibOnMessage.cs" />
      <Compile Include="Assets\Scripts\HSLColor.cs" />
      <Compile Include="Assets\Scripts\InputManager.cs" />

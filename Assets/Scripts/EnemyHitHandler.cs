@@ -25,6 +25,7 @@ public class EnemyHitHandler : MonoBehaviour
 		scoreHandler = GameObject.Find("Score").GetComponent<ScoreHandler>();
 		sprite = gameObject.GetComponent<SpriteRenderer>();
 		spriteColor = sprite.color;
+
 	}
 
 	void OnTriggerEnter2D(Collider2D col2d)
@@ -49,6 +50,16 @@ public class EnemyHitHandler : MonoBehaviour
 		if (!screenBounds) {
 			return;
 		}
+
+		if (col2d.gameObject.layer == PLAYERSHOTLAYER) {
+			if (!col2d) {
+				return;
+			}
+			shipHealth -= 10;
+			Flash();
+			col2d.gameObject.SendMessage("Gib", SendMessageOptions.DontRequireReceiver);
+		}
+
 		if (col2d.gameObject.layer == PLAYERLASERLAYER && captureable &&
 		    col2d.transform.parent.GetComponentInChildren<LaserChargeHandler>().GetFireButtonUp()) {
 			captureable = false;
