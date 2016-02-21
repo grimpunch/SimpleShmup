@@ -373,11 +373,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478004, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: duration
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[0].duration
-      value: 2.5
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].duration
@@ -385,15 +385,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstAmount
-      value: 100
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstDelay
-      value: 0.15
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: shotDelay
-      value: 0.3
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].shoot
@@ -417,7 +417,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434526, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: delay
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shipHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: flashTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
@@ -560,11 +568,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478004, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: duration
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[0].duration
-      value: 2.5
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].duration
@@ -572,15 +580,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstAmount
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstDelay
-      value: 0.15
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: shotDelay
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].shoot
@@ -600,7 +608,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434526, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: delay
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shipHealth
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: flashTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
@@ -793,11 +809,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478004, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: duration
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[0].duration
-      value: 2.5
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].duration
@@ -805,15 +821,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstAmount
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstDelay
-      value: 0.15
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: shotDelay
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].shoot
@@ -833,7 +849,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434526, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: delay
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shipHealth
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: flashTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
@@ -1235,11 +1259,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478004, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: duration
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[0].duration
-      value: 2.5
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].duration
@@ -1247,15 +1271,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstAmount
-      value: 100
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstDelay
-      value: 0.15
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: shotDelay
-      value: 0.3
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].shoot
@@ -1279,7 +1303,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434526, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: delay
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shipHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: flashTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
@@ -1446,15 +1478,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: shotDelay
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstDelay
-      value: 0.15
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstAmount
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11462716, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: naming
@@ -1462,11 +1494,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478004, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: duration
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[0].duration
-      value: 2.5
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].duration
@@ -1494,11 +1526,77 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434526, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: delay
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shipHealth
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: flashTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &476983107
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1354930717}
+    m_Modifications:
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.447
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.729
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 21259754, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1476140401
+      objectReference: {fileID: 0}
+    - target: {fileID: 109912, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_Name
+      value: EnemyCommTowerDummy (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &476983108 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+  m_PrefabInternal: {fileID: 476983107}
+--- !u!1 &476983109 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 109912, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+  m_PrefabInternal: {fileID: 476983107}
 --- !u!1001 &480501344
 Prefab:
   m_ObjectHideFlags: 0
@@ -1556,11 +1654,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478004, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: duration
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[0].duration
-      value: 2.5
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].duration
@@ -1568,15 +1666,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstAmount
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstDelay
-      value: 0.15
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: shotDelay
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].shoot
@@ -1600,7 +1698,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434526, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: delay
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shipHealth
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: flashTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
@@ -1862,11 +1968,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478004, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: duration
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[0].duration
-      value: 2.5
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].duration
@@ -1874,15 +1980,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstAmount
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstDelay
-      value: 0.15
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: shotDelay
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].shoot
@@ -1906,7 +2012,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434526, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: delay
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shipHealth
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: flashTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
@@ -2086,15 +2200,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: shotDelay
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
-      propertyPath: burstDelay
       value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: burstDelay
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstAmount
-      value: 100
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11462716, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: naming
@@ -2102,11 +2216,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478004, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: duration
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[0].duration
-      value: 2.5
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].duration
@@ -2134,11 +2248,73 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434526, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: delay
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shipHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: flashTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &755875910
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1354930717}
+    m_Modifications:
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.447
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.729
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417126, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: inplaceReplacement
+      value: 
+      objectReference: {fileID: 476983109}
+    - target: {fileID: 21208424, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1476140401
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &755875911 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+  m_PrefabInternal: {fileID: 755875910}
 --- !u!1001 &763346331
 Prefab:
   m_ObjectHideFlags: 0
@@ -2454,6 +2630,64 @@ MonoBehaviour:
   - {x: 0, y: 1.2694371, z: 0}
   - {x: -0.7196566, y: 1.457237, z: 0}
   - {x: -0.7796525, y: 1.4571484, z: 0}
+--- !u!1001 &802876079
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1354930717}
+    m_Modifications:
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.381
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.593
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 21259754, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1476140401
+      objectReference: {fileID: 0}
+    - target: {fileID: 109912, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_Name
+      value: EnemyCommTowerDummy (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &802876080 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 109912, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+  m_PrefabInternal: {fileID: 802876079}
+--- !u!4 &802876081 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+  m_PrefabInternal: {fileID: 802876079}
 --- !u!1 &825050128
 GameObject:
   m_ObjectHideFlags: 0
@@ -2908,11 +3142,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478004, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: duration
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[0].duration
-      value: 2.5
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].duration
@@ -2920,15 +3154,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstAmount
-      value: 100
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstDelay
-      value: 0.15
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: shotDelay
-      value: 0.3
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].shoot
@@ -2952,7 +3186,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434526, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: delay
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shipHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: flashTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
@@ -3057,11 +3299,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478004, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: duration
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[0].duration
-      value: 2.5
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].duration
@@ -3069,15 +3311,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstAmount
-      value: 100
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstDelay
-      value: 0.15
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: shotDelay
-      value: 0.3
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].shoot
@@ -3101,7 +3343,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434526, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: delay
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shipHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: flashTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
@@ -3163,11 +3413,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478004, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: duration
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[0].duration
-      value: 2.5
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].duration
@@ -3175,15 +3425,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstAmount
-      value: 100
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstDelay
-      value: 0.15
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: shotDelay
-      value: 0.3
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].shoot
@@ -3207,7 +3457,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434526, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: delay
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shipHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: flashTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
@@ -3386,11 +3644,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478004, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: duration
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[0].duration
-      value: 2.5
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].duration
@@ -3398,15 +3656,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstAmount
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstDelay
-      value: 0.15
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: shotDelay
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].shoot
@@ -3426,7 +3684,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434526, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: delay
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shipHealth
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: flashTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
@@ -4236,11 +4502,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478004, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: duration
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[0].duration
-      value: 2.5
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].duration
@@ -4248,15 +4514,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstAmount
-      value: 100
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstDelay
-      value: 0.15
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: shotDelay
-      value: 0.3
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].shoot
@@ -4280,7 +4546,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434526, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: delay
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shipHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: flashTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
@@ -6123,6 +6397,12 @@ Transform:
   - {fileID: 1619864217}
   - {fileID: 1436788741}
   - {fileID: 592789512}
+  - {fileID: 1434114268}
+  - {fileID: 1867509515}
+  - {fileID: 755875911}
+  - {fileID: 476983108}
+  - {fileID: 802876081}
+  - {fileID: 1415432798}
   m_Father: {fileID: 0}
   m_RootOrder: 7
 --- !u!1 &1381284089
@@ -6219,6 +6499,60 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 8cd1fa0c89598764da7aa951656922b2, type: 2}
   m_PrefabInternal: {fileID: 940320456}
+--- !u!1001 &1415432797
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1354930717}
+    m_Modifications:
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.381
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.593
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417126, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: inplaceReplacement
+      value: 
+      objectReference: {fileID: 802876080}
+    - target: {fileID: 21208424, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1476140401
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1415432798 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+  m_PrefabInternal: {fileID: 1415432797}
 --- !u!1 &1421077303
 GameObject:
   m_ObjectHideFlags: 0
@@ -6265,6 +6599,64 @@ MonoBehaviour:
   - {x: -0.5, y: 0.75, z: 0}
   - {x: 0.20203781, y: 0.7373507, z: 0}
   - {x: 2.2020378, y: 0.7373507, z: 0}
+--- !u!1001 &1434114266
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1354930717}
+    m_Modifications:
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.572
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 21259754, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1476140401
+      objectReference: {fileID: 0}
+    - target: {fileID: 109912, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+      propertyPath: m_Name
+      value: EnemyCommTowerDummy (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1434114267 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 109912, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+  m_PrefabInternal: {fileID: 1434114266}
+--- !u!4 &1434114268 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 494146, guid: 1f12239e6cd0705498972047f2c1ed14, type: 2}
+  m_PrefabInternal: {fileID: 1434114266}
 --- !u!1001 &1436788740
 Prefab:
   m_ObjectHideFlags: 0
@@ -6780,11 +7172,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478004, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: duration
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[0].duration
-      value: 2.5
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].duration
@@ -6792,15 +7184,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstAmount
-      value: 100
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstDelay
-      value: 0.15
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: shotDelay
-      value: 0.3
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].shoot
@@ -6824,7 +7216,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434526, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: delay
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shipHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: flashTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
@@ -8981,11 +9381,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478004, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: duration
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[0].duration
-      value: 2.5
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].duration
@@ -8993,15 +9393,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstAmount
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstDelay
-      value: 0.15
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: shotDelay
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].shoot
@@ -9025,7 +9425,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434526, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: delay
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shipHealth
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: flashTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
@@ -9095,15 +9503,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: shotDelay
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstDelay
-      value: 0.15
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstAmount
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11462716, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: naming
@@ -9111,11 +9519,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478004, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: duration
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[0].duration
-      value: 2.5
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].duration
@@ -9139,7 +9547,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434526, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: delay
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shipHealth
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: flashTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
@@ -9261,6 +9677,60 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1864091836}
+--- !u!1001 &1867509514
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1354930717}
+    m_Modifications:
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.572
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417126, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: inplaceReplacement
+      value: 
+      objectReference: {fileID: 1434114267}
+    - target: {fileID: 21208424, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1476140401
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1867509515 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 441108, guid: d4f6b1a946783144da7ff3f008af94a0, type: 2}
+  m_PrefabInternal: {fileID: 1867509514}
 --- !u!1001 &1870476207
 Prefab:
   m_ObjectHideFlags: 0
@@ -9442,15 +9912,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: shotDelay
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
-      propertyPath: burstDelay
       value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: burstDelay
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstAmount
-      value: 100
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11462716, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: naming
@@ -9458,11 +9928,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478004, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: duration
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[0].duration
-      value: 2.5
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].duration
@@ -9490,7 +9960,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434526, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: delay
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shipHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: flashTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
@@ -10023,11 +10501,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478004, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: duration
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[0].duration
-      value: 2.5
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].duration
@@ -10035,15 +10513,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstAmount
-      value: 100
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: burstDelay
-      value: 0.15
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 11469336, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: shotDelay
-      value: 0.3
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 11409996, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: sequenceList.Array.data[1].shoot
@@ -10067,7 +10545,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434526, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
       propertyPath: delay
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: shipHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440838, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}
+      propertyPath: flashTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbed76e9fa16f24abd746a0f08f19ed, type: 2}

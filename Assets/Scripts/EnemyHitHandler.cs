@@ -61,6 +61,7 @@ public class EnemyHitHandler : MonoBehaviour
 		}
 
 		if (col2d.gameObject.layer == PLAYERLASERLAYER && captureable &&
+		    gameObject.GetComponent<EnemyHitHandler>().enabled &&
 		    col2d.transform.parent.GetComponentInChildren<LaserChargeHandler>().GetFireButtonUp()) {
 			captureable = false;
 			gameObject.GetComponent<Collider2D>().enabled = false;
