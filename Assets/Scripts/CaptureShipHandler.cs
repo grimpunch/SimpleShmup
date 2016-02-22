@@ -83,7 +83,6 @@ public class CaptureShipHandler : MonoBehaviour
 	void Update()
 	{
 		if (Utils.Paused || !capturing || capturedShipDummy == null) {
-			vibrationHandler.StopAllCoroutines();
 			foreach (GameObject formation in formationPoints) {
 				formation.GetComponent<ParticleSystem>().Stop();
 			}

@@ -103,7 +103,7 @@ public class VibrationHandler : MonoBehaviour
 					break;
 			}
 			secs -= Time.deltaTime;
-			yield return 0;
+      yield return 0;
 		}
 		VibrateOff(player);
 		yield break;

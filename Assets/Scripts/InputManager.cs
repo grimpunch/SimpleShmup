@@ -34,7 +34,7 @@ public static class InputManager
 
 	public static float Horizontal_P1 {
 		get {
-      if (Input.GetAxis("Horizontal_P1") > 0 && Input.GetAxis("Horizontal_P1") < 0){
+      if (Input.GetAxis("Horizontal_P1") > 0 || Input.GetAxis("Horizontal_P1") < 0){
         return Input.GetAxis("Horizontal_P1");
       }
 			if (XCI.GetDPad(XboxDPad.Left, 1) || XCI.GetDPad(XboxDPad.Right, 1)) {
@@ -55,7 +55,7 @@ public static class InputManager
 
 	public static float Vertical_P1 {
 		get {
-      if (Input.GetAxis("Vertical_P1") > 0 && Input.GetAxis("Vertical_P1") < 0){
+      if (Input.GetAxis("Vertical_P1") > 0 || Input.GetAxis("Vertical_P1") < 0){
           return Input.GetAxis("Vertical_P1");
       }
 			if (XCI.GetDPad(XboxDPad.Down, 1) || XCI.GetDPad(XboxDPad.Up, 1)) {
@@ -81,7 +81,7 @@ public static class InputManager
 
 	public static float Horizontal_P2 {
 		get {
-      if (Input.GetAxis("Horizontal_P2") > 0 && Input.GetAxis("Horizontal_P2") < 0){
+      if (Input.GetAxis("Horizontal_P2") > 0 || Input.GetAxis("Horizontal_P2") < 0){
           return Input.GetAxis("Horizontal_P2");
       }
 			if (XCI.GetDPad(XboxDPad.Left, 2) || XCI.GetDPad(XboxDPad.Right, 2)) {
@@ -102,7 +102,7 @@ public static class InputManager
 
 	public static float Vertical_P2 {
 		get {
-      if (Input.GetAxis("Vertical_P2") > 0 && Input.GetAxis("Vertical_P2") < 0){
+      if (Input.GetAxis("Vertical_P2") > 0 || Input.GetAxis("Vertical_P2") < 0){
           return Input.GetAxis("Vertical_P2");
       }    
 			if (XCI.GetDPad(XboxDPad.Down, 2) || XCI.GetDPad(XboxDPad.Up, 2)) {
