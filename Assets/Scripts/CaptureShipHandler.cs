@@ -59,15 +59,17 @@ public class CaptureShipHandler : MonoBehaviour
 				formation.GetComponent<PlayerFormationShoot>().hasCapturedEnemy = false;
 				Destroy(formation.transform.GetChild(0).gameObject);
 				GameObject explosion = GameObject.Find("EnemyDeathParticleObjectPool").GetComponent<ObjectPoolScript>().GetPooledObject();
-				explosion.transform.position = capturedShipDummy.transform.position;
+				explosion.transform.position = formation.transform.position;
 				explosion.SetActive(true);
 			}
 		}
 
 		if (capturedShipDummy != null) {
+			Vector3 dummyPos;
+			dummyPos = capturedShipDummy.transform.position;
 			Destroy(capturedShipDummy);
 			GameObject explosion = GameObject.Find("EnemyDeathParticleObjectPool").GetComponent<ObjectPoolScript>().GetPooledObject();
-			explosion.transform.position = capturedShipDummy.transform.position;
+			explosion.transform.position = dummyPos;
 			explosion.SetActive(true);
 		}
 		capturedShipDummy = null;
