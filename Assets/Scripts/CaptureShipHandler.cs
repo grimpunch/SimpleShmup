@@ -18,6 +18,7 @@ public class CaptureShipHandler : MonoBehaviour
 	public List<Vector3> normalFormationPoints;
 	public List<Vector3> focusFormationPoints;
 	private PlayerShoot playerShoot;
+	public float captureSpeed;
 
 	void Awake()
 	{
@@ -155,7 +156,7 @@ public class CaptureShipHandler : MonoBehaviour
 			capturedShipDummy.transform.position = Vector3.MoveTowards(
 				capturedShipDummy.transform.position, 
 				formationToSendCapturedEnemyTo.transform.position,
-				Time.deltaTime);   
+				Time.deltaTime * captureSpeed);   
 		}
 	}
 }

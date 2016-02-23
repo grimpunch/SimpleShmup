@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\DeactivateOnTimer.cs" />
      <Compile Include="Assets\Scripts\DeactivateWhenOffScreen.cs" />
      <Compile Include="Assets\Scripts\DelayColliderActivation.cs" />
+     <Compile Include="Assets\Scripts\DestroyOnAnimationComplete.cs" />
      <Compile Include="Assets\Scripts\DestroyOnTimer.cs" />
      <Compile Include="Assets\Scripts\DestroyWhenOffScreen.cs" />
      <Compile Include="Assets\Scripts\EndLevelHandler.cs" />

@@ -778,6 +778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 1
+  formationChangeSpeed: 10
   formationPoints:
   - {fileID: 105262}
   - {fileID: 196298}
@@ -791,6 +792,7 @@ MonoBehaviour:
   capturedEnemies: 0
   normalFormationPoints: []
   focusFormationPoints: []
+  captureSpeed: 4
 --- !u!114 &11413976
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,24 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PauseAnimation : MonoBehaviour
+public class DestroyOnAnimationComplete : MonoBehaviour
 {
 
 	// Use this for initialization
 	void Start()
 	{
-
+	
 	}
 
-	void OnDisable()
+	void DestroyThis()
 	{
 		Destroy(this.gameObject);
 	}
 
-
 	// Update is called once per frame
 	void Update()
 	{
-		gameObject.GetComponent<Animator>().enabled = !Utils.Paused;
+		
 	}
 }
