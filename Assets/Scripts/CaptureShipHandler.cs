@@ -5,7 +5,8 @@ using System.Collections.Generic;
 
 public class CaptureShipHandler : MonoBehaviour
 {
-  
+	public int player;
+	public float formationChangeSpeed = 1f;
 	public List<GameObject> formationPoints;
 	public List<GameObject> dummyPrefabs;
 	public LineRenderer tractorBeam;
@@ -14,18 +15,39 @@ public class CaptureShipHandler : MonoBehaviour
 	private VibrationHandler vibrationHandler;
 	public bool capturing = false;
 	public int capturedEnemies = 0;
+	public List<Vector3> normalFormationPoints;
+	public List<Vector3> focusFormationPoints;
+	private PlayerShoot playerShoot;
 
 	void Awake()
 	{
-		foreach (GameObject go in Resources.LoadAll("CapturableEnemyDummies", typeof(GameObject))) {
-			dummyPrefabs.Add(go);
-		}
-
+		GetCaptureDummyPrefabs();
+		SetFormationPoints();
 	}
 
 	void Start()
 	{
 		vibrationHandler = GameObject.Find("VibrationManager").GetComponent<VibrationHandler>();
+		playerShoot = gameObject.transform.parent.FindChild("TurretC").GetComponentInChildren<PlayerShoot>();
+	}
+
+	void GetCaptureDummyPrefabs()
+	{
+		foreach (GameObject go in Resources.LoadAll("CapturableEnemyDummies", typeof(GameObject))) {
+			dummyPrefabs.Add(go);
+		}
+	}
+
+	void SetFormationPoints()
+	{
+		foreach (GameObject go in formationPoints) {
+			normalFormationPoints.Add(go.transform.localPosition);
+		}
+		foreach (Vector3 v3 in normalFormationPoints) {
+			Vector3 fv3 = v3;
+			fv3.Scale(new Vector3(0.5f, 0.5f, 0.5f));
+			focusFormationPoints.Add(fv3);
+		}
 	}
 
 	public void Capture(Vector3 capturedGOPos, string capturedGoName)
@@ -79,9 +101,33 @@ public class CaptureShipHandler : MonoBehaviour
 		tractorBeam.enabled = false;
 	}
 
+	void PositionFormationPoints()
+	{
+		if (playerShoot.FocusFireButtonDown()) {
+			for (int i = 0; i < formationPoints.Count; i++) {
+				if (Vector3.Distance(formationPoints [i].transform.localPosition, focusFormationPoints [i]) > 0.01f) {
+					formationPoints [i].transform.localPosition = Vector3.Lerp(formationPoints [i].transform.localPosition, focusFormationPoints [i], Time.deltaTime * formationChangeSpeed);
+				} else {
+					formationPoints [i].transform.localPosition = focusFormationPoints [i];
+				}
+			}
+		} else {
+			for (int i = 0; i < formationPoints.Count; i++) {
+				if (Vector3.Distance(formationPoints [i].transform.localPosition, normalFormationPoints [i]) > 0.01f) {
+					formationPoints [i].transform.localPosition = Vector3.Lerp(formationPoints [i].transform.localPosition, normalFormationPoints [i], Time.deltaTime * formationChangeSpeed);
+				} else {
+					formationPoints [i].transform.localPosition = normalFormationPoints [i];
+				}
+			}
+		}
+	}
+
 	// Update is called once per frame
 	void Update()
 	{
+		if (!Utils.Paused) {
+			PositionFormationPoints();
+		}
 		if (Utils.Paused || !capturing || capturedShipDummy == null) {
 			foreach (GameObject formation in formationPoints) {
 				formation.GetComponent<ParticleSystem>().Stop();

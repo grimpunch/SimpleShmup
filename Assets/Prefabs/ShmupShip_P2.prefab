@@ -907,6 +907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7fd8aacdadefa4282608c4a06a52dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: 2
   formationPoints:
   - {fileID: 199968}
   - {fileID: 109056}
@@ -918,6 +919,8 @@ MonoBehaviour:
   capturedShipDummy: {fileID: 0}
   capturing: 0
   capturedEnemies: 0
+  normalFormationPoints: []
+  focusFormationPoints: []
 --- !u!114 &11491628
 MonoBehaviour:
   m_ObjectHideFlags: 1
