@@ -5,6 +5,7 @@ public class EnemyHitHandler : MonoBehaviour
 {
 
 	public int shipHealth = 5;
+	private const int PLAYERLAYER = 8;
 	private const int PLAYERSHOTLAYER = 10;
 	private const int PLAYERLASERLAYER = 14;
 	private const int CAPTURESHOTLAYER = 15;
@@ -38,6 +39,10 @@ public class EnemyHitHandler : MonoBehaviour
 			shipHealth -= 10;
 			Flash();
 			col2d.gameObject.SendMessage("Gib");
+		}
+
+		if (col2d.gameObject.layer == PLAYERLAYER) {
+			shipHealth -= 999;
 		}
 		//if (transform.position.y > screenBounds.ScreenTop) { return; }
 		if (col2d.gameObject.layer == PLAYERLASERLAYER) {
