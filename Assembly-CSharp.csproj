@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\BezierCurve.cs" />
      <Compile Include="Assets\Scripts\BezierSpline.cs" />
      <Compile Include="Assets\Scripts\BossHandler.cs" />
+     <Compile Include="Assets\Scripts\BossHealthBarUIHandler.cs" />
      <Compile Include="Assets\Scripts\BossMovementRandomiser.cs" />
      <Compile Include="Assets\Scripts\BossSpawn.cs" />
      <Compile Include="Assets\Scripts\BossWarningHandler.cs" />
