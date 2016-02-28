@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystemPool: EnemyDeathParticleObjectPool
-  powerUpPool: 
+  powerUpPool: PowerUpChargeObjectPool
   powerUp: {fileID: 0}
 --- !u!114 &11469344
 MonoBehaviour:
