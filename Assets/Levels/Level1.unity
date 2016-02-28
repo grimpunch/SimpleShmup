@@ -5878,6 +5878,38 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11413654, guid: c3296c3b99a2d31499b04b2c3dca302c, type: 2}
+      propertyPath: fireDelay
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478696, guid: c3296c3b99a2d31499b04b2c3dca302c, type: 2}
+      propertyPath: fireDelay
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434214, guid: c3296c3b99a2d31499b04b2c3dca302c, type: 2}
+      propertyPath: fireDelay
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448164, guid: c3296c3b99a2d31499b04b2c3dca302c, type: 2}
+      propertyPath: fireDelay
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11413654, guid: c3296c3b99a2d31499b04b2c3dca302c, type: 2}
+      propertyPath: hasCapturedEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478696, guid: c3296c3b99a2d31499b04b2c3dca302c, type: 2}
+      propertyPath: hasCapturedEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434214, guid: c3296c3b99a2d31499b04b2c3dca302c, type: 2}
+      propertyPath: hasCapturedEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448164, guid: c3296c3b99a2d31499b04b2c3dca302c, type: 2}
+      propertyPath: hasCapturedEnemy
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3296c3b99a2d31499b04b2c3dca302c, type: 2}
   m_IsPrefabParent: 0
@@ -8180,6 +8212,38 @@ Prefab:
     - target: {fileID: 473814, guid: 2db51e8d1f098c44a9a603c856fda147, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456228, guid: 2db51e8d1f098c44a9a603c856fda147, type: 2}
+      propertyPath: fireDelay
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449914, guid: 2db51e8d1f098c44a9a603c856fda147, type: 2}
+      propertyPath: fireDelay
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11491588, guid: 2db51e8d1f098c44a9a603c856fda147, type: 2}
+      propertyPath: fireDelay
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420874, guid: 2db51e8d1f098c44a9a603c856fda147, type: 2}
+      propertyPath: fireDelay
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456228, guid: 2db51e8d1f098c44a9a603c856fda147, type: 2}
+      propertyPath: hasCapturedEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449914, guid: 2db51e8d1f098c44a9a603c856fda147, type: 2}
+      propertyPath: hasCapturedEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11491588, guid: 2db51e8d1f098c44a9a603c856fda147, type: 2}
+      propertyPath: hasCapturedEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420874, guid: 2db51e8d1f098c44a9a603c856fda147, type: 2}
+      propertyPath: hasCapturedEnemy
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2db51e8d1f098c44a9a603c856fda147, type: 2}
