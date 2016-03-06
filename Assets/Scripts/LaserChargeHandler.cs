@@ -29,6 +29,11 @@ public class LaserChargeHandler : MonoBehaviour
 	private float currentLaserWidth;
 	private BoxCollider2D laserBoxCollider2D;
 	private LineRenderer laserLineRenderer;
+	private int currentCapturedShips;
+	private CaptureShipHandler myCaptureShipHandler;
+	public GameObject primingUILabel;
+	public GameObject primedUILabel;
+	public GameObject activeUILabel;
 
 	//Relationship between laser collider offset and laser line renderer segment 2 length.
 	//
@@ -48,8 +53,22 @@ public class LaserChargeHandler : MonoBehaviour
 				laserChargeSlider = GameObject.Find("LaserChargeSlider_P2").GetComponent<Slider>();
 			}
 		}
+		if (!Utils.Multiplayer) {
+			if (GameObject.Find("LaserChargeSlider_P2")) {
+				GameObject.Find("LaserChargeSlider_P2").SetActive(false);
+			}
+			if (gameObject.name.EndsWith("_P2")) {
+				gameObject.GetComponent<LaserChargeHandler>().enabled = false;
+			}
+		}
 
+		myCaptureShipHandler = this.gameObject.transform.parent.GetComponentInChildren<CaptureShipHandler>();
+		primingUILabel.SetActive(true);
+		primedUILabel.SetActive(false);
+		activeUILabel.SetActive(false);
 	}
+
+
 
 	void ResetLaser()
 	{
@@ -67,6 +86,9 @@ public class LaserChargeHandler : MonoBehaviour
 		if (laserChargeSlider) {
 			laserChargeSlider.value = 0.0F;
 		}
+		primingUILabel.SetActive(true);
+		primedUILabel.SetActive(false);
+		activeUILabel.SetActive(false);
 	}
 
 	void OnEnable()
@@ -90,6 +112,9 @@ public class LaserChargeHandler : MonoBehaviour
 			}
 		}
 		if (Laser.activeInHierarchy) {
+			primingUILabel.SetActive(false);
+			primedUILabel.SetActive(false);
+			activeUILabel.SetActive(true);
 			laserLineRenderer = GameObject.Find("Laser").GetComponent<LineRenderer>();
 			laserBoxCollider2D = GameObject.Find("Laser").GetComponent<BoxCollider2D>();
 			if (timeEnabled < timeToDischarge) { 
@@ -116,6 +141,7 @@ public class LaserChargeHandler : MonoBehaviour
 		shooting = GetFireButtonDown();
 
 		if (shooting && amountCharged >= amountToFullCharge) {
+			currentCapturedShips = myCaptureShipHandler.capturedEnemies;
 			amountCharged = 0.0F;
 			Laser.SetActive(true);
 		}
@@ -125,6 +151,14 @@ public class LaserChargeHandler : MonoBehaviour
 				amountCharged = amountToFullCharge;
 			}
 		}
+
+		if (!shooting && amountCharged >= amountToFullCharge) {
+			amountCharged = amountToFullCharge;
+			primingUILabel.SetActive(false);
+			primedUILabel.SetActive(true);
+			activeUILabel.SetActive(false);
+		}
+
 		laserChargeSlider.value = amountCharged;
 		laserChargeSlider.maxValue = amountToFullCharge;
 	}
@@ -138,6 +172,11 @@ public class LaserChargeHandler : MonoBehaviour
 	{
 		timeEnabled = timeToDischarge;
 		ResetLaser();
+		// This below condition is designed to reactivate the player's ability to use the laser if they have not captured an enemy yet.
+		if (myCaptureShipHandler.capturedEnemies == currentCapturedShips
+		    && myCaptureShipHandler.capturing == false) {
+			AddCharge(9999);
+		}
 	}
 
 	public bool GetFireButtonDown()

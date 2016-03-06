@@ -820,7 +820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce560c6a54eed94498b7b2f33103d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireDelay: 0.05
+  fireDelay: 0.25
   hasCapturedEnemy: 0
 --- !u!114 &11430848
 MonoBehaviour:
@@ -849,7 +849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce560c6a54eed94498b7b2f33103d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireDelay: 0.05
+  fireDelay: 0.25
   hasCapturedEnemy: 0
 --- !u!114 &11456228
 MonoBehaviour:
@@ -862,7 +862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce560c6a54eed94498b7b2f33103d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireDelay: 0.05
+  fireDelay: 0.25
   hasCapturedEnemy: 0
 --- !u!114 &11456306
 MonoBehaviour:
@@ -937,7 +937,10 @@ MonoBehaviour:
   Laser: {fileID: 135204}
   LaserTip: {fileID: 157504}
   playerShoot: {fileID: 11413976}
-  timeToDischarge: 10
+  timeToDischarge: 0.75
+  primingUILabel: {fileID: 0}
+  primedUILabel: {fileID: 0}
+  activeUILabel: {fileID: 0}
 --- !u!114 &11491588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -949,7 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce560c6a54eed94498b7b2f33103d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireDelay: 0.05
+  fireDelay: 0.25
   hasCapturedEnemy: 0
 --- !u!120 &12004254
 LineRenderer:
