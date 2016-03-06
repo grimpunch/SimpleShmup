@@ -99,7 +99,7 @@ public class LifeHandler : MonoBehaviour
 
 	void GameOver()
 	{
-		Debug.Log("OH NOES YOU DED.");
+		GameObject.Find("GameOverTextForeground").GetComponent<Animation>().Play();
 	}
 
 	// Update is called once per frame

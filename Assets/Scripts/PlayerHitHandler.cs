@@ -18,14 +18,14 @@ public class PlayerHitHandler : MonoBehaviour
 	public HSLColor invulnerableColor;
 
 	private LifeHandler lifeHandler;
-  private VibrationHandler vibrationHandler;
+	private VibrationHandler vibrationHandler;
 
 	// Use this for initialization
 	void Start()
 	{
 		lifeHandler = GameObject.Find("GameManager").GetComponent<LifeHandler>();
-    vibrationHandler = GameObject.Find("VibrationManager").GetComponent<VibrationHandler>();
-	  playerShipRenderer = gameObject.GetComponent<SpriteRenderer>();
+		vibrationHandler = GameObject.Find("VibrationManager").GetComponent<VibrationHandler>();
+		playerShipRenderer = gameObject.GetComponent<SpriteRenderer>();
 		vulnerable = true;
 		invulnerableColor = new HSLColor(new Color(1, 0.75f, 0.75f));
         
@@ -43,13 +43,12 @@ public class PlayerHitHandler : MonoBehaviour
 		if (!vulnerable) {
 			return;
 		}
-		Debug.Log("Colliding with " + col2d.name);
 		if (col2d.gameObject.layer == ENEMYLAYER || col2d.gameObject.layer == ENEMYSHOTLAYER || col2d.gameObject.layer == COLLIDABLELAYER) {
 			shipHealth -= 1;
 			if (col2d.gameObject.layer == ENEMYSHOTLAYER) {
 				col2d.gameObject.SetActive(false);
 			}
-      vibrationHandler.VibrateOnceForPlayer(player);
+			vibrationHandler.VibrateOnceForPlayer(player);
 		}
 	}
 
