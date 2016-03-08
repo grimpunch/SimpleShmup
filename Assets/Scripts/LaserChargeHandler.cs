@@ -174,7 +174,7 @@ public class LaserChargeHandler : MonoBehaviour
 		ResetLaser();
 		// This below condition is designed to reactivate the player's ability to use the laser if they have not captured an enemy yet.
 		if (myCaptureShipHandler.capturedEnemies == currentCapturedShips
-		    && myCaptureShipHandler.capturing == false) {
+		    && myCaptureShipHandler.capturing == false && currentCapturedShips < myCaptureShipHandler.formationPoints.Count) {
 			AddCharge(9999);
 		}
 	}

@@ -71,9 +71,14 @@ public class EnemyHitHandler : MonoBehaviour
 			captureable = false;
 			gameObject.GetComponent<Collider2D>().enabled = false;
 			Flash();
-			col2d.transform.parent.GetComponentInChildren<CaptureShipHandler>().Capture(gameObject.transform.position, gameObject.name);
-			col2d.transform.parent.GetComponentInChildren<LaserChargeHandler>().Discharge(); 
-			Destroy(gameObject);
+			if (col2d.transform.parent.GetComponentInChildren<CaptureShipHandler>().capturedEnemies < col2d.transform.parent.GetComponentInChildren<CaptureShipHandler>().formationPoints.Count) {
+				col2d.transform.parent.GetComponentInChildren<CaptureShipHandler>().Capture(gameObject.transform.position, gameObject.name);
+				col2d.transform.parent.GetComponentInChildren<LaserChargeHandler>().Discharge(); 
+				Destroy(gameObject);
+			} else {
+				shipHealth -= 999;
+			}
+
 			return;
 		}
 	}

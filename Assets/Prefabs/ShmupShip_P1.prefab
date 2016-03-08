@@ -932,7 +932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: 1
   laserSpeed: 10
-  amountToFullCharge: 100
+  amountToFullCharge: 250
   rateMultiplier: 1
   Laser: {fileID: 135204}
   LaserTip: {fileID: 157504}

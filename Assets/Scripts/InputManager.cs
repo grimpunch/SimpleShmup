@@ -34,9 +34,10 @@ public static class InputManager
 
 	public static float Horizontal_P1 {
 		get {
-      if (Input.GetAxis("Horizontal_P1") > 0 || Input.GetAxis("Horizontal_P1") < 0){
-        return Input.GetAxis("Horizontal_P1");
-      }
+			if (Input.GetAxis("Horizontal_P1") > 0 || Input.GetAxis("Horizontal_P1") < 0
+			    || XCI.GetNumPluggedCtrlrs() <= 0) {
+				return Input.GetAxis("Horizontal_P1");
+			}
 			if (XCI.GetDPad(XboxDPad.Left, 1) || XCI.GetDPad(XboxDPad.Right, 1)) {
 				float x = 0.0f;
 				if (XCI.GetDPad(XboxDPad.Left, 1))
@@ -55,9 +56,10 @@ public static class InputManager
 
 	public static float Vertical_P1 {
 		get {
-      if (Input.GetAxis("Vertical_P1") > 0 || Input.GetAxis("Vertical_P1") < 0){
-          return Input.GetAxis("Vertical_P1");
-      }
+			if (Input.GetAxis("Vertical_P1") > 0 || Input.GetAxis("Vertical_P1") < 0
+			    || XCI.GetNumPluggedCtrlrs() <= 0) {
+				return Input.GetAxis("Vertical_P1");
+			}
 			if (XCI.GetDPad(XboxDPad.Down, 1) || XCI.GetDPad(XboxDPad.Up, 1)) {
 				float x = 0.0f;
 				if (XCI.GetDPad(XboxDPad.Down, 1))
@@ -81,9 +83,10 @@ public static class InputManager
 
 	public static float Horizontal_P2 {
 		get {
-      if (Input.GetAxis("Horizontal_P2") > 0 || Input.GetAxis("Horizontal_P2") < 0){
-          return Input.GetAxis("Horizontal_P2");
-      }
+			if (Input.GetAxis("Horizontal_P2") > 0 || Input.GetAxis("Horizontal_P2") < 0
+			    || XCI.GetNumPluggedCtrlrs() <= 0) {
+				return Input.GetAxis("Horizontal_P2");
+			}
 			if (XCI.GetDPad(XboxDPad.Left, 2) || XCI.GetDPad(XboxDPad.Right, 2)) {
 				float x = 0.0f;
 				if (XCI.GetDPad(XboxDPad.Left, 2))
@@ -102,9 +105,10 @@ public static class InputManager
 
 	public static float Vertical_P2 {
 		get {
-      if (Input.GetAxis("Vertical_P2") > 0 || Input.GetAxis("Vertical_P2") < 0){
-          return Input.GetAxis("Vertical_P2");
-      }    
+			if (Input.GetAxis("Vertical_P2") > 0 || Input.GetAxis("Vertical_P2") < 0
+			    || XCI.GetNumPluggedCtrlrs() <= 0) {
+				return Input.GetAxis("Vertical_P2");
+			}    
 			if (XCI.GetDPad(XboxDPad.Down, 2) || XCI.GetDPad(XboxDPad.Up, 2)) {
 				float x = 0.0f;
 				if (XCI.GetDPad(XboxDPad.Down, 2))
@@ -152,6 +156,11 @@ public static class InputManager
 
 	public static void vibratePadForPlayer(int player)
 	{
+
+		if (XCI.GetNumPluggedCtrlrs() <= 0) {
+			return;
+		}
+
 		if (XboxCtrlrInput.XCI.IsPluggedIn(player) && player == 1)
 			XInputDotNetPure.GamePad.SetVibration(XInputDotNetPure.PlayerIndex.One, 50f, 50f);
 		if (XboxCtrlrInput.XCI.IsPluggedIn(player) && player == 2)
