@@ -38,6 +38,13 @@ public class ScoreHandler : MonoBehaviour
         UpdateMultiplier();
     }
 
+    public int GetScore(){
+        return score;
+    }
+
+    public string GetScoreAsString(){
+        return score.ToString("D7") + "";    
+    }
 
     private void UpdateScore()
     {

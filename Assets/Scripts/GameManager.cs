@@ -43,6 +43,7 @@ public static class Utils
 		}
 		return null;
 	}
+
 }
 
 [Serializable]
@@ -57,8 +58,9 @@ public class GameManager : MonoBehaviour
 	public static SceneManager sceneManager;
 	public static LifeHandler lifeManager;
 	public FramesPerSecond fpsCount;
-	// Use this for initialization
-	void Start()
+  public int current_score;
+
+  void Start()
 	{
 		Load();
 		Utils.Paused = false;
@@ -80,6 +82,18 @@ public class GameManager : MonoBehaviour
 			fpsCount = gameObject.AddComponent<FramesPerSecond>();
 		}
 	}
+
+
+
+  public int GetCurrentScore() {
+      return current_score;
+  }
+
+
+  public void UpdateScoreForEndOfLevel(int score) {
+        current_score = score;
+  }
+
 
 	public void Save()
 	{
