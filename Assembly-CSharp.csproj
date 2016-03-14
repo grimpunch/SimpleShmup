@@ -106,6 +106,7 @@
      <Compile Include="Assets\Scripts\PlayerShoot.cs" />
      <Compile Include="Assets\Scripts\PlayerShotHandler.cs" />
      <Compile Include="Assets\Scripts\PowerUp.cs" />
+     <Compile Include="Assets\Scripts\QuitApplicationButton.cs" />
      <Compile Include="Assets\Scripts\QuitButtonSetter.cs" />
      <Compile Include="Assets\Scripts\RotateTowardsPlayer.cs" />
      <Compile Include="Assets\Scripts\SceneManager.cs" />
