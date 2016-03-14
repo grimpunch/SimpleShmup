@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System.Collections;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -19,6 +20,13 @@ public static class Utils
 		float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg + 90);
 		return Quaternion.AngleAxis(angle, Vector3.forward.normalized);
 	}
+
+    public enum GameState {
+        MainMenu,
+        Gameplay,
+        PauseMenu,
+        EndLevelMenu,
+    }
 
 	public static Transform AcquireTargetPlayer()
 	{
@@ -51,52 +59,60 @@ class SettingsData
 {
 	public int livesAtStart;
 }
+    
 
 public class GameManager : MonoBehaviour
 {
 	public static GameManager GameManagerInstance;
-	public static SceneManager sceneManager;
 	public static LifeHandler lifeManager;
-	public FramesPerSecond fpsCount;
-  public int current_score;
+    public bool fpsCounter;
+    public FramesPerSecond fpsCount;
+    private int current_score;
+    public Utils.GameState gameState = Utils.GameState.MainMenu;
 
-  void Start()
+    void InitialiseMainMenu(){
+        Debug.Log("Initialising main menu");
+        GameObject.Find("NewGameButton").GetComponent<Button>().onClick.AddListener(delegate {GameManager.GameManagerInstance.NewGame();});
+        GameObject.Find("2PlayerButton").GetComponent<Button>().onClick.AddListener(delegate {GameManager.GameManagerInstance.New2PlayerGame();});
+    }
+
+    void Start()
 	{
-		Load();
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "mainmenu")
+            InitialiseMainMenu();  
+            Load();
 		Utils.Paused = false;
-		sceneManager = GameObject.Find("SceneManager").GetComponent<SceneManager>();
-
+        lifeManager = gameObject.GetComponent<LifeHandler>();
 		if (GameManagerInstance != null) {
 			GameObject.Destroy(gameObject);
 		} else {
 			GameObject.DontDestroyOnLoad(gameObject);
 			GameManagerInstance = this;
+            if (!lifeManager){
+                gameObject.AddComponent<LifeHandler>();
+                lifeManager = gameObject.GetComponent<LifeHandler>();
+                SetUpLivesForNewGame();
+            }
 		}
-		if (lifeManager != null) {
-			GameObject.Destroy(lifeManager);
-		} else {
-			GameObject.DontDestroyOnLoad(lifeManager);
-			lifeManager = gameObject.GetComponent<LifeHandler>();
-		}
-		if (!fpsCount) {
+        if (fpsCounter && !fpsCount) {
 			fpsCount = gameObject.AddComponent<FramesPerSecond>();
 		}
 	}
 
 
-
-  public int GetCurrentScore() {
+    public int GetScoreAfterLevelTransition() {
       return current_score;
-  }
+    }
 
-
-  public void UpdateScoreForEndOfLevel(int score) {
+  
+    public void UpdateScoreForEndOfLevel(int score) {
         current_score = score;
-  }
+    }
 
 
 	public void Save()
 	{
+        Debug.Log("Save Settings called");
 		BinaryFormatter bf = new BinaryFormatter();
 		FileStream file = File.Create(Application.persistentDataPath + "/settings.dat");
 
@@ -118,11 +134,22 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+    public void QuitToMainMenu(){
+        if (!SceneManager.SceneManagerInstance.isLoading){
+        SceneManager.SceneManagerInstance.StartCoroutine("LoadScene", "mainmenu");
+        Debug.Log("Returning to Main menu");
+            gameState = Utils.GameState.MainMenu;
+        }
+    }
+
 	public void NewGame()
 	{
-		sceneManager.StartCoroutine("LoadScene", "Level1");
+        SceneManager.SceneManagerInstance.StartCoroutine("LoadScene", "Level1");
 		Debug.Log("New Game Clicked");
-	}
+        current_score = 0;
+        gameState = Utils.GameState.Gameplay;
+        SetUpLivesForNewGame();
+    }
 
 	public void New2PlayerGame()
 	{
@@ -131,39 +158,48 @@ public class GameManager : MonoBehaviour
 		NewGame();
 	}
 	
+    void SetUpLivesForNewGame() {
+        Debug.Log("Life Setup Called");
+        lifeManager.livesleft = Utils.livesSetting;
+        lifeManager.respawnDelay = 2;
+    }
+
 	// Update is called once per frame
 	void Update()
 	{
-		if (!sceneManager) {
-			GameObject.Find("SceneManager").GetComponent<SceneManager>();
-		}
-		// Menu Handling Controller Code.
-		if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name != "mainmenu") {
-			if (!lifeManager) {
-				lifeManager = gameObject.AddComponent<LifeHandler>();
-				lifeManager.startLives = Utils.livesSetting;
-				lifeManager.respawnDelay = 2;
-			}
-		}
-
-		if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name != "mainmenu" && (
-		        Input.GetKeyUp(KeyCode.P) || XCI.GetButtonDown(XboxButton.Start))) { 
-			Utils.Paused = !Utils.Paused; // Pause or Unpause based on current state.
-			//then Update everything else that needs intervention but not the overhead of a monobehavior on every particle system etc.
-			ParticleSystemPause(Utils.Paused);
-			PauseScreenEffect(Utils.Paused);
-			if (GameObject.Find("PausedIndicator")) {
-				GameObject.Find("PausedIndicator").GetComponent<Text>().enabled = Utils.Paused;
-			}
-		}
+        //Pause Menu Handling Controller Code.
+        if ((gameState == Utils.GameState.Gameplay || gameState == Utils.GameState.PauseMenu) && (Input.GetKeyUp(KeyCode.P) || XCI.GetButtonDown(XboxButton.Start)))
+        {
+            TogglePauseState();
+        }
 	}
+
+    public void TogglePauseState()
+    {
+            Utils.Paused = !Utils.Paused;
+            // Pause or Unpause based on current state.
+            //then Update everything else that needs intervention but not the overhead of a monobehavior on every particle system etc.
+            gameState = Utils.Paused ? Utils.GameState.PauseMenu : Utils.GameState.Gameplay;
+            ParticleSystemPause(Utils.Paused);
+            PauseScreenEffect(Utils.Paused);
+            GameObject.Find("EventSystem").GetComponent<EventSystem>().enabled = Utils.Paused;
+            if (GameObject.Find("PausedIndicator"))
+            {
+                GameObject.Find("PausedIndicator").GetComponent<Text>().enabled = Utils.Paused;
+                GameObject.Find("PausedIndicator").transform.GetChild(0).gameObject.SetActive(Utils.Paused);
+            }
+    }
 
 	void PauseScreenEffect(bool pauseState)
 	{
-		if (pauseState)
-			Camera.main.GetComponent<Kino.AnalogGlitch>().colorDrift = 0.125f;
-		else
+		if (pauseState){
+            Camera.main.GetComponent<Kino.AnalogGlitch>().colorDrift = 0.04f;
+            Camera.main.GetComponent<Kino.AnalogGlitch>().scanLineJitter = 0.12f;
+        }
+        else{
 			Camera.main.GetComponent<Kino.AnalogGlitch>().colorDrift = 0f;
+            Camera.main.GetComponent<Kino.AnalogGlitch>().scanLineJitter = 0.0f;
+        }
 	}
 
 	void ParticleSystemPause(bool pauseState)

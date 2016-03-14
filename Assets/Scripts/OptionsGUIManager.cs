@@ -13,12 +13,14 @@ public class OptionsGUIManager : MonoBehaviour
     {
         if(Utils.livesSetting < 99)
             Utils.livesSetting += 1;
+            GameManager.GameManagerInstance.Save();
     }
 
     public void DecrementLives()
     {
         if(Utils.livesSetting > 0)
             Utils.livesSetting -= 1;
+            GameManager.GameManagerInstance.Save();
     }
 
     public void Update()

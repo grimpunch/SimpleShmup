@@ -171,8 +171,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 765758896}
-        m_MethodName: Save
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -292,8 +292,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 765758896}
-        m_MethodName: New2PlayerGame
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -486,8 +486,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 765758896}
-        m_MethodName: NewGame
+      - m_Target: {fileID: 0}
+        m_MethodName: GameManager.GameManagerInstance.NewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1058,7 +1058,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1357,7 +1357,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 684bb1e3bf2e62d46ac493ec98c9f18b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fpsCounter: 0
   fpsCount: {fileID: 0}
+  gameState: 0
 --- !u!114 &765758897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1616,11 +1618,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2004970, guid: 73dbf356e37080741ad001577ee896d7, type: 2}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.00024461746
+      value: 0.004956454
       objectReference: {fileID: 0}
     - target: {fileID: 2004970, guid: 73dbf356e37080741ad001577ee896d7, type: 2}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.99951077
+      value: 0.9900871
       objectReference: {fileID: 0}
     - target: {fileID: 2004970, guid: 73dbf356e37080741ad001577ee896d7, type: 2}
       propertyPath: m_NormalizedViewPortRect.y
@@ -1854,8 +1856,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 765758896}
-        m_MethodName: Save
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2320,6 +2322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingUI: {fileID: 355777340}
+  isLoading: 0
 --- !u!1 &1925313505
 GameObject:
   m_ObjectHideFlags: 0

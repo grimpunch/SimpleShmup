@@ -86,9 +86,11 @@ public class LaserChargeHandler : MonoBehaviour
 		if (laserChargeSlider) {
 			laserChargeSlider.value = 0.0F;
 		}
+
 		primingUILabel.SetActive(true);
 		primedUILabel.SetActive(false);
 		activeUILabel.SetActive(false);
+
 	}
 
 	void OnEnable()
@@ -98,7 +100,11 @@ public class LaserChargeHandler : MonoBehaviour
 
 	void OnDisable()
 	{
-		ResetLaser();
+        if(primingUILabel != null &&
+           primedUILabel != null &&
+           activeUILabel != null){
+            ResetLaser();
+        }
 	}
 
 	// Update is called once per frame

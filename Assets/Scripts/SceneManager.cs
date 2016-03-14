@@ -9,6 +9,7 @@ public class SceneManager : MonoBehaviour
 	private AsyncOperation async;
 	private float timeToWaitAroundLoads = 2f;
 	private float timeWaited;
+    public bool isLoading = false;
 	// Use this for initialization
 	void Start()
 	{
@@ -26,6 +27,7 @@ public class SceneManager : MonoBehaviour
 			timeWaited = 0f;
 		}
 		async = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName);
+        isLoading = true;
 		async.allowSceneActivation = false;
 
 		yield return async;
@@ -34,6 +36,7 @@ public class SceneManager : MonoBehaviour
 	public void ActivateScene()
 	{
 		async.allowSceneActivation = true;
+        isLoading = false;
 	}
 
 	// Update is called once per frame

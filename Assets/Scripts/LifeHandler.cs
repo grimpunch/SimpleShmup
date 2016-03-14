@@ -9,8 +9,7 @@ public class LifeHandler : MonoBehaviour
 	private bool alive_p1 = true;
 	private bool alive_p2 = true;
 	private bool gameStarted;
-	public int startLives;
-	private int livesleft;
+	public int livesleft;
 	private float timeToSpawn;
 	public float respawnDelay;
 	private Text lifeCounterText;
@@ -32,6 +31,9 @@ public class LifeHandler : MonoBehaviour
 		if (level == 0) {
 			return;
 		}
+        if (level == 1) {
+            livesleft = Utils.livesSetting;
+        }
 		lifeCounterText = GameObject.Find("LifeCounterText").GetComponent<Text>();
 		score = GameObject.Find("Score").GetComponent<ScoreHandler>();
 		SetLifeCounterText(livesleft);
@@ -48,7 +50,7 @@ public class LifeHandler : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		livesleft = Utils.livesSetting;
+        livesleft = Utils.livesSetting;
 		gameStarted = true;
 	}
 
@@ -130,7 +132,7 @@ public class LifeHandler : MonoBehaviour
 	void LateUpdate()
 	{
 		if (!preparedForNewLevel) {
-			StartNewLevel(Application.loadedLevel);
+            StartNewLevel(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
 			preparedForNewLevel = true;
 		}
 	}

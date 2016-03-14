@@ -12,12 +12,13 @@ public class EndLevelHandler : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		GameObject.Find("MusicManager").GetComponent<MusicManager>().FadeOutTrack();
-    GameObject.Find("GamePlayArea").GetComponent<ScrollLevelForward>().stopped=true;
-    GameManager.GameManagerInstance.UpdateScoreForEndOfLevel(GameObject.Find("Score").GetComponent<ScoreHandler>().GetScore());
-    endLevelScoreField.GetComponent<Text>().text = GameObject.Find("Score").GetComponent<ScoreHandler>().GetScoreAsString();
-    endLevelTextTitle.SetActive(true);
-    StartCoroutine(ActivationRoutine());
+	    GameObject.Find("MusicManager").GetComponent<MusicManager>().FadeOutTrack();
+        GameObject.Find("GamePlayArea").GetComponent<ScrollLevelForward>().stopped=true;
+        GameManager.GameManagerInstance.UpdateScoreForEndOfLevel(GameObject.Find("Score").GetComponent<ScoreHandler>().GetScore());
+        endLevelScoreField.GetComponent<Text>().text = GameObject.Find("Score").GetComponent<ScoreHandler>().GetScoreAsString();
+        GameManager.GameManagerInstance.gameState = Utils.GameState.EndLevelMenu;
+        endLevelTextTitle.SetActive(true);
+        StartCoroutine(ActivationRoutine());
 	}
   private IEnumerator ActivationRoutine()
   {        
