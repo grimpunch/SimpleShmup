@@ -168,9 +168,11 @@ public class GameManager : MonoBehaviour
 	void Update()
 	{
         //Pause Menu Handling Controller Code.
-        if ((gameState == Utils.GameState.Gameplay || gameState == Utils.GameState.PauseMenu) && (Input.GetKeyUp(KeyCode.P) || XCI.GetButtonDown(XboxButton.Start)))
+        if (gameState == Utils.GameState.Gameplay || gameState == Utils.GameState.PauseMenu)
         {
-            TogglePauseState();
+            if (InputManager.Pause_P1){
+                TogglePauseState();
+            }
         }
 	}
 

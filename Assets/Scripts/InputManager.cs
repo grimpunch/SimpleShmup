@@ -7,24 +7,50 @@ public static class InputManager
 {
 	#region buttons - Player 1
 
+    public static bool Pause_P1 {
+        get {
+            if (XCI.GetNumPluggedCtrlrs() <= 0) { // #linuxproof
+                return Input.GetKeyUp(KeyCode.P);
+            }
+            else {
+                return(Input.GetKeyUp(KeyCode.P) || XCI.GetButtonUp(XboxButton.Start, 1) ? true : false);
+            }
+        }
+    }
+
 	public static bool Fire1_P1 {
 		get {
+            if (XCI.GetNumPluggedCtrlrs() <= 0) { // #linuxproof
+                return Input.GetButton("Fire1_P1");
+            }
+            else {
 			// Return true if pressing Fire1_P1 on keyboard, or pressing A on controller 1.
 			return (Input.GetButton("Fire1_P1") || XCI.GetButton(XboxButton.A, 1) ? true : false);
+            }
 		}
 	}
 
 	public static bool Fire2_P1 {
 		get {
+            if (XCI.GetNumPluggedCtrlrs() <= 0) { // #linuxproof
+                return Input.GetButton("Fire2_P1");
+            }
+            else {
 			// Return true if pressing Fire2_P1 on keyboard, or pressing X on controller 1.
 			return (Input.GetButton("Fire2_P1") || XCI.GetButton(XboxButton.X, 1) ? true : false);
+            }
 		}
 	}
 
 	public static bool Fire3_P1 {
 		get {
+            if (XCI.GetNumPluggedCtrlrs() <= 0) { // #linuxproof
+                return Input.GetButton("Fire3_P1");
+            }
+            else {
 			// Return true if pressing Fire3_P1 on keyboard, or pressing B on controller 1.
 			return (Input.GetButton("Fire3_P1") || XCI.GetButton(XboxButton.B, 1) ? true : false);
+            }
 		}
 	}
 
@@ -157,8 +183,8 @@ public static class InputManager
 	public static void vibratePadForPlayer(int player)
 	{
 
-		if (XCI.GetNumPluggedCtrlrs() <= 0) {
-			return;
+        if (Application.platform == RuntimePlatform.LinuxPlayer) {
+			return; // no good vibes for linux :'(
 		}
 
 		if (XboxCtrlrInput.XCI.IsPluggedIn(player) && player == 1)
