@@ -45,6 +45,7 @@ public class LifeHandler : MonoBehaviour
 				}
 			}
 		}
+        gameStarted = true;
 	}
 
 	// Use this for initialization
@@ -101,7 +102,11 @@ public class LifeHandler : MonoBehaviour
 
 	void GameOver()
 	{
+        GameManager.GameManagerInstance.gameState = Utils.GameState.GameOverMenu;
+        GameObject.Find("MusicManager").GetComponent<MusicManager>().QueueTrack("GameOverTrack");
 		GameObject.Find("GameOverTextForeground").GetComponent<Animation>().Play();
+        alive_p1 = true;
+        alive_p2 = true;
 	}
 
 	// Update is called once per frame
@@ -109,7 +114,7 @@ public class LifeHandler : MonoBehaviour
 	{
 		if (Utils.Paused)
 			return;
-		if (!preparedForNewLevel) {
+        if (!preparedForNewLevel || !gameStarted) {
 			return;
 		}
 		if (!alive_p1 || !alive_p2) {

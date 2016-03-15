@@ -12,7 +12,7 @@ public class EndLevelHandler : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-	    GameObject.Find("MusicManager").GetComponent<MusicManager>().FadeOutTrack();
+        GameObject.Find("MusicManager").GetComponent<MusicManager>().QueueTrack("EndLevelLoop");
         GameObject.Find("GamePlayArea").GetComponent<ScrollLevelForward>().stopped=true;
         GameManager.GameManagerInstance.UpdateScoreForEndOfLevel(GameObject.Find("Score").GetComponent<ScoreHandler>().GetScore());
         endLevelScoreField.GetComponent<Text>().text = GameObject.Find("Score").GetComponent<ScoreHandler>().GetScoreAsString();

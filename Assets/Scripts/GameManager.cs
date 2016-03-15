@@ -26,6 +26,7 @@ public static class Utils
         Gameplay,
         PauseMenu,
         EndLevelMenu,
+        GameOverMenu,
     }
 
 	public static Transform AcquireTargetPlayer()
@@ -167,13 +168,43 @@ public class GameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-        //Pause Menu Handling Controller Code.
-        if (gameState == Utils.GameState.Gameplay || gameState == Utils.GameState.PauseMenu)
+        switch(gameState)
+        {
+        case Utils.GameState.Gameplay:
         {
             if (InputManager.Pause_P1){
                 TogglePauseState();
             }
+            break;
         }
+        case Utils.GameState.PauseMenu:
+        {
+            if (InputManager.Pause_P1){
+                TogglePauseState();
+            }
+            break;
+        }
+        case Utils.GameState.EndLevelMenu:
+        {
+            if (GameObject.Find("EndLevelUICanvas") && GameObject.Find("EventSystem").GetComponent<EventSystem>().enabled == false){
+                GameObject.Find("EventSystem").GetComponent<EventSystem>().firstSelectedGameObject = GameObject.Find("EndLevelUICanvas").transform.FindChild("QuitButton").gameObject;
+                GameObject.Find("EventSystem").GetComponent<EventSystem>().enabled = true;
+            }
+            break;
+        }
+        case Utils.GameState.GameOverMenu: 
+        {
+            if (GameObject.Find("GameOverPanel") && GameObject.Find("EventSystem").GetComponent<EventSystem>().enabled == false){
+                GameObject.Find("EventSystem").GetComponent<EventSystem>().firstSelectedGameObject = GameObject.Find("GameOverPanel").transform.GetComponentInChildren<QuitButtonSetter>().gameObject;
+                GameObject.Find("GameOverPanel").transform.GetComponentInChildren<QuitButtonSetter>().enabled = true;
+                GameObject.Find("EventSystem").GetComponent<EventSystem>().enabled = true;
+            }
+            break;
+        }
+        default:
+            break;
+        }
+
 	}
 
     public void TogglePauseState()

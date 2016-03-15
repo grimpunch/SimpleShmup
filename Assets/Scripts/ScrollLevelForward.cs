@@ -20,6 +20,8 @@ public class ScrollLevelForward : MonoBehaviour
 	{
 		if (Utils.Paused)
 			return;
+        if (GameManager.GameManagerInstance.gameState != Utils.GameState.Gameplay)
+            stopped = true;
 		if (!stopped && scrollSpeed <= movingSpeed) {
 			scrollSpeed += Mathf.Lerp(0f, movingSpeed, FadeSpeed * Time.deltaTime);
 		}
