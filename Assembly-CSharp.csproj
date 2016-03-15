@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\BossSpawn.cs" />
      <Compile Include="Assets\Scripts\BossWarningHandler.cs" />
      <Compile Include="Assets\Scripts\BurnOnMessage.cs" />
+     <Compile Include="Assets\Scripts\ButtonSoundOnSelect.cs" />
      <Compile Include="Assets\Scripts\CaptureShipHandler.cs" />
      <Compile Include="Assets\Scripts\ContinueButtonSetter.cs" />
      <Compile Include="Assets\Scripts\DeactivateOnTimer.cs" />
