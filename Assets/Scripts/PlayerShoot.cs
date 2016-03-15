@@ -35,7 +35,7 @@ public class PlayerShoot : MonoBehaviour
 				return;
 			}
 		}
-		if (Utils.Paused)
+        if (Utils.Paused || GameManager.GameManagerInstance.gameState != Utils.GameState.Gameplay)
 			return;
 		cooldownTimer -= Time.deltaTime;
         

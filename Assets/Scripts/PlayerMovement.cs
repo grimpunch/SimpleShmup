@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Utils.Paused)
+        if (Utils.Paused || GameManager.GameManagerInstance.gameState != Utils.GameState.Gameplay)
 			return;
 		xinput = xInput(player);
 		yinput = yInput(player);
