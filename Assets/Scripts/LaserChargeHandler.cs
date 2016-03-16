@@ -34,6 +34,8 @@ public class LaserChargeHandler : MonoBehaviour
 	public GameObject primingUILabel;
 	public GameObject primedUILabel;
 	public GameObject activeUILabel;
+    public ScreenBoundsHandler screenHandler;
+    private AudioSource loopingsfx;
 
 	//Relationship between laser collider offset and laser line renderer segment 2 length.
 	//
@@ -63,6 +65,7 @@ public class LaserChargeHandler : MonoBehaviour
 		}
 
 		myCaptureShipHandler = this.gameObject.transform.parent.GetComponentInChildren<CaptureShipHandler>();
+        loopingsfx = Laser.GetComponent<AudioSource>();
 		primingUILabel.SetActive(true);
 		primedUILabel.SetActive(false);
 		activeUILabel.SetActive(false);
@@ -110,6 +113,12 @@ public class LaserChargeHandler : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+        if (Application.platform == RuntimePlatform.WindowsEditor){
+            //Hax for debugging
+            if (Input.GetKeyUp("delete"))
+                AddCharge(99999);
+        }
+
 		if (Utils.Paused)
 			return;
 		if (!Utils.Multiplayer) {
@@ -117,14 +126,17 @@ public class LaserChargeHandler : MonoBehaviour
 				GameObject.Find("LaserChargeSlider_P2").SetActive(false);
 			}
 		}
-		if (Laser.activeInHierarchy) {
+        shooting = GetFireButtonDown();
+        if (Laser.activeInHierarchy) {
 			primingUILabel.SetActive(false);
 			primedUILabel.SetActive(false);
 			activeUILabel.SetActive(true);
 			laserLineRenderer = GameObject.Find("Laser").GetComponent<LineRenderer>();
 			laserBoxCollider2D = GameObject.Find("Laser").GetComponent<BoxCollider2D>();
-			if (timeEnabled < timeToDischarge) { 
-				timeEnabled += Time.deltaTime;
+            if (timeEnabled < timeToDischarge) { 
+                if (!shooting){
+                    timeEnabled += Time.deltaTime;
+                }
 				currentLaserLength = GetMaxLaserLength();
 				if (currentLaserWidth < maximumLaserWidth) {
 					currentLaserWidth = Mathf.Lerp(currentLaserWidth, maximumLaserWidth, Time.deltaTime * laserSpeed);
@@ -144,18 +156,10 @@ public class LaserChargeHandler : MonoBehaviour
 			return;
 		}
 
-		shooting = GetFireButtonDown();
-
 		if (shooting && amountCharged >= amountToFullCharge) {
 			currentCapturedShips = myCaptureShipHandler.capturedEnemies;
-			amountCharged = 0.0F;
+			//amountCharged = 0.0F;
 			Laser.SetActive(true);
-		}
-
-		if (!shooting && amountCharged < amountToFullCharge) {
-			if (amountCharged >= amountToFullCharge) {
-				amountCharged = amountToFullCharge;
-			}
 		}
 
 		if (!shooting && amountCharged >= amountToFullCharge) {
@@ -181,7 +185,7 @@ public class LaserChargeHandler : MonoBehaviour
 		// This below condition is designed to reactivate the player's ability to use the laser if they have not captured an enemy yet.
 		if (myCaptureShipHandler.capturedEnemies == currentCapturedShips
 		    && myCaptureShipHandler.capturing == false && currentCapturedShips < myCaptureShipHandler.formationPoints.Count) {
-			AddCharge(9999);
+            amountCharged = amountToFullCharge;
 		}
 	}
 
@@ -201,12 +205,19 @@ public class LaserChargeHandler : MonoBehaviour
 
 	private float GetMaxLaserLength()
 	{
-		float maximumLaserLength = 4.2f;
+        if (!screenHandler)
+            screenHandler = GameObject.FindWithTag("ScreenBoundsHandler").gameObject.GetComponent<ScreenBoundsHandler>();
+        if (!loopingsfx)
+            loopingsfx = Laser.GetComponent<AudioSource>();    
+        
 		Vector2 Position2D = new Vector2(transform.position.x, transform.position.y);
+        float maximumLaserLength = screenHandler.ScreenTop - Position2D.y;
+        loopingsfx.pitch = Mathf.Clamp((screenHandler.ScreenTop - screenHandler.ScreenBottom) - maximumLaserLength, 2f, 4f);
 		LayerMask collidableLayers = 1 << ENEMYLAYER | 1 << COLLIDABLELAYER;
-		RaycastHit2D hit = Physics2D.Raycast(Position2D, Vector2.up, 4.2f, collidableLayers);
+        RaycastHit2D hit = Physics2D.Raycast(Position2D, Vector2.up, maximumLaserLength, collidableLayers);
 		if (hit) {
 			maximumLaserLength = Vector2.Distance(Position2D, hit.point);
+            loopingsfx.pitch = Mathf.Clamp((screenHandler.ScreenTop - screenHandler.ScreenBottom) - maximumLaserLength, 2f, 4f);
 			return maximumLaserLength;
 		}
 		return maximumLaserLength;
