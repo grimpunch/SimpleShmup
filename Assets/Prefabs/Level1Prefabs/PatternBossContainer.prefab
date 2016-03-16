@@ -19,6 +19,7 @@ GameObject:
   - 114: {fileID: 11426452}
   - 114: {fileID: 11419916}
   - 114: {fileID: 11465952}
+  - 114: {fileID: 11445908}
   m_Layer: 9
   m_Name: BossShip
   m_TagString: Enemy
@@ -60,7 +61,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: 0}
+  m_LocalPosition: {x: 0, y: 30.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 414080}
@@ -68,19 +69,21 @@ Transform:
   m_RootOrder: 0
 --- !u!50 &5013564
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133014}
+  m_UseAutoMass: 0
   m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
-  m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!61 &6114034
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -88,12 +91,13 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133014}
   m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: .159999996, y: .150000006}
+  m_Size: {x: 0.16, y: 0.15}
 --- !u!114 &11404316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -121,10 +125,10 @@ MonoBehaviour:
   shotPatternOrder: 030000000000000002000000000000000100000001000000
   enemyShotPool: EnemyShotObjectPool
   harassShotPool: EnemyHarassShotObjectPool
-  aimedShotDelay: .150000006
-  rankShotDelay: .5
-  radialShotDelay: .300000012
-  pinWheelShotDelay: .100000001
+  aimedShotDelay: 0.15
+  rankShotDelay: 0.5
+  radialShotDelay: 0.3
+  pinWheelShotDelay: 0.1
   canShoot: 0
   waitBetweenPatterns: 3.5
   angleBetweenRadialShots: 7.5
@@ -184,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystemPool: EnemyDeathParticleObjectPool
+  powerUpPool: 
   powerUp: {fileID: 180602, guid: 633f1f81dbd9c364dac2d44e10e777b6, type: 2}
 --- !u!114 &11434238
 MonoBehaviour:
@@ -198,7 +203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipHealth: 3000
   scoreValue: 10000
-  flashTime: .349999994
+  flashTime: 0.35
+  captureable: 0
 --- !u!114 &11442486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -211,7 +217,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelScroller: {fileID: 0}
-  yScrollStopOffset: .200000003
+  yScrollStopOffset: 0.5
+--- !u!114 &11445908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d9231b63fdce44db5d75b9a3f0694c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossHealthBar: {fileID: 0}
+  bossHitHandler: {fileID: 0}
+  bossHealthBarRect: {fileID: 0}
+  startHealth: 0
+  currentHealth: 0
 --- !u!114 &11465952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,14 +275,18 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 580099279
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1c5cd2396ad24f8448b45d89098e0b84, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 884ccce5323ac6c448bacba1db81964c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

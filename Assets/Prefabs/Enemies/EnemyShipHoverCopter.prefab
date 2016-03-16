@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 443412}
   - 212: {fileID: 21254456}
+  - 95: {fileID: 9572296}
   - 61: {fileID: 6150002}
   - 61: {fileID: 6106908}
   - 114: {fileID: 11478004}
@@ -24,7 +25,7 @@ GameObject:
   - 114: {fileID: 11434526}
   - 114: {fileID: 11462716}
   m_Layer: 9
-  m_Name: EnemyShipSpline
+  m_Name: EnemyShipHoverCopter
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.359, z: 0}
+  m_LocalPosition: {x: 0, y: 0.689, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,9 +71,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.000000007450581, y: 0.02807641}
+  m_Offset: {x: 0.00046613067, y: -0.023663163}
   serializedVersion: 2
-  m_Size: {x: 0.1457919, y: 0.14538765}
+  m_Size: {x: 0.07773806, y: 0.1519127}
 --- !u!61 &6150002
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -84,9 +85,26 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.0017033666, y: -0.009560108}
+  m_Offset: {x: -0.0006272467, y: 0.028195977}
   serializedVersion: 2
-  m_Size: {x: 0.06505268, y: 0.33846915}
+  m_Size: {x: 0.019372707, y: 0.26295736}
+--- !u!95 &9572296
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120156}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 17fcc48866744c64c92003b3d21859cd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11409996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,13 +118,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequenceList:
   - spline: {fileID: 0}
-    duration: 6.5
+    duration: 8
+    shoot: 1
+  - spline: {fileID: 0}
+    duration: 5
     shoot: 1
   currentSpline: {fileID: 0}
   currentDuration: 0
-  loopBackTo: 0
-  loop: 0
-  canShoot: 1
+  loopBackTo: 1
+  loop: 1
+  canShoot: 0
 --- !u!114 &11411652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -152,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviours:
   - {fileID: 11469336}
-  delay: 0.5
+  delay: 2
 --- !u!114 &11440838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -164,9 +185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e57482030e965c4196dc9522c605e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipHealth: 60
-  scoreValue: 100
-  flashTime: 0.25
+  shipHealth: 50
+  scoreValue: 50
+  flashTime: 0.5
   captureable: 1
 --- !u!114 &11453168
 MonoBehaviour:
@@ -192,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e774df367da923748a141fd674ebdc17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  naming: EnemyShipSpline
+  naming: EnemyShipHoverCopter
 --- !u!114 &11469336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -205,9 +226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPool: EnemyShotObjectPool
-  shotDelay: 0.15
-  burstDelay: 0.75
-  burstAmount: 8
+  shotDelay: 0.3
+  burstDelay: 6
+  burstAmount: 3
   canShoot: 1
 --- !u!114 &11477912
 MonoBehaviour:
@@ -235,7 +256,7 @@ MonoBehaviour:
   spline: {fileID: 0}
   formationOffset: {x: 0, y: 0, z: 0}
   lookForward: 0
-  duration: 3
+  duration: 10
   finishedSpline: 0
   mode: 0
 --- !u!114 &11487212
@@ -281,7 +302,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 580099279
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a8965218743077842b8a4dfd29f769b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fef6e03647ad39544a91c4b39e2ae3be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -291,7 +312,40 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: naming
+      value: EnemyShipHoverCopter
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fef6e03647ad39544a91c4b39e2ae3be,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 17fcc48866744c64c92003b3d21859cd, type: 2}
+    - target: {fileID: 0}
+      propertyPath: scoreValue
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: shipHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: shotDelay
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: burstDelay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: burstAmount
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 120156}

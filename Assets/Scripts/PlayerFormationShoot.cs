@@ -22,7 +22,7 @@ public class PlayerFormationShoot : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Utils.Paused || !hasCapturedEnemy)
+        if (Utils.Paused || !hasCapturedEnemy || GameManager.GameManagerInstance.gameState != Utils.GameState.Gameplay)
 			return;
 		cooldownTimer -= Time.deltaTime;
 

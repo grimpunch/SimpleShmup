@@ -36,7 +36,12 @@ public class PlayerShoot : MonoBehaviour
 			}
 		}
         if (Utils.Paused || GameManager.GameManagerInstance.gameState != Utils.GameState.Gameplay)
-			return;
+        {
+            if (GetComponent<AudioSource>() != null) {
+                gameObject.GetComponent<AudioSource>().Pause();
+            }
+            return;
+        }
 		cooldownTimer -= Time.deltaTime;
         
 		if (Application.isPlaying && !Utils.Paused) {
