@@ -119,8 +119,14 @@ public class LaserChargeHandler : MonoBehaviour
                 AddCharge(99999);
         }
 
-		if (Utils.Paused)
-			return;
+        if (Utils.Paused){
+            loopingsfx.Pause();
+            return;
+        }
+        else {
+            if (!loopingsfx.isPlaying)
+                loopingsfx.UnPause();
+        }
 		if (!Utils.Multiplayer) {
 			if (GameObject.Find("LaserChargeSlider_P2")) {
 				GameObject.Find("LaserChargeSlider_P2").SetActive(false);
