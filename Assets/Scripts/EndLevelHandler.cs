@@ -21,7 +21,6 @@ public class EndLevelHandler : MonoBehaviour
         endLevelScoreField.GetComponent<Text>().text = GameObject.Find("Score").GetComponent<ScoreHandler>().GetScoreAsString();
         GameManager.GameManagerInstance.gameState = Utils.GameState.EndLevelMenu;
         endLevelTextTitle.SetActive(true);
-        endLevelTextTitle.GetComponent<Animation>().enabled = true;
         StartCoroutine(ActivationRoutine());
 	}
   private IEnumerator ActivationRoutine()
