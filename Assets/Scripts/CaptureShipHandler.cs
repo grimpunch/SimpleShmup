@@ -19,6 +19,7 @@ public class CaptureShipHandler : MonoBehaviour
 	public List<Vector3> focusFormationPoints;
 	private PlayerShoot playerShoot;
 	public float captureSpeed;
+    private AudioSource loopingsfx;
 
 	void Awake()
 	{
@@ -30,6 +31,7 @@ public class CaptureShipHandler : MonoBehaviour
 	{
 		vibrationHandler = GameObject.Find("VibrationManager").GetComponent<VibrationHandler>();
 		playerShoot = gameObject.transform.parent.FindChild("TurretC").GetComponentInChildren<PlayerShoot>();
+        loopingsfx = gameObject.GetComponent<AudioSource>();
 	}
 
 	void GetCaptureDummyPrefabs()
@@ -128,11 +130,15 @@ public class CaptureShipHandler : MonoBehaviour
 	{
 		if (!Utils.Paused) {
 			PositionFormationPoints();
+            if (!loopingsfx.isPlaying)
+                loopingsfx.UnPause();
+            
 		}
 		if (Utils.Paused || !capturing || capturedShipDummy == null) {
 			foreach (GameObject formation in formationPoints) {
 				formation.GetComponent<ParticleSystem>().Stop();
 			}
+            loopingsfx.Pause();
 			return;
 		}
 
@@ -149,6 +155,8 @@ public class CaptureShipHandler : MonoBehaviour
 			vibrationHandler.StopAllCoroutines();
 		} else {
 			tractorBeam.enabled = true;
+            if (!loopingsfx.isPlaying)
+                loopingsfx.Play();
 			vibrationHandler.increaseVariablePower(gameObject.transform.parent.GetComponent<PlayerHitHandler>().player);
 			tractorBeam.SetPosition(0, formationToSendCapturedEnemyTo.transform.position);
 			tractorBeam.SetPosition(1, capturedShipDummy.transform.position);
