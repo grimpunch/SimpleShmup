@@ -239,7 +239,10 @@ public class GameManager : MonoBehaviour
 	{
 		ParticleSystem[] particleSystems = GameObject.FindObjectsOfType<ParticleSystem>();
 		foreach (ParticleSystem ps in particleSystems) {
-			if (pauseState) {
+            if (ps.gameObject.name.StartsWith("Formation")){
+                break;
+            }
+            if (pauseState) {
 				ps.Pause();
 			} else {
 				ps.Play();

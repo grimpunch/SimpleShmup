@@ -132,12 +132,18 @@ public class CaptureShipHandler : MonoBehaviour
 			PositionFormationPoints();
             if (!loopingsfx.isPlaying)
                 loopingsfx.UnPause();
-            
+            if (formationToSendCapturedEnemyTo && capturing){
+                if (formationToSendCapturedEnemyTo.GetComponent<ParticleSystem>().isPaused){                    
+                    formationToSendCapturedEnemyTo.GetComponent<ParticleSystem>().Play();
+                }
+            }
 		}
 		if (Utils.Paused || !capturing || capturedShipDummy == null) {
-			foreach (GameObject formation in formationPoints) {
-				formation.GetComponent<ParticleSystem>().Stop();
-			}
+            if (formationToSendCapturedEnemyTo){
+                if (formationToSendCapturedEnemyTo.GetComponent<ParticleSystem>().isPlaying){                    
+                    formationToSendCapturedEnemyTo.GetComponent<ParticleSystem>().Stop();
+                }
+            }
             loopingsfx.Pause();
 			return;
 		}
