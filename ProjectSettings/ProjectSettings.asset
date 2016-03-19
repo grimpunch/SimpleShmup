@@ -9,8 +9,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Grimpunch Games
-  productName: SimpleShmup
+  companyName: GrimpunchGames
+  productName: Goodbye Earthlings!
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
@@ -334,7 +334,8 @@ PlayerSettings:
   psp2InfoBarColor: 0
   psmSplashimage: {fileID: 0}
   spritePackerPolicy: 
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    7: MoveKeysP2
   metroPackageName: UnityProject
   metroPackageVersion: 
   metroCertificatePath: 
