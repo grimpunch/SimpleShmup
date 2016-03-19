@@ -148,6 +148,10 @@ public class CaptureShipHandler : MonoBehaviour
 			return;
 		}
 
+        if (capturing && capturedShipDummy != null && formationToSendCapturedEnemyTo.GetComponent<PlayerFormationShoot>().hasCapturedEnemy) {
+            Destroy(capturedShipDummy); //handles a bug
+        }
+
 		if (Vector3.Distance(capturedShipDummy.transform.position, formationToSendCapturedEnemyTo.transform.position) <= 0.05f) {
 			formationToSendCapturedEnemyTo.GetComponent<PlayerFormationShoot>().hasCapturedEnemy = true;
 			formationToSendCapturedEnemyTo.GetComponent<ParticleSystem>().Stop();

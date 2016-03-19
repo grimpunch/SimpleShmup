@@ -947,7 +947,7 @@ MonoBehaviour:
   Laser: {fileID: 127848}
   LaserTip: {fileID: 142026}
   playerShoot: {fileID: 11449744}
-  timeToDischarge: 0.75
+  timeToDischarge: 0.25
   primingUILabel: {fileID: 0}
   primedUILabel: {fileID: 0}
   activeUILabel: {fileID: 0}
@@ -1230,7 +1230,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 0
   moveWithTransform: 1
   scalingMode: 1
@@ -1273,7 +1273,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 0.2
+      scalar: 0.16
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1402,7 +1402,7 @@ ParticleSystem:
         rgba: 4294952013
       minMaxState: 0
     startSize:
-      scalar: 0.06
+      scalar: 0.02
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2729,7 +2729,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 0
   moveWithTransform: 1
   scalingMode: 1
@@ -2772,7 +2772,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 0.2
+      scalar: 0.16
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2901,7 +2901,7 @@ ParticleSystem:
         rgba: 4294952013
       minMaxState: 0
     startSize:
-      scalar: 0.06
+      scalar: 0.02
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4228,7 +4228,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 0
   moveWithTransform: 1
   scalingMode: 1
@@ -4271,7 +4271,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 0.2
+      scalar: 0.16
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4400,7 +4400,7 @@ ParticleSystem:
         rgba: 4294952013
       minMaxState: 0
     startSize:
-      scalar: 0.06
+      scalar: 0.02
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5727,7 +5727,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 0
   moveWithTransform: 1
   scalingMode: 1
@@ -5770,7 +5770,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 0.2
+      scalar: 0.16
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5899,7 +5899,7 @@ ParticleSystem:
         rgba: 4294952013
       minMaxState: 0
     startSize:
-      scalar: 0.06
+      scalar: 0.02
       maxCurve:
         serializedVersion: 2
         m_Curve:

@@ -42,10 +42,12 @@ public static class Utils
 			}
 		} else {
 			GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-			if (players == null)
+            if (players.Length == 0)
 				return null;
-			GameObject prospectiveTarget = players [UnityEngine.Random.Range(0, players.Length - 1)].gameObject;
-			if (prospectiveTarget.activeSelf) {
+            GameObject prospectiveTarget = players [UnityEngine.Random.Range(0, players.Length)].gameObject;
+            if (prospectiveTarget == null)
+                return null;
+            if (prospectiveTarget.activeSelf) {
 				target = prospectiveTarget.gameObject.transform;
 				return target;
 			}

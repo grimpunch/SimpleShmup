@@ -10,10 +10,10 @@ public static class InputManager
     public static bool Pause_P1 {
         get {
             if (XCI.GetNumPluggedCtrlrs() <= 0) { // #linuxproof
-                return Input.GetKeyUp(KeyCode.P);
+                return Input.GetKeyUp(KeyCode.Escape);
             }
             else {
-                return(Input.GetKeyUp(KeyCode.P) || XCI.GetButtonUp(XboxButton.Start, 1) ? true : false);
+                return(Input.GetKeyUp(KeyCode.Escape) || XCI.GetButtonUp(XboxButton.Start, 1) ? true : false);
             }
         }
     }
@@ -172,7 +172,7 @@ public static class InputManager
 	public static bool Fire3_P2 {
 		get {
 			// Return true if pressing Fire3_P2 on keyboard, or pressing B on controller 2.
-			return (Input.GetButton("Fire3_P1") || XCI.GetButton(XboxButton.B, 2) ? true : false);
+			return (Input.GetButton("Fire3_P2") || XCI.GetButton(XboxButton.B, 2) ? true : false);
 		}
 	}
 

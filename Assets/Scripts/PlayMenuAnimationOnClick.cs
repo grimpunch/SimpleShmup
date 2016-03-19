@@ -17,4 +17,14 @@ public class PlayMenuAnimationOnClick : MonoBehaviour {
             return;
         animationController.Play("MenuSpinToOptions");   
     }
+    public void SwitchToControls(){
+        if (animationController.isPlaying)
+            return;
+        animationController.Play("MenuSpinToControls");   
+    }
+    public void SwitchToMainFromControls(){
+        if (animationController.isPlaying)
+            return;
+        animationController.Play("MenuSpinToMainFromControls");   
+    }
 }
