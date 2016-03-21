@@ -43,8 +43,7 @@ public class SplinePathSequence : MonoBehaviour
 		}
 		if (moveSpline.finishedSpline && moveSpline.mode == MoveSplineMode.Once) {
 			moveSpline.finishedSpline = false;
-
-			if (currentSplineIndex >= sequenceList.Count - 1) {
+            if (currentSplineIndex >= sequenceList.Count - 1) {
 				if (loop) {
 					currentSplineIndex = loopBackTo;
 					moveSpline.mode = MoveSplineMode.Loop;
@@ -56,12 +55,13 @@ public class SplinePathSequence : MonoBehaviour
 				}
 			} else {
 				currentSplineIndex += 1;
+                moveSpline.Reset();
 			}
 		}
 		currentSpline = sequenceList [currentSplineIndex].spline;
 		currentDuration = sequenceList [currentSplineIndex].duration;
 		moveSpline.spline = currentSpline;
-		moveSpline.duration = currentDuration;
+        moveSpline.duration = currentDuration;
 		if (enemyShoot) {
 			canShoot = sequenceList [currentSplineIndex].shoot;
 			enemyShoot.canShoot = canShoot;

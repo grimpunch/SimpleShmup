@@ -21,6 +21,11 @@ public class MoveSpline : MonoBehaviour
 	
     private bool goingForward = true;
 
+    public void Reset(){
+        progress = 0.0f;
+    }
+
+
     private void Update()
     {
         if(Utils.Paused)

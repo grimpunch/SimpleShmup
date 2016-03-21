@@ -4,6 +4,7 @@ using System.Collections;
 public class LaserChargePowerUp : MonoBehaviour
 {
 	private Transform targetPlayer;
+    public int scoreValue = 1;
 	public int chargeAmount;
 	public float travelspeedBase = 0.5f;
 	float travelspeed;
@@ -21,6 +22,7 @@ public class LaserChargePowerUp : MonoBehaviour
 	{
 		if (col2d.gameObject.name.StartsWith("ShmupShip")) {
 			col2d.GetComponentInChildren<LaserChargeHandler>().AddCharge(chargeAmount);
+            Utils.cachedScoreHandler.AddScore(scoreValue);
 			gameObject.SetActive(false); // TEMPORARY , NEEDS AUDIO AND SHIZ, TODO REMOVE THIS.
 		}
 	}

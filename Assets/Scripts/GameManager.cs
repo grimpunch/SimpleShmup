@@ -15,6 +15,7 @@ public static class Utils
 	public static bool Multiplayer = false;
     public static Resolution resolutionSetting;
     public static bool fullscreenSetting;
+    public static ScoreHandler cachedScoreHandler;
 
 	internal static Quaternion RotationToTarget(Transform self, Transform target)
 	{

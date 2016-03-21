@@ -19,15 +19,17 @@ public class ScoreHandler : MonoBehaviour
     private Image multiplierBG;
     private Image multiplierDial;
 
-
     public void AddScore(int added)
     {
         int scoreToAdd = (added * multiplier);
         score += scoreToAdd;
-        RaiseMultiplier();
-        ResetMultiplierCountdown();
+        if (added > 10){
+            RaiseMultiplier();
+            ResetMultiplierCountdown();
+            UpdateMultiplier();
+        }
         UpdateScore();
-        UpdateMultiplier();
+
     }
 
     public void ResetScore()
@@ -72,6 +74,7 @@ public class ScoreHandler : MonoBehaviour
         multiplierText = GameObject.Find("Multiplier").GetComponent<Text>();
         multiplierBG = GameObject.Find("MultiplierTimeDialBG").GetComponent<Image>();
         multiplierDial = GameObject.Find("MultiplierTimeDial").GetComponent<Image>();
+        Utils.cachedScoreHandler = this;
     }
 
     void RaiseMultiplier()
