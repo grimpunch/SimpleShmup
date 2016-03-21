@@ -3916,19 +3916,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2004970, guid: 73dbf356e37080741ad001577ee896d7, type: 2}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.0068641305
-      objectReference: {fileID: 0}
-    - target: {fileID: 2004970, guid: 73dbf356e37080741ad001577ee896d7, type: 2}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 0.98627174
-      objectReference: {fileID: 0}
-    - target: {fileID: 2004970, guid: 73dbf356e37080741ad001577ee896d7, type: 2}
-      propertyPath: m_NormalizedViewPortRect.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2004970, guid: 73dbf356e37080741ad001577ee896d7, type: 2}
-      propertyPath: m_NormalizedViewPortRect.height
+      propertyPath: m_NormalizedViewPortRect.width
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004970, guid: 73dbf356e37080741ad001577ee896d7, type: 2}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.0008700192
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004970, guid: 73dbf356e37080741ad001577ee896d7, type: 2}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.99825996
       objectReference: {fileID: 0}
     - target: {fileID: 2004970, guid: 73dbf356e37080741ad001577ee896d7, type: 2}
       propertyPath: m_BackGroundColor.r
