@@ -13,6 +13,8 @@ public static class Utils
 	public static bool Paused = false;
 	public static int livesSetting = 3;
 	public static bool Multiplayer = false;
+    public static Resolution resolutionSetting;
+    public static bool fullscreenSetting;
 
 	internal static Quaternion RotationToTarget(Transform self, Transform target)
 	{
@@ -61,6 +63,7 @@ public static class Utils
 class SettingsData
 {
 	public int livesAtStart;
+    public bool fullscreenSetting;
 }
     
 
@@ -81,9 +84,12 @@ public class GameManager : MonoBehaviour
 
     void Start()
 	{
-        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "mainmenu")
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "mainmenu"){
             InitialiseMainMenu();  
             Load();
+            Utils.resolutionSetting = Screen.currentResolution;
+            SetGameResolution();
+        }
 		Utils.Paused = false;
         lifeManager = gameObject.GetComponent<LifeHandler>();
 		if (GameManagerInstance != null) {
@@ -121,7 +127,7 @@ public class GameManager : MonoBehaviour
 
 		SettingsData data = new SettingsData();
 		data.livesAtStart = Utils.livesSetting;
-
+        data.fullscreenSetting = Utils.fullscreenSetting;
 		bf.Serialize(file, data);
 		file.Close();
 	}
@@ -134,8 +140,22 @@ public class GameManager : MonoBehaviour
 			SettingsData data = (SettingsData)bf.Deserialize(file);
 			file.Close();
 			Utils.livesSetting = data.livesAtStart;
+            Utils.fullscreenSetting = data.fullscreenSetting;
 		}
 	}
+
+    public void SetGameResolution(){
+        Resolution currentRes = Utils.resolutionSetting;
+        bool full = Utils.fullscreenSetting;
+        Debug.Log("Setting New Game Resolution: " + currentRes.ToString());
+        if (currentRes.ToString() != Screen.currentResolution.ToString()){
+            foreach (Resolution res in Screen.resolutions){
+                if (currentRes.ToString() == res.ToString()){
+                    Screen.SetResolution(res.width, res.height, full);
+                }
+            }
+        }
+    }
 
     public void QuitToMainMenu(){
         if (!SceneManager.SceneManagerInstance.isLoading){

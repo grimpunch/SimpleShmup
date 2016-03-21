@@ -8,6 +8,9 @@ public class OptionsGUIManager : MonoBehaviour
 {
 	
     public Text optionsLivesText;
+    public Dropdown resolutionDropdown;
+    public Resolution currentScreenResolution;
+
 
     public void IncrementLives()
     {
@@ -26,6 +29,7 @@ public class OptionsGUIManager : MonoBehaviour
     public void Update()
     {
         optionsLivesText.text = Utils.livesSetting.ToString("D1") + ""; 
+        resolutionDropdown.transform.FindChild("Label").gameObject.GetComponent<Text>().text = Screen.currentResolution.ToString();
     }
 
 }
