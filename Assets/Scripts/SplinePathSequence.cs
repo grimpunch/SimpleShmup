@@ -32,6 +32,10 @@ public class SplinePathSequence : MonoBehaviour
 		currentSplineIndex = 0;
 	}
 	
+    public void AlterCurrentSplinePathDuration(float duration){
+        sequenceList [currentSplineIndex].duration = duration;
+    }
+
 	// Update is called once per frame
 	void Update()
 	{

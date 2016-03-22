@@ -5,6 +5,7 @@ public class EnemyHitHandler : MonoBehaviour
 {
 
 	public int shipHealth = 5;
+    public int startHealth;
 	private const int PLAYERLAYER = 8;
 	private const int PLAYERSHOTLAYER = 10;
 	private const int PLAYERLASERLAYER = 14;
@@ -26,7 +27,7 @@ public class EnemyHitHandler : MonoBehaviour
 		scoreHandler = GameObject.Find("Score").GetComponent<ScoreHandler>();
 		sprite = gameObject.GetComponent<SpriteRenderer>();
 		spriteColor = sprite.color;
-
+        startHealth = shipHealth;
 	}
 
 	void OnTriggerEnter2D(Collider2D col2d)
@@ -42,7 +43,7 @@ public class EnemyHitHandler : MonoBehaviour
 		}
 
 		if (col2d.gameObject.layer == PLAYERLAYER) {
-			shipHealth -= 999;
+			shipHealth -= 1;
 		}
 		//if (transform.position.y > screenBounds.ScreenTop) { return; }
 		if (col2d.gameObject.layer == PLAYERLASERLAYER) {
@@ -83,7 +84,7 @@ public class EnemyHitHandler : MonoBehaviour
 		}
 	}
 
-	void Flash()
+	public void Flash()
 	{
 		if (!flashing) {
 			flashing = true;

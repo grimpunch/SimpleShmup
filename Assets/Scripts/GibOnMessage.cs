@@ -7,12 +7,16 @@ public class GibOnMessage : MonoBehaviour
 	public string particleSystemPool = null;
 	public string powerUpPool = null;
 	public GameObject powerUp;
-
+    public GameObject specialParticle = null;
 	public void Gib()
 	{
 		if (!gameObject)
 			return;
-		if (particleSystemPool.Contains("Pool")) {
+        if (specialParticle != null) {
+            GameObject GO = (GameObject)Instantiate(specialParticle, transform.position, Quaternion.identity);
+        }
+
+        if (particleSystemPool.Contains("Pool")) {
 			GameObject particleSystem = GameObject.Find(particleSystemPool).GetComponent<ObjectPoolScript>().GetPooledObject();
 			particleSystem.transform.position = transform.position;
 			particleSystem.SetActive(true);
