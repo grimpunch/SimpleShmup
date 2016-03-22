@@ -16,6 +16,7 @@ public static class Utils
     public static Resolution resolutionSetting;
     public static bool fullscreenSetting;
     public static ScoreHandler cachedScoreHandler;
+    public static ScreenBoundsHandler cachedScreenBoundsHandler;
 
 	internal static Quaternion RotationToTarget(Transform self, Transform target)
 	{
@@ -262,7 +263,8 @@ public class GameManager : MonoBehaviour
 	{
 		ParticleSystem[] particleSystems = GameObject.FindObjectsOfType<ParticleSystem>();
 		foreach (ParticleSystem ps in particleSystems) {
-            if (ps.gameObject.name.StartsWith("Formation")){
+            if (ps.gameObject.transform.position.y > Utils.cachedScreenBoundsHandler.ScreenTop
+                || ps.isStopped){
                 break;
             }
             if (pauseState) {

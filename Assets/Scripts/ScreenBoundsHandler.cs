@@ -4,6 +4,7 @@ using System.Collections;
 [ExecuteInEditMode]
 public class ScreenBoundsHandler : MonoBehaviour
 {
+
     private float screenLeftSide;
     private float screenRightSide;
     private float screenTopSide;
@@ -16,6 +17,7 @@ public class ScreenBoundsHandler : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Utils.cachedScreenBoundsHandler = this;
         getScreenBounds();
     }
 
