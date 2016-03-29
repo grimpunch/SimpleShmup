@@ -11,8 +11,6 @@ public class CorpseCleaner : MonoBehaviour {
 
     void Clean (){
         foreach(EnemyHitHandler go in gameObject.GetComponentsInChildren<EnemyHitHandler>(true)){
-            Debug.Log(go.gameObject.name);
-            Debug.Log(go.gameObject.activeInHierarchy);
             if(go.gameObject.activeInHierarchy == false){
                 Destroy(go.gameObject);
             }

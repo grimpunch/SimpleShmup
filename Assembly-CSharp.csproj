@@ -79,6 +79,7 @@
      <Compile Include="Assets\Scripts\EnemyTailGib.cs" />
      <Compile Include="Assets\Scripts\EnemyWaveHandler.cs" />
      <Compile Include="Assets\Scripts\EnemyWaveSpawn.cs" />
+     <Compile Include="Assets\Scripts\FlashBullets.cs" />
      <Compile Include="Assets\Scripts\FramesPerSecond.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GibInPlaceOnMessage.cs" />
@@ -134,6 +135,7 @@
      <None Include="Assets\Kino\Glitch\Shader\AnalogGlitch.shader" />
      <None Include="Assets\Kino\Glitch\Shader\DigitalGlitch.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Detail.shader" />
+     <None Include="Assets\Materials\Sprites-Diffuse-Flash.shader" />
      <None Include="Assets\XInputDotNet\MITLicense.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Particles Additive Culled.shader" />

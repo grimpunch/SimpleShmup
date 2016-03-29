@@ -26,7 +26,13 @@ public class ScrollLevelForward : MonoBehaviour
 			scrollSpeed += Mathf.Lerp(0f, movingSpeed, FadeSpeed * Time.deltaTime);
 		}
 		if (!stopped && scrollSpeed >= movingSpeed - 0.1f)
-			scrollSpeed = movingSpeed;
+            {
+                scrollSpeed = movingSpeed;
+            if (Application.platform == RuntimePlatform.WindowsEditor){
+                if (Input.GetKey("l"))
+                    scrollSpeed = movingSpeed * 5f;
+            }
+        }
 		//Slow to a stop
 		if (stopped && scrollSpeed >= 0f) { 
 			scrollSpeed = FadeSpeed * Time.deltaTime;
