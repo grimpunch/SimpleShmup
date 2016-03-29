@@ -42,7 +42,9 @@ public class BossHandler : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		StopLevelScroll();
+        if (Utils.Paused)
+            return;
+        StopLevelScroll();
         if (bossHitHandler){
             if (bossHitHandler.shipHealth < bossHitHandler.startHealth / 4) {
                 //Make it look weary now.

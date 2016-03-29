@@ -9,6 +9,7 @@ public class DestroyOnTimer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        time = Random.Range(1f,8f);
         Invoke("DestroyThis", time);
     }
 
