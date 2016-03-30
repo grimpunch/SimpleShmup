@@ -19,7 +19,7 @@ while following common genre conventions of popular games in the genre such as D
   - Main Menu implemented and basic setting menu.
 
 ### Screenshot
-![Temporary screenshot of the game]( "Temporary Screenshot")
+![Temporary screenshot of the game](https://blog.christiancod.es/static/images/formationFlying.gif "Temporary Screenshot")
 
 
 ### Installation
