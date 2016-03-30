@@ -19,7 +19,7 @@ while following common genre conventions of popular games in the genre such as D
   - Main Menu implemented and basic setting menu.
 
 ### Screenshot
-![Temporary screenshot of the game](http://i.imgur.com/qSPcKxC.gif "Temporary Screenshot")
+![Temporary screenshot of the game]( "Temporary Screenshot")
 
 
 ### Installation
@@ -37,3 +37,6 @@ I'm developing this on my own, but if you understand my setup and feel like cont
  - Design more bullet types and create pools for them.
  - Specify Level walkthroughs and finalise design to lock in spec.
  - Complete Level  1 for alpha version milestone
+
+### Copyright
+All code where not-specified ownership to others is my own and all rights are reserved.
