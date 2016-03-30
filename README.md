@@ -18,10 +18,6 @@ while following common genre conventions of popular games in the genre such as D
   - Laser Charge based on collectibles now. working on making them generate on kill and head to the players based on distance and move towards the players.
   - Main Menu implemented and basic setting menu.
 
-### Screenshot
-![Temporary screenshot of the game](https://blog.christiancod.es/static/images/formationFlying.gif "Temporary Screenshot")
-
-
 ### Installation
 
 Clone the repo, and open the project in Unity 5.3.
